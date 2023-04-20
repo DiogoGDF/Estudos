@@ -1,0 +1,44 @@
+---
+output: pdf_document
+header-includes: |
+    \usepackage{fancyhdr}
+---
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Diogo Garbinato de Fagundes}
+\rhead{Oficina Aula 05}
+\rfoot{Página \thepage}
+\lfoot{Introdução à Lógica de Programação}
+
+
+```
+Algoritmo Tabela de Preços
+Variáveis:
+    cor: texto
+    preco: decimal
+    cor_valida: lógico
+Inicio
+    SAIDA("Qual é a cor do adesivo do livro?")
+    ENTRADA(cor)
+    cor_valida = 1
+    selecione cor:
+        caso "Laranja"
+            preco = 10,00
+        caso "Amarelo"
+            preco = 20,00
+        caso "Branco"
+            preco = 30,00
+        caso "Preto"
+            preco = 40,00
+        padrão:
+           cor_valida = 0 
+    fim_selecione
+    se cor_valida == 1 então
+        SAIDA("O preço do livro é R$", preco)
+    senão
+        SAIDA("Cor inválida!")
+    fim_se
+Fim
+```
+

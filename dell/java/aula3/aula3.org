@@ -1,0 +1,384 @@
+
+* Indíce :TOC:
+- [[#introdução][Introdução]]
+- [[#tópico-1--classes-e-objetos][Tópico 1 – Classes e Objetos]]
+  - [[#11-programação-orientada-a-objetos][1.1 Programação Orientada a Objetos]]
+  - [[#12-classe][1.2 Classe]]
+  - [[#13-objetos][1.3 Objetos]]
+  - [[#14-criando-classes---resumo][1.4 Criando Classes - Resumo]]
+  - [[#15-objetos---resumo][1.5 Objetos - Resumo]]
+  - [[#16-vamos-testar-os-conhecimentos][1.6 Vamos testar os conhecimentos?]]
+- [[#tópico-2--encapsulamento][TÓPICO 2 – Encapsulamento]]
+  - [[#21-uso-de-getters-e-setters][2.1 Uso de Getters e Setters]]
+  - [[#22-método-construtor][2.2 Método Construtor]]
+
+* Introdução
+
+Caro (a) cursista,
+
+Nesta aula, você aprenderá o paradigma de Programação Orientada a Objetos (POO), um padrão de desenvolvimento seguido por muitas linguagens de programação, inclusive Java, que foi criado para tentar aproximar os mundos real e virtual. A ideia fundamental é tentar simular o mundo real dentro do computador, com o objetivo de suprir as dificuldades recorrentes na Programação Estruturada. Aqui, você também aprenderá como a POO se apropria de conceitos organizacionais do mundo real, abstraindo-os em forma de classes, objetos, métodos entre outros, para que sejam criados sistemas de software robustos e funcionais. Ainda, compreenderá o conceito de encapsulamento, um conceito de extrema importância no paradigma de POO. Vamos lá!
+
+*Objetivos*
++ Compreender o paradigma de Programação Orientada a Objetos;
++ Entender o papel de classes e objetos em Java;
++ Entender o conceito de encapsulamento de membros e a função de métodos construtores.
+
+* Tópico 1 – Classes e Objetos
+
+*Objetivos*
++ Compreender a importância e a eficiência da Orientação a Objetos;
++ Entender a implementação de classes e objetos em Java;
++ Aprender a estrutura da classe de execução e o método main.
+
+Neste tópico, conheceremos o paradigma de Orientação a Objetos e os conceitos de classe e objeto, que são a base deste paradigma. Aprenderemos como representar entidades do mundo real em nossos programas e estudaremos a natureza do método main, o método principal de uma classe.
+
+Desenvolver um programa em Java é uma tarefa que requer atenção. É fácil encontrarmos programas, aparentemente simples, que contenham mais de 10 mil linhas de código-fonte. É importante sabermos que existem técnicas que permitem melhorar a manutenibilidade (medida da facilidade de manutenção de um código – quanto mais fácil for aplicar mudanças em um código, melhor a manutenibilidade) e facilitar a expansão dos nossos programas. Neste tópico, conheceremos dois conceitos que nos ajudarão a produzir programas Java de forma mais organizada e que facilitarão a manutenção no futuro: o paradigma de Orientação a Objetos e a modularização de atributos (organização de atributos dentro de objetos).
+
+** 1.1 Programação Orientada a Objetos
+O paradigma de Programação Orientada a Objetos (POO) propõe a representação de entidades do mundo real dentro de programas, de forma a tornar o desenvolvimento de software *mais claro e mais próximo da realidade*.
+
+No mundo real, exemplos de entidades, como um gato, uma impressora, uma pessoa ou mesmo um carro, têm suas *características próprias*. Essas características podem ser atributos, ou seja, características da entidade em questão, como altura, peso, cor, idade, modelo, potência etc., ou podem ser comportamentos, como mover, comunicar, desenhar, comer entre outros.
+
+_A proposta do POO é simples: representar as características das entidades do mundo real_, sejam elas atributos ou comportamentos, usando uma linguagem de programação para que possamos incorporar essa entidade aos nossos programas.
+
+O Paradigma de Orientação a Objetos tem uma unidade fundamental: a classe. Classes são os modelos das entidades do mundo real feitos em linguagem de programação. A partir das classes, damos vida aos objetos. As classes serão estudadas a seguir.
+
+** 1.2 Classe
+A classe é o modelo para criação de objetos. Pense em uma classe como uma fôrma, um conjunto de características que uma entidade pode ter dentro de um programa . Um objeto é uma entidade criada a partir das características de uma classe, ou seja, a partir da materialização do formato sugerido pela classe.
+
+Atente-se aos exemplos a seguir e perceba a diferença entre classe e objeto.
+
++  Um projeto de arquitetura de uma casa é uma classe; a casa construída é o objeto;
++  A lista de ingredientes de um bolo é uma classe; o bolo pronto é um objeto.
+
+Como podemos identificar o que são classes e objetos na Linguagem Java? Vamos aprender isso agora, mas, antes, é necessário entender como construir uma classe.
+
+Suponha uma classe denominada Pessoa.
+Nela, devemos colocar _características que representem uma pessoa_, ou seja, características que sejam comuns a várias pessoas, por exemplo, nome e idade.
+Em classes, essas características são chamadas de atributos. Note que todas as pessoas têm atributos como nome e idade, mas note também que esses atributos variam de pessoa para pessoa (nem todo mundo tem o mesmo nome, por exemplo). As pessoas têm alguns comportamentos em comum, como comer, trabalhar e dormir. _Em classes, esses comportamentos (ações) são chamados de métodos._
+
+A tabela a seguir está dividida em duas partes: o Mundo Real (à esquerda, em que listamos algumas das características citadas no slide anterior, comuns às pessoas) e Em Java (à direita, temos a representação dessas características na forma de Linguagem de Programação Java.
+
+[[file:tabela01.png][Tabela 1: Comparação do modelo de Pessoa do mundo real com Pessoa da Linguagem Java.]]
+
+** 1.3 Objetos
+Objetos são instâncias de uma classe, ou seja, são entidades "vivas" que criamos a partir das características definidas em uma classe. Assim, um objeto possui todas as características (atributos e comportamentos) que estão descritas na classe a partir da qual ele foi criado.
+
+Vamos utilizar a classe Pessoa do exemplo anterior como base para compreender o conceito de objetos. Vamos considerar duas pessoas: José, de 32 anos, e Lara, de 25 anos. Criaremos dois objetos para representar essas duas pessoas. Para tornar o nosso exemplo mais interessante, vamos adicionar um método chamado Apresentar à classe Pessoa. Esse método tem como função fazer uma apresentação da pessoa, na qual ela cumprimenta e diz seu nome, como fazemos ao conhecer alguém. O código do método Apresentar deve ser assim:
+
+#+begin_src java
+public void apresentar(){
+ System.out.println("Olá, meu nome é " + nome);
+}
+#+end_src
+
+Perceba que o método Apresentar utiliza o atributo Nome da classe Pessoa. Como cada objeto do tipo Pessoa deverá possuir um valor para o atributo Nome, cada objeto executará o método Apresentar de forma única, exibindo seu nome no fim da mensagem. Um objeto do tipo Pessoa, que, por exemplo, representa uma pessoa chamada Maria, deverá produzir a mensagem "Olá, meu nome é Maria". Outro objeto que represente, por exemplo, uma pessoa chamada Rafael deverá produzir a mensagem "Olá, meu nome é Rafael", e assim por diante.
+
+Verifique o trecho de código a seguir. No exemplo, instanciamos dois objetos, “jose” e “lara”, que representarão as duas pessoas que mencionamos no slide anterior.
+
+#+begin_src java
+1   public class TestePessoa{
+2
+3	public static void main(String[] args) {
+4
+5		/* Criando um objeto para representar Jośe de 32 anos */
+6		Pessoa jose = new Pessoa();
+7		jose.nome = "José";
+8
+9		/* Criando um objeto para representar Lara de 25 anos */
+10		Pessoa lara = new Pessoa();
+11		lara.nome = "Lara";
+12
+13		/* Fazendo ambos os objetos  executar o método apresentar() */
+14		jose.apresentar();
+15		lara.apresentar();
+16
+17                      }
+18    }
+#+end_src
+
+Nas linhas 6 e 10, instanciamos os dois objetos da classe Pessoa, utilizando a palavra-chave “new”, como aprendemos na aula anterior. Depois da palavra-chave “new”, existe um método chamado Pessoa(). Se você voltar ao código da classe Pessoa, perceberá que não definimos esse método. Ele pertence a um conjunto especial de métodos chamados de métodos construtores e, nesse caso, é implícito à classe Pessoa (o que significa que ele está presente na classe, mesmo que nós não o tenhamos escrito). Através da combinação da palavra-chave “new” e do método construtor Pessoa(), criamos as duas instâncias de Pessoa, chamadas “jose” e “lara”. Nas linhas 7 e 11, definimos o valor do atributo “nome” para cada um dos objetos. Nas linhas 14 e 15, executamos o método Apresentar de cada objeto.
+
+O resultado no console, após a execução da classe TestePessoa, será este:
+
+Olá, meu nome é José.
+
+Olá, meu nome é Lara.
+
+*Saiba mais!*
+- Você já deve ter notado que algumas instruções Java possuem um ou mais pontos, como em System.out.println(), lara.apresentar(), etc.. Em Java, _o ponto significa que o termo após cada ponto pertence, ou está em uma *hierarquia* abaixo do termo anterior a este ponto_. Por exemplo: em System.out.println(), temos a classe System. que possui um objeto chamado out, que acessamos o método println() a partir deste objeto. Em lara.apresentar(), fazemos a chamada do método apresentar() a partir do objeto lara. Então, sempre que você precisar chamar um membro (um objeto, ou um método, por exemplo) que pertence a um outro membro, você deve usar o ponto para fazer isso.
+
+** 1.4 Criando Classes - Resumo
+Classes têm como finalidade representar entidades do mundo real nos nossos programas.
+
+Ao criarmos uma classe, devemos tentar listar os atributos da entidade alvo (características como nome, idade, peso, cor, marca, modelo, descrição etc.) bem como seus comportamentos (ações que essa entidade normalmente apresenta).
+Escolher corretamente o tipo de dados de cada atributo é essencial para que a classe represente bem sua entidade alvo.
+Escolhas ruins (como String para armazenar valores de ponto flutuante ou tipos numéricos para armazenar valores booleanos) podem resultar em necessidade de modificar a classe no futuro.
+Já comportamentos que têm a forma de métodos em nossas classes podem ser completamente genéricos ou utilizar os atributos para gerar um resultado único, como percebemos no exemplo do método Apresentar da classe Pessoa.
+
+** 1.5 Objetos - Resumo
+Objetos são a concretização de uma classe, ou seja, são uma instância viva da classe em que são baseados.
+Um objeto é vivo no sentido que pode possuir valores para cada atributo previsto na sua classe e por permitir a execução das ações (métodos) a partir deles.
+Os nomes das variáveis que armazenam um objeto não têm relação direta com o seu conteúdo, ou seja, um objeto da classe Pessoa não precisa ter o nome igual ao valor do atributo nome dessa classe. De fato, objetos podem ser nomeados de forma genérica com nomes como pessoa01, temp, aux etc.
+Objetos são criados com comandos compostos da palavra-chave “new” e um método construtor. Conheceremos mais sobre métodos construtores adiante.
+
+Outro aspecto importante é o local onde usamos nossos objetos.
+Normalmente, não criamos métodos main em classes que visam apenas representar entidades, como a classe Pessoa que estudamos aqui. Em vez disso, _criamos uma classe apenas para isso_, evitando misturar modelo de entidades com código executável. Esse cuidado não é de execução obrigatória, mas ajuda a manter o código organizado.
+
+** 1.6 Vamos testar os conhecimentos?
+Considere a classe Funcionario no quadro a seguir. Ela possui dois atributos, nome e salário, e dois métodos, aplicarBonusAoSalario e exibirDadosDoFuncionario.
+O método aplicarBonusAoSalario recebe como parâmetro um valor a ser adicionado ao salário do funcionário e o método exibirDadosDoFuncionario mostra seus dados.
+
+#+begin_src java
+public class Funcionario{
+	public static void main(String[] args) {
+			String nome;
+			double salario;
+			/* Adiciona um valor ao salário base do funcionário */
+	        public void aplicarBonusAoSalario(double valor){
+	    			salario += valor;
+	        }
+	        public void exibirDadosFuncionário(){
+	        	System.out.println("Funcionario" +nome);
+	         System.out.println("Salário Atual: R$" +salario);
+	        }
+	}
+}
+
+#+end_src
+
+Agora, considere os trechos soltos da classe TesteFuncionario a seguir. Reorganize as linhas de código do método main de forma a criar um objeto do tipo “funcionário” cujo atributo nome seja "Leonardo", tenha salário igual a R$ 1500 e que receberá um bônus de R$ 350. Depois, os dados desse funcionário devem ser exibidos no console.
+
+#+begin_src java
+public class TesteFuncionario{
+	public static void main(String[] args) {
+
+		funcionario01.exibirDadosFuncionario();
+		funcionario01.salario = 1500;
+		funcionario01.aplicarBonusAoSalario(350).
+		Funcionario funcionario01 =  new Funcionario();
+		funcionario01.nome = "Leonardo";
+	}
+}
+
+#+end_src
+
+*** Solução
+
+#+begin_src java
+public class TesteFuncionario{
+	public static void main(String[] args) {
+
+		Funcionario funcionario01 =  new Funcionario();
+		funcionario01.nome = "Leonardo";
+		funcionario01.salario = 1500;
+		funcionario01.aplicarBonusAoSalario(350);
+		funcionario01.exibirDadosFuncionario();
+	}
+}
+#+end_src
+
+- Agora, para aplicar o que aprendeu, tenha como base os exemplos apresentados neste tópico e pratique-os no ambiente de programação da plataforma. Lembre-se de que a teoria e a prática caminham juntas e o exercício é muito importante. Por isso, não deixe de praticar os exemplos desta aula. Se preferir, também pode criar e praticar seus próprios exemplos referentes aos assuntos estudados aqui
+
+Assim, chegamos ao fim do tópico 1. Nele, estudamos os conceitos básicos da Orientação a Objetos e conferimos alguns exemplos de implementação de classes. No próximo tópico, estudaremos os conceitos de encapsulamento.
+
+
+* TÓPICO 2 – Encapsulamento
+
+*Objetivos*
++  Compreender o conceito e os mecanismos do encapsulamento;
++  Aprender como se aplicam os métodos Gets e Sets;
++  Entender a construção e a utilização de métodos construtores.
+
+No tópico anterior, estudamos sobre a construção da classe Pessoa.
+Nela, definimos dois atributos: nome e idade. Esses atributos têm _visibilidade padrão_, também chamada de _visibilidade default_. Isso significa que esses atributos podem ser acessados por objetos de classes que pertençam ao mesmo pacote da classe Pessoa ou de subclasses de Pessoa.
+Subclasses são classes "filhas", _geradas com base em uma classe e que aproveitam atributos e métodos de sua classe "pai"_.
+Estudaremos mais sobre a relação entre classes nas próximas aulas. Já os métodos Apresentar, Trabalhar e Comer estavam marcados com a palavra-chave public, o que significa que esses métodos são visíveis (acessíveis) para qualquer objeto fora da classe Pessoa.
+
+- Pacotes são como pastas que contêm uma ou mais classes. Utilizamos pacotes para proteger atributos de nossas classes ou mesmo para organizá-las por funcionalidade dentro de um programa, já que um mesmo programa pode conter diversas classes. Estudaremos mais sobre pacotes em aulas mais adiante.
+
+- Porém, por questões de segurança ou organização, _é preferível limitar o acesso a métodos e atributos de uma classe_. Essa limitação é feita através de palavras-chave chamadas de modificadores de acesso. A partir desse ponto, para facilitar a descrição, chamaremos atributos e métodos de *membros*. Existem quatro níveis de visibilidade (acesso) para membros de uma classe, resumidos a seguir:
+
+  + *default*: qualquer objeto do mesmo pacote e quaisquer subclasses de outros pacotes podem acessar o membro. Não deve ser usada a palavra-chave default antes do membro para definir esse nível de visibilidade, mas simplesmente para omitir qualquer um dos modificadores de acesso a seguir;
+  + *public*: qualquer objeto pode acessar o membro;
+  + *protected*: o membro é acessível apenas por objetos do mesmo pacote;
+  + *private*: o membro é acessível apenas internamente (dentro da classe).
+
+** 2.1 Uso de Getters e Setters
+Com exceção do modificador public, _todos_ os demais níveis de visibilidade _criam algum tipo de limitação no acesso aos membros da classe_.
+Assim, temos membros de segurança contra acessos indesejados, mas perdemos a flexibilidade de usá-los em qualquer lugar.
+Para complementar o trabalho dos modificadores de acesso sobre atributos e devolver o acesso a eles de forma regrada, *existem os métodos Getters e Setters*. Suas funcionalidades podem ser resumidas da seguinte maneira:
+
++ *Getters* são métodos que permitem a leitura do valor de atributos não públicos. São métodos públicos e seu nome é formado por Get, seguido do nome do atributo que se deseja acessar. Não recebem parâmetros e, simplesmente, _devolvem o valor do atributo alvo através da palavra-chave return_.
+
++ *Setters* são métodos que _permitem a modificação de valor de atributos não públicos_. Eles são métodos públicos e seu nome é formado por Set, seguido do nome do atributo que se deseja modificar. Recebem apenas um parâmetro, que deve ser do mesmo tipo do atributo alvo. O atributo alvo deve receber o valor do parâmetro dentro do método. Métodos Set não têm retorno, ou seja, são do tipo void.
+
+Vamos entender como utilizar os métodos Get e Set por meio do exemplo. Suponha que temos uma classe Aluno para representar um aluno em um sistema informatizado de uma escola. Um aluno possui um nome e uma média. Os dois atributos da nossa classe Aluno serão marcados como private e criaremos métodos Get e Set para acessá-los. Atente-se à classe Aluno no código a seguir:
+
+#+begin_src java
+public class Aluno{
+	private String nome;
+	private float media;
+
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public float getMedia() {
+	    return media;
+	}
+	public void setMedia(float media) {
+        if(media >= 0 && media <= 10){
+             this.media = media;
+    }
+    }
+}
+#+end_src
+
+Perceba que, no método setMedia, _injetamos uma regra para manter a consistência do valor de média do aluno_, que não pode ser menor que zero nem maior que dez. Assim, estamos restringindo a possibilidade de modificação da média para valores absurdos. Os demais métodos Get e Set apenas seguem o modelo padrão. É uma prática comum definirmos todos os atributos de uma classe como privados (usando private) e criarmos métodos Get e Set para cada um deles.
+
+- Em Java, temos algumas cláusulas que podem ter vários efeitos, dependendo de onde ela for aplicada. Por exemplo: /static/ indica que um método ou objeto pode ser utilizado sem a necessidade de instanciação de uma classe; /public/ indica que um membro pode ser utilizado em qualquer escopo etc.
+
+- A cláusula /this/ é utilizada para referenciar o próprio objeto instanciado da classe. No exemplo anterior, temos a classe Aluno que pode ser instanciada por vários objetos. Imagine os objetos aluno1, aluno2 e aluno3 sendo instâncias da classe Aluno. Então, para o objeto aluno1, this significa o objeto aluno1, para aluno2, this significa aluno2 e, para aluno3, this significa aluno3. A partir da chamada desta cláusula, os métodos, ou atributos, são chamados, evitando uma confusão entre objetos. Assim, para aluno1, a chamada this.nome referencia o atributo nome do objeto aluno1, e assim sucessivamente.
+
+
+** 2.2 Método Construtor
+Os Métodos Construtores são aqueles que permitem a instanciação de objetos de uma classe quando executados em conjunto com a palavra-chave “new”.
+Esses métodos devem ter o mesmo nome da classe à qual pertencem e não possuem um tipo de retorno explícito, ou seja, escrito na sua assinatura. Implicitamente, o tipo de retorno de um método construtor é o mesmo tipo da sua classe. Uma classe pode ter diversos construtores, desde que eles não possuam os mesmos tipos de parâmetros na mesma sequência. Mesmo que não seja definido um método construtor para uma classe, a linguagem Java cria um método construtor interno chamado de default, com corpo vazio e que não recebe argumentos. Esse método default inicializa todos os atributos da classe com valores padrão (como zero para atributos numéricos, falso para atributos booleanos etc.) e nulo para objetos dentro da classe.
+
+No exemplo a seguir, temos a classe Automovel, que possui dois construtores.
+
+#+begin_src java
+public class Automovel{
+      private String nome;
+      private String combustivel;
+      private int quantidadeDePassageiros;
+
+      public Automovel(String nome){
+             this.nome = nome;
+      }
+      public Automovel(String nome, String combustivel, int quantidadeDePassageiros){
+             this.nome = nome;
+             this.combustivel = combustivel;
+             this.quantidadeDePassageiros = quantidadeDePassageiros;
+      }
+}
+#+end_src
+
+No exemplo da classe Automovel, temos dois métodos construtores. Perceba que eles são diferentes, pois possuem uma lista diferente de parâmetros. É importante que você compreenda que não é o nome dos atributos que faz a diferença, mas sim o seu tipo.
+Isso significa que, se tentássemos criar um novo construtor que recebesse como parâmetro apenas um String (como o da linha 8) ou uma sequência de String > inteiro > String (como o da linha 12), independentemente dos nomes dos atributos, eles seriam considerados duplicados e a compilação não seria executada com sucesso.
+
+Outro detalhe importante é a palavra-chave “this”. Usamos “this” para que o compilador Java saiba a qual atributo estamos nos referenciando quando existirem dois deles com o mesmo nome. Perceba que, no método Construtor, da linha 8, é recebido um parâmetro do tipo String, chamado Nome. Mas a classe Automovel já possui um atributo com esse mesmo nome e com esse mesmo tipo. Usamos “this.nome” para referenciar ao atributo da classe e apenas “nome” para referenciar o parâmetro do método.
+
+Podemos adicionar os métodos Get e Set para a classe Automovel. Confira, na tela a seguir, como devem ficar.
+
+#+begin_src java
+public class Automovel{
+	private String nome;
+	private String combustivel;
+	private int quantidadeDePassageiros;
+
+	public Automovel(String nome){
+	      this.nome = nome;
+	}
+	public Automovel(String nome, String combustivel, int quantidadeDePassageiros){
+	       this.nome = nome;
+	       this.combustivel = combustivel;
+	       this.quantidadeDePassageiros = quantidadeDePassageiros;
+	}
+
+	public String getNome() {
+	       return nome;
+	}
+ public void setNome(String nome) {
+          this.nome = nome;
+  }
+  public String getCombustivel() {
+          return combustivel;
+  }
+  public void setCombustivel(String combustivel) {
+          this.combustivel = combustivel;
+  }
+  public int getQuantidadeDePassageiros() {
+          return quantidadeDePassageiros;
+  }
+  public void setQuantidadeDePassageiros(int quantidadeDePassageiros) {
+          this.quantidadeDePassageiros = quantidadeDePassageiros;
+  }
+}
+ #+end_src
+
+Atentemo-nos, agora, a um exemplo da utilização dos construtores de Automovel e seus métodos Get e Set.
+
+#+begin_src java
+public class Automovel{
+	public static void main(String[] args) {
+	// Usando o primeiro construtor e definindo os demais atributos
+	// com auxílio de métodos set.
+	Automovel auto01 = new Automovel("Ferrari");
+	auto01.setQuantidadeDePassageiros(5);
+	auto01.setCombustivel("Gasolina");
+	/* Usando o segundo construtor */
+	Automovel auto02 = new Automovel("Trator", "Oleo Disel", 1);
+	/* Acessando as informações de cada automóvel com métodos get */
+	System.out.println(auto01.getNome() + " - Utiliza " + auto01.getCombustivel());
+	System.out.println(auto02.getNome() + " - Transporta " +
+			auto01.getQuantidadeDePassageiros() + " pessoa(s).");
+	}
+}
+#+end_src
+
+Lembre-se de que _o construtor padrão só existe de forma automática quando a classe não possui nenhum construtor em seu código_, por exemplo, para a classe Pessoa do início da aula. No caso da classe Automovel, você seria obrigado a usar um dos dois construtores presentes nela ou, se preferir, usar o construtor padrão e adicioná-lo à classe explicitamente da seguinte forma: public Automovel(){ }.
+
+Agora, para aplicar o que aprendeu, tenha como base os exemplos apresentados neste tópico e pratique-os no ambiente de programação da plataforma.
+
+Lembre-se de que a teoria e a prática caminham juntas e o exercício é muito importante. Por isso, não deixe de praticar os exemplos desta aula. Se preferir, também pode criar e praticar seus próprios exemplos referentes aos assuntos estudados aqui.
+
+Chegamos ao fim da nossa aula!
+
+Nessa jornada de estudos, pudemos entender melhor o conceito e a aplicação da Programação Orientada a Objeto, criando classes e objetos. Aprendemos também sobre encapsulamento. Esse processo nos permite dar maior segurança à integridade do software.
+
+Na próxima aula, abordaremos o assunto de pacotes, conhecendo um pouco mais a respeito desse recurso do Java.
+
+
+#+begin_src java
+public class Veiculo{
+    private String cor;
+    private int n_rodas;
+    private String n_placa;
+
+    public String getCor(){
+        return cor;
+    }
+    public int getN_rodas(){
+        return n_rodas;
+    }
+    public String getN_placa(){
+        return n_placa;
+    }
+    public void setCor(String cor){
+        this.cor = cor;
+    }
+    public void setN_rodas(int n_rodas){
+        this.n_rodas = n_rodas;
+    }
+    public void setN_placa(String n_placa){
+        this.n_placa = n_placa;
+    }
+
+}
+
+#+end_src
+
+#+begin_src java
+public class Nome{
+ public static void main(String args[]){
+  Veiculo carro = new Veiculo();
+  carro.setCor("vermelho");
+  carro.setN_rodas(4);
+  carro.setN_placa("PLQ8F28");
+ }
+}
+#+end_src

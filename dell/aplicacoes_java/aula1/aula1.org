@@ -1,0 +1,349 @@
+* Introdução
+Nesta aula, você aprenderá o processo de instalação e configuração da plataforma Java (JDK e JRE) e a utilizar entradas e saídas em Java que possibilitam ao usuário definir dados do seu programa. Dessa maneira, deixaremos nossos programas mais dinâmicos, melhorando a usabilidade do usuário. Vamos lá!
+
+*Objetivos*
++ Compreender o passo a passo da instalação e da configuração da plataforma Java a fim de criar um ambiente ideal para o desenvolvimento de aplicações;
++ Implementar a entrada de dados por linhas de comando e por interface gráfica.
+
+* Tópico 1 – Instalando o Java
+*Objetivos*
++ Conhecer o processo de instalação da plataforma Java;
++ Realizar a configuração do ambiente de desenvolvimento.
+
+Para desenvolvermos nosso programa em Java, precisamos primeiro instalá-lo em nossa máquina. Para isso, acesse o site http://www.oracle.com/technetwork/java/javase/downloads/ e navegue até a opção de download do Java Development Kit (JDK). Atenção! Como a página de download do Java pode mudar com o tempo, para saber qual ícone ou link redireciona para o arquivo que você precisa, procure sempre pela sigla JDK (Java Development Kit). A seguir, você conhecerá o passo a passo de instalação da plataforma Java.
+
+** 1.1 Passo a passo de instalação da plataforma Java
+Antes de efetuar o download do JDK, você precisará aceitar os termos de uso da Oracle. Para isso, marque a opção Accept License Agreement para liberar o acesso ao arquivo de instalação do JDK, conforme consta no quadro a seguir. Procure pela versão que corresponde ao seu sistema operacional (Windows, Linux, Mac etc.) e faça o download. Em seguida, execute o arquivo para dar início ao processo de instalação.
+
+[[file:quadro1.png][figura 1: Aceitar os termos de uso da Oracle.]]
+
+As figuras 2, 3 e 4 a seguir apresentam algumas das etapas da instalação do JDK.
+
+[[file:figura1.png][Figura 2: Tela inicial da instalação do JDK.]]
+
+Na próxima tela, você poderá selecionar quais funcionalidades deseja instalar e alterar o local em que os arquivos serão salvos. Se possível, anote o endereço de instalação, pois ele será necessário em um processo de configuração que você estudará posteriormente.
+
+[[file:figura2.png][Figura 3: Seleção de recursos e pastas de destino de instalação.]]
+
+Ao confirmar a instalação do JDK, a instalação estará concluída. O próximo passo é fazer algumas configurações para iniciar o desenvolvimento de programas. Você aprenderá sobre isso a seguir.
+
+[[file:figura3.png][Figura 4: Confirmação da instalação do JDK.]]
+
+** 1.2 Definindo as variáveis de ambiente
+Para utilizarmos as ferramentas de desenvolvimento que o JDK contém, é necessário criar formas para o sistema operacional encontrar os arquivos do Java. Para isso, definiremos algumas variáveis de ambiente, que são variáveis do sistema operacional que contêm o endereço para programas e arquivos dos quais ele precisará. As variáveis de ambiente que definiremos são:
+
++ *JAVA_HOME*: deve conter o diretório em que foi instalado o JDK. Podemos referenciar esta variável dentro de outras variáveis de ambiente, como CLASSPATH e PATH, para diminuir o tamanho do endereço de diretórios dentro da pasta de instalação do Java.
++ *PATH*: deve conter o diretório no qual se encontram as ferramentas de desenvolvimento do Java (compilador, interpretador, gerador de documentação etc.). Os arquivos relativos a essas ferramentas estão dentro da pasta “bin’’ do diretório de instalação do Java.
++ *CLASSPATH*: deve conter o diretório no qual o ClassLoader (componente que carrega as classes que estão em disco para a memória) poderá encontrar as classes que são utilizadas pela sua aplicação, principalmente as classes de base do Java. Esses arquivos estão dentro da pasta “lib” do diretório de instalação do Java.
+
+Agora, você saberá como configurar o sistema operacional Windows para definir as variáveis citadas anteriormente.
+
+Durante o processo de instalação do Java, comentamos que seria útil copiar o endereço do diretório no qual o Java foi instalado. Se você copiou o endereço, irá usá-lo agora. Se você não copiou, vá até a pasta em que o Java foi instalado e copie o endereço completo da pasta. Normalmente, ela está em C:\Arquivos de Programas\Java\jdk1.x, em que x representa a versão do JDK que foi instalado no seu computador. Vamos considerar que instalamos a versão 1.8.0_31.
+
+Na descrição a seguir, você pode verificar o passo a passo do processo de criação/edição das variáveis de ambiente JAVA_HOME, CLASSPATH e PATH no sistema operacional Windows.
+
+1. Acessar o explorador de arquivos pela área de trabalho, pelo Menu Iniciar ou pelo atalho Windows + E;
+2. Identifique o ícone Meu Computador ou Este Computador;
+3. Clicar com botão direito do mouse ou pressione a tecla de aplicação do teclado;
+4. Escolha o item Propriedades;
+5. Selecione a aba Avançado;
+6. Pressione o botão Variáveis de Ambiente.
+
+** 1.2.1 Criação da Variável JAVA_HOME
+1. Em Variáveis do Sistema, pressione o botão Novo.
+2. No campo Nome, digite JAVA_HOME.
+3. No campo Valor, digite o endereço da pasta de instalação do Java. No nosso caso, esse endereço é C:\Arquivos de Programas\Java\jdk1.8.0_31.
+4. Pressione OK.
+
+** 1.2.2 Criação da variável CLASSPATH
+1. Em Variáveis do Sistema, pressione o botão Novo;
+2. No campo Nome, digite CLASSPATH;
+3. No campo Valor, digite o endereço da pasta de instalação do Java seguido do diretório "\lib". No nosso caso, o endereço é "C:\Arquivos de Programas\Java\jdk1.8.0_31\lib". Você também pode usar a variável JAVA_HOME como atalho para a pasta de instalação do Java. Dessa forma, o valor para este campo pode ser "%JAVA_HOME%\lib“;
+4. Pressione OK.
+
+** 1.2.3 Edição da variável PATH
+1. Seu computador já deve ter uma variável de ambiente chamada PATH. Selecione-a na lista de variáveis e pressione o botão Editar;
+2. No campo Valor, mova o cursor para o fim do texto e adicione o caractere ponto e vírgula (;), que funciona como separador de valores para variáveis de ambiente, e vai nos permitir adicionar um novo valor a essa variável sem destruir o que já havia antes. Agora, digite o endereço da pasta de instalação do Java seguido do diretório "\bin". No nosso caso, esse endereço é "C:\Arquivos de Programas\Java\jdk1.8.0_31\bin". Você também pode usar a variável JAVA_HOME como atalho para a pasta de instalação do Java. Dessa forma, o valor para esse campo pode ser "%JAVA_HOME%\bin“;
+3. Pressione OK;
+4. Pressione OK novamente para fechar a janela Variáveis de Ambiente;
+5. Pressione OK novamente para fechar a janela Propriedades do Sistema.
+
+** 1.2.4 Testando o ambiente Java
+Para testar se a configuração das variáveis de ambiente foi feita corretamente, vamos testar a presença do interpretador e compilador Java, para isso, abra o console de comandos do Windows: navegue até o botão Iniciar do Windows e pressione Enter. Com o foco na caixa de pesquisa, digite Prompt de Comando e pressione Enter. Feito isso, surgirá a janela Prompt de Comando. Outra forma mais fácil é acionar o atalho Windows + R, que exibirá a janela Executar com foco no caixa de edição Abrir. Digite cmd e pressione Enter. O sistema exibirá a janela Prompt de Comando.
+
+Com a janela aberta, digite "java -version" e pressione a tecla Enter, esse comando solicita a exibição da versão do Java instalado no computador. Em seguida, você deverá receber uma mensagem similar à da próxima figura, confirmando que a instalação e a definição das variáveis de ambiente foram bem-sucedidas. Caso você receba outra mensagem como resposta ao comando, repita os passos de configuração das variáveis de ambiente para solucionar algum possível erro.
+
+[[file:figura4.png][Figura 5: Prompt de comando.]]
+
+Agora que já configuramos todas as nossas variáveis de ambiente, podemos começar a desenvolver nossos softwares em Java. A seguir, você aprenderá a instalar e a utilizar uma IDE (Integrated Development Environment – Ambiente de Desenvolvimento Integrado).
+
+** 1.3 Ambiente de Desenvolvimento Integrado
+O Eclipse é uma IDE (Integrated Development Environment – Ambiente de Desenvolvimento Integrado) desenvolvida em Java. Apesar de o ambiente ter como foco o desenvolvimento de sistemas em Java, ele também suporta outras linguagens por meio de plug-ins. Para fazer o download do IDE Eclipse, acesse http://www.eclipse.org e siga as instruções:
+
+1. Navegue até o botão Download e pressione Enter. Você será direcionado para a página com todas as versões disponíveis para download;
+2. Navegue até o item "Eclipse IDE for Java Developers". Pressione o link 32bit ou 64bit, de acordo com seu sistema. Você será encaminhado para outra página;
+3. Navegue até o botão "Download" e pressione Enter para realizar o download do arquivo compactado do IDE Eclipse;
+4. Ao terminar o download, você deve extrair o arquivo baixado. Utilize o descompactador de sua preferência;
+5. Abra a pasta “eclipse”, que foi criada durante a extração, e execute o arquivo 'eclipse.exe';
+6. Ao iniciar o IDE Eclipse, será sugerido um nome para seu workspace. Um workspace é a pasta na qual o IDE armazenará seus projetos. Pressione OK para continuar;
+7. Pronto! O IDE Eclipse já está pronto para uso.
+
+*Praticando*
+[[file:eclipse.mp4]]
+
+** 1.4 Compilação de projeto com pacotes
+Anteriormente, criamos projetos utilizando pacotes, agora, você aprenderá como utilizar pacotes e compilar projetos no IDE Eclipse. Utilizaremos uma estrutura simples, apenas para verificarmos que o conceito da compilação de um projeto com pacotes não é diferente do que aprendemos antes. Considere um projeto como o exibido nas figuras a seguir:
+
+[[file:figura5.png][Figura 6: Um projeto simples com pacotes.]]
+
+[[file:figura6.png][Figura 7: Classes Principal.java e Componente.java.]]
+
+Agora, vamos compilar manualmente as nossas classes. Note que, como a classe Principal utiliza a classe Componente, para compilá-la, precisamos que a classe Componente já esteja compilada. Vamos abrir o console/terminal, navegar até a pasta "meupacote" (referente ao pacote "meupacote") na qual se encontra o arquivo ‘Componente.java’. Lá executaremos o comando javac Componente.java.
+
+Normalmente, ele gerará, no mesmo diretório, o arquivo Componente.class.
+
+Vamos agora compilar o arquivo Principal.java. O processo é o mesmo que já conhecíamos. A compilação serve para que o Java analise o código feito em busca de erros. Caso tudo esteja correto, a classe será executada e podemos conferir o resultado no console em que executarmos o comando.
+
+[[file:figura7.png][Figura 8: Pastas dos pacotes das classes Componente.java e Principal.java após compilação.]]
+
+Ao compilar as classes, podemos executar o projeto. Ainda no console/terminal, vamos tentar executar a classe Principal com o comando java Principal. Surgirá a mensagem na tela normalmente e o que for colocado no comando de escrita do Java será exibido no console, ou seja, caso você tenha escrito “Olá, Mundo”, o mesmo texto será exibido na tela. Fique à vontade para escrever o que achar melhor.
+
+[[file:figura8.png][Figura 9: Execução da classe Principal.]]
+
+Perceba que não houve modificação no modo de executar a classe Principal. Isso aconteceu porque ela não está dentro de um pacote. Nesse caso, se a classe Componente também possuísse um método principal, a chamada JVM, através do comando Java, precisaria de um complemento.
+
+Para executar uma classe empacotada, devemos chamá-la via console/terminal da seguinte forma:
+
+#+begin_example
+java nome_do_pacote.Nome_da_Classe
+#+end_example
+
+Para a classe TestePacote, que está dentro do pacote topico1, temos apenas o método principal que gera a exibição de uma mensagem na tela.
+
+    #+begin_src java
+    1. package topico1;
+    2.
+    3. public class TestePacote {
+    4.  public static void main (String args[]) {
+    5.      System.out.println(“Executando uma classe empacotada”);
+    6.  }
+    7. }
+
+    #+end_src
+
+Vamos compilar normalmente, porém, para executar a classe TestePacote, precisamos seguir o modelo apresentado anteriormente. A partir do diretório raiz do projeto, vamos executar os seguintes comandos de maneira sequencial:
+
++ cd topico1
++ javac Testepacote.java
++ cd ..
++ java topico1.TestePacote
+
+O resultado será este: Executando uma classe empacotada.
+
+Neste tópico, você conheceu o processo de instalação e configuração da plataforma Java (JDK e JRE) e pôde ter noção do seu funcionamento. Estudou sobre como compilar e executar classes empacotadas do nosso projeto de forma manual. É bom conhecer os conceitos que estudamos. Com eles, você pode desenvolver sem depender de uma IDE específica. A partir de agora, vamos utilizar a IDE Eclipse, começando nos próximos tópicos, nos quais estudaremos as maneiras de receber entrada de dados do usuário em nossos programas.
+
+* Tópico 2 – Entrada de dados - teclado
+
+*Objetivo*
++ Compreender como implementar entrada de dados via teclado em um programa Java.
+
+Neste tópico, estudaremos sobre a entrada de dados em nossos programas Java através do console, ou seja, via teclado. Para isso, utilizaremos a classe Scanner da biblioteca padrão do Java. Vamos lá?
+
+Nem sempre, todos os dados que precisamos no nosso programa estão disponíveis no momento em que o escrevemos. Assim, é necessário que, em algum momento da execução do programa, o usuário forneça os dados que chamamos de dados de entrada. Em Java, é possível capturar a entrada de dados do usuário utilizando o console, que é o canal de comunicação padrão com o usuário, tanto para exibição de dados quanto para captura do que foi digitado, ambos em forma de texto. O console pode estar embutido no seu IDE ou ser do próprio sistema operacional, se você estiver executando seu programa Java diretamente por linhas de comando. Para capturar o que for digitado no console, utilizaremos a classe java.util.Scanner. A seguir, observe um exemplo da utilização dessa classe.
+
+    #+begin_src java
+    01. import java.util.Scanner;
+    02.
+    03. public class TesteScanner {
+    04.
+    05.     public static void main(String[] args) {
+    06.
+    07.         /* Criação de um objeto da classe Scanner */
+    08.         Scanner entradaTeclado = new Scanner(System.in);
+    09.
+    10.         System.out.print("Digite um texto qualquer: ");
+    11.         /* Captura do que foi digitado pelo usuário */
+    12.         String t1 = entradaTeclado.nextLine();
+    13.         System.out.println("Seu texto foi: " + t1);
+    14.
+    15.         /* Finalizando o processo de entrada de dados */
+    16.         entradaTeclado.close();
+    17.     }
+    18. }
+    #+end_src
+
+No IDE Eclipse, crie a classe TesteScanner e execute o código implementado. Quando o texto ‘“Digite um texto qualquer: ”’ for exibido na guia Console, você deverá informar um texto e pressionar a tecla Enter.
+
+*Praticando*
+[[file:uso_do_Scanner.mp4]]
+
+Vamos entender melhor o exemplo anterior. Utilizamos um objeto da classe java.util.Scanner para capturar os dados digitados pelo usuário via teclado. A classe Scanner possui uma lista de métodos que capturam o que foi digitado pelo usuário e convertem diretamente para String, inteiro, ponto flutuante (float) etc. Para termos acesso à classe java.util.Scanner, precisamos explicitar que ela será usada em nosso código através da reservada import, seguida do nome da classe. Fazemos isso na primeira linha do código. À medida que avançarmos no nosso curso e precisarmos de mais classes da biblioteca Java, utilizaremos a palavra reservada import para tornar tais classes acessíveis.
+
+Na primeira linha do método main(), criamos um objeto chamado entradaTeclado. Por enquanto, você pode considerar esse objeto como uma variável do tipo Scanner. Novamente usamos a palavra-chave new para instanciar o objeto, ou seja, criar uma instância da classe Scanner por meio do objeto chamado entradaTeclado. O parâmetro System.in, que foi passado como parâmetro na construção do objeto entradaTeclado, está sempre disponível em programas Java e permite o contato do objeto com a entrada padrão de dados, que no caso é o teclado.
+
+Utilizamos o método nextLine() da classe Scanner, que devolve uma String contendo uma linha inteira de um texto digitado por um usuário. Para finalizar, na última linha do método main(), fazemos a chamada do método close, que efetua o fechamento da comunicação entre o teclado e o objeto entradaTeclado. Executar o método é opcional, mas isso deve ser feito sempre que possível para encerrar adequadamente a leitura de dados do console.
+
+Que tal conhecer um exemplo prático de como utilizar a classe Scanner? Vamos supor que um mercadinho criou um programa em Java para facilitar a identificação dos produtos no caixa com o intuito de acelerar o atendimento aos clientes na hora do pagamento. Cada produto possui um código numérico (1, 2, 3, ...) que corresponde ao cadastro de produtos dentro do programa. O processo é simples: o cliente fornece ao programa o código do produto e a quantidade que está comprando, então o programa calcula o total a pagar. Observe o código-fonte deste programa, em seguida, analisaremos as suas principais partes.
+
+Implemente a classe MercadinhoScanner no IDE Eclipse e observe a entrada e saída de dados no Console.
+
+
+#+begin_src java
+01. import java.util.Scanner;
+02.
+03. public class MercadinhoScanner {
+04.
+05.     public static void main(String args[]) {
+06.         // Lista de produtos e seus respectivos preços
+07.         String produtos[] = {"Macarrão", "Arroz", "Batata", "Café", "Leite", "Feijão"};
+08.         float precos [] = {1.99f, 2.75f, 3.80f, 4.00f, 2.99f, 3.50f};
+09.
+10.         // Objeto para leitura de entrada de dados via teclado.
+11.         Scanner entradaTeclado = new Scanner(System.in);
+12.
+13.         //Obter o código do produto
+14.         System.out.println("informe o código dos produtos");
+15.         int codigoProduto = entradaTeclado.nextInt();
+16.
+17.         //Se o código do produto estiver correto, solicitar a quantidade do produto
+18.         if (codigoProduto > 0 && codigoProduto < produtos.length) {
+20.             System.out.println("Produto:" + produtos[codigoProduto]);
+21.
+22.             //Obter a quantidade do produto
+23.             System.out.println("informe a quantidade do produto");
+24.             int quantidade = entradaTeclado.nextInt();
+25.
+26.             //Calcula valor total
+27.             float total = precos[codigoProduto] * quantidade;
+28.             System.out.println("TOTAL: R$" + total);
+29.
+30.         } else {
+31.             System.out.println("Produto não encontrado");
+32.         }
+33.     }
+34. }
+#+end_src
+
+*Praticando*
+[[file:Scanner_exemplo_pratico.mp4]]
+
+Nas linhas 7 e 8, inicializamos dois vetores, produtos e precos, que contêm, respectivamente, os nomes e os preços dos produtos do mercadinho. Observe que esta é uma nova forma de informar os elementos de um array, diretamente na sua criação. Depois, instanciamos o objeto entradaTeclado, da mesma forma que fizemos no exemplo anterior. Na linha 16, usamos o método nextInt para capturar o código do produto que o usuário digitou via teclado. Se o código estiver correto, ou seja, entre 1 e o tamanho do vetor de produtos - 1, então ele servirá para identificarmos qual produto o cliente está portando. Em seguida, solicitamos ao cliente a quantidade do produto e, na linha 25, utilizamos novamente o método nextInt para capturar o valor. A partir daí, usamos o código do produto para encontrar seu preço no array precos e multiplicamos pela quantidade informada pelo cliente, exibindo o valor total da compra em seguida. Nesse exemplo, não executamos o fechamento da comunicação do objeto entradaTeclado com o console via método close, mas é importante saber qual a funcionalidade do método e usá-lo quando for possível.
+
+Assim como os métodos nextLine(), que recebem uma String informada pelo usuário, e o método nextInt(), que recebe um valor inteiro, temos vários outros métodos implementados pela classe Scanner. Observe a lista a seguir:
++ next(): retorna um valor String de um próximo grupo de caracteres, separado por um delimitador que pode ser passado como parâmetro (exemplo: para receber valores em uma mesma entrada separados por vírgula, usa-se next(“,”);
++ nextDouble(): retorna um valor decimal do tipo double;
++ nextBigDecimal(): retorna um valor decimal, um objeto BigDecimal, mas com uma precisão maior que o tipo double. Esse tipo de dado deve ser usado, geralmente, para cálculos financeiros, cálculos que exigem uma precisão muito grande. De forma similar, existe o método nextBigInteger(), que retorna um objeto BigInteger;
++ nextFloat(): retorna um valor decimal do tipo float;
++ nextBoolean(): retorna um valor tipo boolean. Atente-se para a representação de verdadeiro, true, e falso, false. O método NÃO faz a conversão de outros valores para um valor booleano, como 1, para verdadeiro, e 0, para falso.
+Existem outros métodos que você pode usar para outros fins. Para conhecê-los, use o próprio Eclipse IDE com seus exemplos da classe Scanner. Por exemplo, digite o nome do seu objeto, digite um ponto após ele, digite next e pressione Ctrl + Espaço, então serão mostradas as opções de métodos disponíveis na classe.
+
+Neste tópico, aprendemos que é possível trabalhar com dados fornecidos pelo usuário; também criamos nosso primeiro programa interativo em Java, no qual há entrada de dados, processamento e saída de informação. No próximo tópico, faremos um primeiro contato com interfaces gráficas, que nos ajudarão a capturar a entrada de dados do usuário.
+
+* Tópico 3 – Entrada de dados - Interface gráfica
+
+*Objetivos*
++ Conhecer a classe JOptionPane e seus principais métodos;
++ Compreender como criar programas Java interativos utilizando interface gráfica com JOptionPane.
+
+No tópico anterior, você estudou sobre a criação de programas interativos com entrada, processamento e saída de dados utilizando o console (entrada e saída principal de texto do programa). Neste tópico, daremos continuidade a esse assunto trabalhando com uma das bibliotecas da linguagem Java para geração de interface gráfica. Não nos aprofundaremos nessa biblioteca, estudaremos apenas como utilizar um dos componentes da biblioteca que permite a captura de dados do usuário. Adiante, no curso, teremos aulas dedicadas apenas à construção de interfaces gráficas.
+
+A entrada de dados via teclado é muito útil, mas pode ser inconveniente ou complicada para o usuário, principalmente para os iniciantes. Para melhorar a interação com o usuário, uma boa opção é o uso de interfaces gráficas, o que torna o entendimento das necessidades do programa mais claro e tangível para o usuário. Em Java, podemos utilizar a biblioteca Swing para gerar componentes de interface gráfica. Esses componentes facilitam o fornecimento de dados por parte do usuário.
+
+A classe javax.swing.JOptionPane permite a exibição de pequenas janelas, chamadas de diálogos, através das quais é possível exibir uma mensagem, capturar o que o usuário digitou ou as duas coisas ao mesmo tempo. A figura a seguir ilustra o uso de JOptionPane para exibição de uma mensagem simples.
+
+[[file:figura9.png][Figura 10: Visualização de uma mensagem criada com JOptionPane.]]
+
+A classe JOptionPane possui uma lista de métodos estáticos que servem para criar diálogos (pequenas janelas). Esses diálogos podem ser usados para exibir mensagens ao usuário, requisitar entrada de dados na forma de texto ou via botões. Os principais métodos da classe JOptionPane são:
+
++ showConfirmDialog — método que gera uma janela de solicitação de confirmação do usuário (com botões “Sim”, “Não” ou “Cancelar”);
+
+[[file:figura10.png][Figura 11: Exemplo de showConfirmDialog.]]
+
++ showInputDialog — método que gera uma janela de entrada de dados do usuário (como uma caixa de texto);
+
+[[file:figura11.png][Figura 12: Exemplo de showInputDialog.]]
+
++ showMessageDialog — método que gera uma janela de mensagem apenas para informar algo ao usuário;
+
+[[file:figura12.png][Figura 13: Exemplo de showMessageDialog.]]
+
++ showOptionDialog — é um método que contém todas as funcionalidades dos métodos citados (confirmar, entrada de dados e mensagem).
+
+[[file:figura13.png][Figura 14: Exemplo de showOptionDialog.]]
+
++ Chamamos de estáticos os métodos e as variáveis que são precedidos pela palavra-chave static. Métodos e variáveis estáticos podem ser acessados diretamente pelas suas classes, sem a necessidade de um objeto instanciado a partir delas. Por exemplo, suponha que uma classe chamada Bola possui um método estático chamado rolar. Poderíamos, então, acessar o método da seguinte forma: Bola.rolar().
+
+Vamos agora observar um exemplo prático do uso da classe JOptionPane:
+
+#+begin_src java
+01. import javax.swing.JOptionPane;
+02.
+03. public class TesteJOptionPane {
+04.
+05.	public static void main(string[] args){
+06.		/* Solicita que o usuário forneça um texto */
+07.		String text = JOptionPane.showInputDialog("digite um texto.");
+08.
+09.		/ / Exibe o texto que o usuário forneceu
+10.		JOptionPane.showMessageDialog(null, "Você digitou: " + texto);
+11. 	}
+12. }
+#+end_src
+
+Para utilizar a classe javax.swing.JOptionPane, importamo-la usando o comando import da linha 1. Na linha 7, utilizamos o método showInputDialog para solicitar uma entrada de dados do usuário. Esse método cria uma janela com uma mensagem e uma caixa de texto e devolve como resposta um String, contendo o texto que o usuário preencheu nesta caixa de texto. Em seguida, na linha 10, exibimos o que o usuário digitou em uma nova janela, usando o método showMessageDialog. O resultado da execução desse exemplo, fornecendo como entrada o texto “Java é interessante!”, deve ser similar ao da figura a seguir:
+
+[[file:figura14.png][Figura 15: Resultado do código exemplo.]]
+
+Implemente o código que é apresentado no IDE Eclipse em uma classe chamada TesteJOptionPane e verifique o resultado, como o que pôde ser observado na imagem anterior.
+
+*Praticando*
+[[file:Uso_da_JoptionPane.mp4]]
+
+Agora, vamos modificar o exemplo do mercadinho que implementamos usando a classe Scanner. Foram mantidas as partes do código que definem os produtos e os preços bem como os cálculos e as condições para a busca dos produtos. A diferença será na forma de exibir e capturar dados do usuário. Em vez de capturar e exibir dados diretamente no console, faremos isso através de janelas geradas usando JOptionPane. O código contém as modificações necessárias para substituir a entrada e a exibição de dados do console para janelas (diálogos).
+
+#+begin_src java
+01. import javax.swing.JOptionPane;
+02.
+03. public class MercadinhoUI {
+04.
+05.     public static void main(String[] args) {
+06.
+07.         /*Lista de produtos e seus respectivos preços */
+08.         String produtos[] = {"Macarrão", "Arroz", "Batata", "Café", "Leite", "Feijão"};
+09.         float precos[] = {0, 1.99f, 2.75f, 3.80f, 4.00f, 2.99f, 3.50f};
+10.
+11.         /* Obter o código do produto */
+12.         String codigoProdutoStr = JOptionPane.showInputDialog(null, "Informe o código do produto");
+13.         int codigoProduto = Integer.parseInt(codigoProdutoStr);
+14.
+15.         /* Se o código do produto estiver correto, solicitar a quantidade do produto */
+16.         if(codigoProduto > 1 && codigoProduto < produtos.length) {
+17.
+18.             /* Obter a quantidade do produto */
+19.             String QuantidadeStr = JOptionPane.showInputDialog(null, "Informe a quantidade do produto");
+20.             int quantidade = Integer.parseInt(quantidadeStr);
+21.
+22.             float total = precos[codigoProduto] * quantidade;
+23.             JOptionPane.showMessageDialog(null,
+24.                     "Produto: " + produtos[codigoProduto] + "\n"
+25.                     + "Valor unitário: R$ " + precos[codigoProduto] + "\n"
+26.                     + "Quantidade: " + quantidade + "\n"
+27.                     + "--------------------------------------" + "\n"
+28.                     + "TOTAL: R$ " + total);
+29.         } else {
+30.             JOptionPane.showMessageDialog(null, "Produto não encontrado!");
+31.         }
+32.     }
+33. }
+
+#+end_src
+
+Na linha 12 do código, solicitamos ao usuário o código do produto que ele escolheu. Como comentado anteriormente, o método showInputDialog devolve uma String contendo o texto que o usuário digitou. Como precisamos de um valor inteiro que represente o código do produto, usaremos uma classe chamada Integer, que possui um método capaz de converter String em inteiros. Na linha 13, usamos o método parseInt para efetuar a conversão e armazenar o resultado na variável codigoProduto. O mesmo processo é repetido nas linhas 19 e 20 para realizar a captura em texto e a conversão para inteiro da quantidade do produto que o cliente possui.
+
+Na linha 23, usamos o método showMessageDialog para exibir uma mensagem contendo o resumo da compra do usuário, contendo o nome do produto, custo por unidade, quantidade e o valor total a pagar. Também usamos showMessageDialog na linha 30 para exibir uma mensagem de erro, caso o código do produto informado seja incoerente.
+
+Ao escolher simular a compra de 7 unidades do produto de código 4 (café), o programa exibirá a sequência de diálogos a seguir, como mostra esta figura:
+
+[[file:figura15.png][Figura 16: Visualização da execução da classe MercadinhoUI.]]
+
+Nesta aula, preparamos o nosso ambiente Java e estudamos a respeito de entrada de dados. Estudamos sobre a criação de programas interativos com entrada, processamento e saída de dados, utilizando classes como Scanner e JOptionPane. Agora já podemos criar programas mais interativos e que podem ter seu fluxo alterado, utilizando dados fornecidos pelo usuário. Na próxima aula, vamos estudar os conceitos de exceções, tendo como objetivo tratar erros que possam ocorrer durante a execução dos nossos programas. Até lá!

@@ -1,0 +1,120 @@
+Olá, acredito que estas seriam as classes necessárias para o sistema descrito no enunciado:
+
+Agenda
++ Atributos
+    - Data horariosMarcados[ ]
+    - Cliente cadastros[ ]
++ Metodos
+    - construtor (vazio)
+    - void novoHorario(Data data)
+    - void novoCadastro(Cliente novoCliente)
+    - boolean verificaCadastro(Cliente cliente)
+    - void renovarCadastro(Cliente cadastroAntigo, Cliente novosDados)
+
+Data
++ Atributos
+    - int dia
+    - int mes
+    - int ano
+    - int hora
+    - Cliente cliente
+    - Animal animal
++ Metodos
+    - construtor (dia, mes, ano, hora, cliente, animal)
+    - void remarcarConsulta(dia, mes, ano, hora)
+    - getters e setters
+
+Cliente
++ Atributos
+    - String nome
+    - int cpf
+    - Animal animais[ ]
++ Metodos
+    - construtor (nome, cpf)
+    - getters e setters
+    - void novoAnimal (Animal novoAnimal) adiciona o registro de um novo animal ao array 'animais'
+    - boolean verificaAnimal -> para verificar se um animal já está cadastrado ou não
+
+Animal
++ Atributos
+    - String nome
+    - String especie
+    - String sintomas[ ]
+    - String diagnostico
+    - String historico[ ]
++ Metodos
+    - construtor (nome, especie, sintomas)
+    - getters e setters
+    - boolean necessitaMaisVisitas()
+    - void solicitarExames(String exames[ ])
+
+
+Principal
++ Atributos
+    - Agenda agenda
++ Metodos
+    - Main
+
+Abaixo um exemplo de implementação de uma das classes
+
+public class Data{
+    private int dia;
+    private int mes;
+    private int ano;
+    private int hora;
+    private Cliente cliente;
+    private Animal animal;
+
+    public Data(int dia, int mes, int ano, int hora, Cliente cliente, Animal animal){
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+        this.hora = hora;
+        this.cliente = cliente;
+        this.animal = animal;
+    }
+
+    public void remarcarConsulta(int dia, int mes, int ano, int horario){
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+        this.hora = hora;
+    }
+
+    public int getDia(){
+        return dia;
+    }
+    public int getMes(){
+        return mes;
+    }
+    public int getAno(){
+        return ano;
+    }
+    public int getHora(){
+        return hora;
+    }
+    public Cliente getCliente(){
+        return cliente;
+    }
+    public Animal getAnimal(){
+        return animal;
+    }
+    public void setDia(int dia){
+        this.dia = dia;
+    }
+    public void setMes(int mes){
+        this.mes = mes;
+    }
+    public void setAno(int ano){
+        this.ano = ano;
+    }
+    public void setHora(int hora){
+        this.hora = hora;
+    }
+    public void setCliente(Cliente cliente){
+        this.cliente = cliente;
+    }
+    public void setAnimal(Animal animal){
+        this.animal = animal;
+    }
+}

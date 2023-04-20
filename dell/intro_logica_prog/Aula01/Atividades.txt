@@ -1,0 +1,63 @@
+FÓRUM:
+
+Definição:
+Bem vindo(a) a nossa primeira oficina.
+
+Para esta oficina você deverá, de acordo com uma situação dada, identificar o dispositivo computacional envolvido, a entrada de dados, o processamento e a saída.
+
+Situação: Realizar um saque em um caixa eletrônico.
+
+Preencha/Responda:
+
+Dispositivo computacional envolvido: (qual (is) dispositivo (s) está (ão) envolvido (s) nessa operação?).
+Entrada de dados (quais informações ou dispositivos são necessários fornecer para a operação ser realizada?)
+Processamento (quais ações ou verificações acontecerão para que a operação aconteça com sucesso?)
+Saída (o que se recebe no resultado da operação, em caso de sucesso?)
+Você deve enviar um arquivo com as respostas destes 4 itens.
+
+Basicamente:
+    Cite alguns exemplos de sistemas operacionais utilizados nas mais diversas áreas de atuação, destacando suas aplicações.
+
+    Componentes de entrada e saída de um caixa eletrônico
+    - Monitor de vídeo
+    - Impressora
+    - Teclado
+    - Disco rígido
+
+
+
+
+
+
+Eu estava trabalhando na área de segurança até metade deste ano e vivi uma revolução computacional dentro da área, antes se utilizavam rádios comuns para a comunicação entre os seguranças e a central, e a empresa onde eu estava trabalhando trocou todo o sistema de rádios comuns por rádios inteligentes. Eles são muito parecidos com smartphones, e trouxeram muitas vantagens ao trabalho, por exemplo a privacidade pelo fato de não usar mais as ondas de rádio e sim dados moveis, agora toda a comunicação era realizada por canais privados, sem perder a dinamicidade da comunicação. Além disso agora podíamos monitorar os guardas por satélite em tempo real, então sempre que eles informavam alguma emergência sabíamos instantaneamente a localização, aumentando a precisão e velocidade de resposta, também agora os guardas podiam usar os rádios inteligentes para fazer relatórios com imagens e vídeos com a câmera embutida no aparelho.
+Também vivi essa revolução computacional em relação ao processamento local na área; as câmeras que antes eram estáticas agora tinham sido substituídas por câmeras rotacionais que a gente podia mover pelo computador ou até programar uma sequência de movimentos e salvar em um macro, para utilizar quando quiséssemos.
+Por ultimo quero dar o exemplo das chaves inteligentes, nessa empresa estava sendo trocado todos os chaveiros e chaves por chaves inteligentes, que funcionam como as chaves comuns, mas além de ter a validação analógica (de uma chave comum), elas precisam de uma validação virtual que ocorre através de um microchip dentro da chave e do chaveiro. Podemos modificar pelo computador se queremos tirar o acesso de alguém a alguma porta dessa forma.
+
+
+Resposta ao colega:
+Olá Eduardo, tudo bom?
+
+Adorei os seus exemplos de sistemas computacionais que podemos implementar no corpo humano nos trazendo vantagens na área da saúde.
+
+Gostaria de aproveitar a oportunidade e dar mais um exemplo disso; O Elon Musk tem um projeto chamado Neuralink que é um chip que se implementa no cérebro. Ele serve especialmente para pessoas paraplégicas conseguirem se comunicar mais facilmente através de mensagens de texto virtuais, mas pelo que eu ouvi em um podcast com o Elon Musk ele ainda tem muitas ambições para o projeto e pretende ampliar bastante as funcionalidades do chip.
+Para saber mais: https://neuralink.com/
+
+
+-----------------------------------------------------------------------------
+
+OFICINA:
+
+Definição:
+    Bem vindo(a) a nossa primeira oficina.
+
+    Para esta oficina você deverá, de acordo com uma situação dada, identificar o dispositivo computacional envolvido, a entrada de dados, o processamento e a saída.
+
+    Situação: Realizar um saque em um caixa eletrônico.
+
+    Preencha/Responda:
+
+    Dispositivo computacional envolvido: (qual (is) dispositivo (s) está (ão) envolvido (s) nessa operação?).
+    Entrada de dados (quais informações ou dispositivos são necessários fornecer para a operação ser realizada?)
+    Processamento (quais ações ou verificações acontecerão para que a operação aconteça com sucesso?)
+    Saída (o que se recebe no resultado da operação, em caso de sucesso?)
+    Você deve enviar um arquivo com as respostas destes 4 itens.

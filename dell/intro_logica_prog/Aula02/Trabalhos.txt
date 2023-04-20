@@ -1,0 +1,74 @@
+Fórum:
+
+- Falar sobre abstração de textos grandes e complexos:
+    - Transformo em textos simples, com linguagem simples e elementos visuais
+
+- Falar sobre abstração de tarefas:
+    - Divido minhas tarefas/projetos em diversos subproblemas
+    - Estabeleço metas para solução de cada subproblema/subprojeto
+    - Ex: Aulas on-line da lead:
+        tarefa "Fazer aula 2" x "Ler e sumarizar tópico 1"
+    - Eu gosto de dividir meu dia em períodos de 1h, e a cada um dos períodos eu
+    planejo o que / qual subprojeto realizar
+
+No tópico 04 desta aula estudamos os operadores lógicos E, OU e NÃO (¬) e as operações de soma e multiplicação entre números binários.
+
+Com base nisso, solucione as seguintes operações:
+
+1) 0 E 1 OU 1:
+
+    0 E 1 = 0
+    0 OU 1 = 1
+    1    
+
+Resposta: 1
+
+2) 1 E NÃO(¬) 0:   
+
+    ¬0 = 1
+    1 E 1 = 1
+    1
+
+Resposta: 1
+
+3) 1 E 1 OU 0:
+
+    1 E 1 = 1
+    1 OU 0 = 1
+    1
+
+Resposta: 1
+
+4) 1100 + 110:
+
+   ¹¹
+    1100
+   + 110
+   ------
+   10010
+
+Resposta:10010
+
+5) 10 x 11:
+
+    11
+  x 10
+   ---
+    00
+  +11 
+   ---
+   110
+
+Resposta: 110
+
+6) 101 x 11
+
+    101
+  x  11
+   ----
+    101
+  +101 
+   ----
+   1111
+
+Resposta: 1111

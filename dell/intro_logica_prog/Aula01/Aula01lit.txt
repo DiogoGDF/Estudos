@@ -1,0 +1,208 @@
+INTRODUÇÃO
+
+Caro(a) aluno(a),
+
+Esta é a primeira aula do Curso de Introdução à Lógica de Programação. O objetivo desse curso é lhe preparar para estudar uma linguagem de programação, fornecendo um conjunto de conceitos de lógica de programação que você poderá usar como ferramenta para resolver problemas com uma abordagem computacional.
+
+Ao final desse curso, você será capaz de analisar um problema do mundo real e criar soluções estruturadas em forma de algoritmo para esse problema. Dessa forma, você estará apto a aprender mais facilmente qualquer linguagem de programação, tendo apenas que adaptar seus conhecimentos sobre resolução de problemas para as especificidades da linguagem que desejar utilizar.
+
+Nesta aula, conheceremos os componentes básicos de um sistema computacional. Esse tipo de conhecimento é importante para guiar a sua forma de pensar, que deve ser focada na construção de soluções para problemas que serão resolvidos por computadores.
+
+    Objetivos
+    - Conhecer a arquitetura de um modelo computacional;
+    - Identificar os componentes e tipos de sistema computacional.
+
+
+
+
+-----------------------------------------------------------------------------
+
+
+
+
+
+Tópico 1 – O Modelo Computacional de John von Neumann
+
+    Objetivos
+    - Compreender o conceito de Modelo computacional;
+    - Entender o relacionamento entre os componentes do modelo de Von Neumann.
+
+Neste tópico, conheceremos a arquitetura de um computador a partir de um modelo computacional, conhecendo seus componentes e suas respectivas funções.
+---
+
+---
+Computadores são máquinas que recebem dados e instruções de programação, executam essas instruções utilizando esses dados e produzem uma saída, ou seja, um resultado. Essa sequência de operações caracteriza um ciclo de processamento. A figura 1 representa o modelo de um ciclo de processamento da informação.
+
+                    Figura 1 - Modelo de processamento da informação
+                    A figura representa um fluxograma de um modelo de processamento da informação: da esquerda para direita temos um fluxo que começa com a entrada, depois passa para o processamento e finaliza com a saída.
+---
+
+---
+    A palavra máquina está associada ao termo em inglês hardware. Em sistemas computacionais o hardware compreende todos os dispositivos físicos (entrada, saída, memória e CPU) que compõem um sistema computacional.
+
+    As instruções de programação que compõem um programa de computador estão associadas ao termo em inglês software. O software compreende todos os programas que fazem o hardware funcionar.
+---
+
+---
+Os computadores que usamos atualmente seguem um modelo computacional concebido pelo cientista húngaro John von Neumann.
+
+O modelo proposto por Von Neumann define um computador como uma máquina programável composta pelos seguintes componentes:
+
+- Memória Principal (MP).
+- Unidade central de processamento ou CPU (Central Processing Unit), também conhecido como processador, que por sua vez é composta por:
+    1. Registradores.
+    2. Unidade Lógica e Aritmética (ULA).
+    3. Unidade de Controle (UC), responsável por buscar em um programa na memória principal, instrução por instrução, e executá-la sobre os dados de entrada carregados nos registradores.
+
+    *Unidade Lógica e Aritmética (ULA)*: a ULA é um conjunto de circuitos eletrônicos que executa operações lógicas (como comparações) e aritméticas (como somas, subtrações, divisões etc.). Ela recebe da Unidade de Controle os dados que irá manipular e o código da operação que deve executar, devolvendo um resultado em seguida.
+
+    *Registradores* são a unidade de memória temporária, capazes de armazenar alguns bits. São a variedade de memória mais rápida que existe atualmente e por isso ficam junto ao processador. Devido à sua velocidade, são extremamente caros.
+---
+
+---
+O modelo de Von Neumann define que dados e programas são carregados, a partir de dispositivos de entrada, para dentro do sistema computacional. Além disso, o resultado de um processamento é enviado para um dispositivo de saída. Na figura 3, você pode visualizar melhor esse Modelo Computacional de Von Neumann.
+
+                    Figura 3 - Modelo Computacional de Von Neumann
+                    A figura representa um fluxograma do Modelo Computacional de Von Neumann, cujas etapas são ilustradas de forma encadeada: o dispositivo de entrada se conecta através de uma seta ao sistema computacional, que é formado por memória principal, que está ao lado esquerdo, e CPU, ao lado direito. Dentro da CPU estão os registradores, Unidade Lógica e Aritmética e Unidade De Controle. Entre a memória principal e a CPU existe uma seta que aponta em ambos os sentidos, que simboliza a troca de dados. Abaixo, uma seta sai da memória e aponta para a CPU, simbolizando as instruções dadas. Finalizando o fluxo, uma seta sai do sistema computacional e aponta para o dispositivo de saída.
+
+Nessa figura, podemos perceber que as setas indicam o que está sendo trocado entre dois elementos do modelo e em qual sentido. Por exemplo, um dispositivo de entrada fornece dados e programas à memória principal. Dados são trocados entre a memória principal e a CPU em ambos os sentidos, ou seja, ambos recebem e enviam dados.
+---
+
+---
+O modelo computacional de Von Neumann propõe uma arquitetura de computador que é caracterizada, com relação à execução de um programa, da seguinte forma:
+
+    - Um programa é um conjunto de instruções que serão executadas na CPU. As instruções de programação são lidas a partir de dispositivos de entrada. As instruções são armazenadas em uma memória principal.
+
+    - Instruções de programação movimentam dados para a CPU. Na CPU, as instruções de programação que envolvem operações lógicas e aritméticas são executadas na ULA, utilizando os dados armazenados em registradores. Registradores são locais de armazenamento para dados e instruções usados pela CPU. O resultado da execução de instruções geralmente retornam à memória principal na forma de uma informação a ser armazenada. Essa sequência de operações caracteriza um ciclo de processamento da informação.
+
+    - O ciclo de processamento da informação definido acima é executado continuamente até que uma condição que caracteriza a finalização do processamento seja alcançada.
+
+    - As saídas geradas pelo ciclo de processamento são enviadas aos dispositivos de saída.
+---
+
+---
+Nesse tópico, estudamos o modelo computacional de Von Neumann e vimos que esse modelo permite compreender as funcionalidades que são executadas pelos dispositivos que compõem um sistema computacional. No próximo tópico, estudaremos os componentes de hardware de um sistema computacional.
+---
+
+
+
+
+
+
+-----------------------------------------------------------------------------
+
+
+
+
+
+TÓPICO 2 – Componentes de um Sistema Computacional
+
+    Objetivo
+    - Identificar os componentes de um sistema computacional.
+
+Neste tópico, serão apresentados os componentes de um sistema computacional que comumente estão presentes nos modelos atuais de computadores. Esses componentes são componentes físicos (hardwares) que executam funcionalidades inerentes ao modelo de processamento da informação (entrada-processamento-saída).
+---
+
+---
+Os principais componentes de um sistema computacional são:
+
+    1. Dispositivos de entrada:
+    funcionam exclusivamente para a entrada de dados ou comandos para execução.
+    Exemplos: teclado e mouse.
+
+    2. Dispositivos de saída:
+    funcionam exclusivamente para a saída de dados, geralmente resultados de um processamento.
+    Exemplos: impressora e monitor de vídeo.
+---
+
+---
+Dispositivos de entrada e saída: funcionam tanto para entrada como para saída de dados. A maioria desses dispositivos é usada para o armazenamento de dados que são gravados para serem utilizados posteriormente. Exemplos: disco rígido, leitora e gravadora de DVD e CD e dispositivo USB (Pen Drive).
+
+                    Figura 7 - Disco Rígido
+                    Figura 8 - Leitora e Gravadora de DVD e CD
+                    Figura 9 - Pen Drive
+---
+
+---
+Existem também sistemas computacionais que são usados para prover processamento móvel, como por exemplo, em notebooks, tablets e smartphones.
+
+                    Figura 10 – Tablet
+                    Figura 11 – Smartphone
+
+Memória: a memória principal é um circuito eletrônico no qual são armazenados dados e programas. Na figura 12, são apresentados cinco circuitos de memória. Cada circuito será fixado em um local da placa-mãe, identificado como banco de memórias.
+
+                    Figura 12 - Cinco circuitos de memória
+                    Quatro circuitos de memória
+---
+
+---
+UCP: a Unidade Central de Processamento (CPU) consiste em um circuito integrado que irá compor, juntamente com a memória e as conexões dos dispositivos de entrada e saída, o sistema computacional. Na CPU, serão executadas as instruções de programação.
+Na maioria dos computadores, esses dispositivos são reunidos em um circuito eletrônico chamado placa-mãe.
+                Figura 13 - CPU
+                Figura 14 - Placa-mãe
+---
+
+---
+Nesse tópico, conhecemos os componentes de hardware que compõem um sistema computacional.
+---
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+---
+TÓPICO 3 – Tipos de Sistemas Computacionais
+
+    Objetivo
+    Conhecer os tipos de sistemas computacionais.
+
+Neste tópico, apresentaremos os diversos tipos de sistemas computacionais atualmente usados em empresas, escritórios etc.
+---
+
+---
+Os diversos tipos de sistema computacional possuem em comum os componentes apresentados nos tópicos anteriores. O que irá diferenciar um sistema computacional de outro serão as características dos seus componentes, como CPU (desempenho), memória (desempenho e capacidade de armazenamento), dispositivos de entrada e saída (desempenho e capacidade de armazenamento de dados).
+
+Há sistemas computacionais que processam e armazenam grandes volumes de dados, como os mainframes. Observe na figura 15 um exemplo de equipamento mainframe.
+
+Há sistemas computacionais que se agrupam e se interligam por meio de redes de comunicação para criar processamento distribuído de aplicações e de dados. Na figura 16, você pode observar um equipamento que foi estruturado para ser utilizado como servidor de aplicação de dados.
+
+                    Figura 15 – Mainframe
+                    Figura 16 - Servidores de Aplicação e de Dados
+---
+
+---
+Existem também sistemas computacionais que são usados para prover processamento local, como o computador que você utiliza para realizar as atividades do curso de Lógica de Programação, conhecido como desktop. Veja um exemplo de desktop na figura 17.
+                    Figura 17 – Desktop
+Existem também sistemas computacionais que são usados para prover processamento móvel, como nos notebooks, tablets e smartphones.
+                    Figura 18 – Notebook
+---
+
+---
+Outros sistemas computacionais que são muito utilizados em diversas atividades da indústria e na área de serviços são os dispositivos de identificação de usuários, como os smart cards.
+                    Figura 19 – Smart cards
+Os cartões de crédito e as carteiras de estudante também possuem esse pequeno circuito eletrônico (Smartcards) que é programável em Java. Eles possuem memória e CPU.
+---
+
+---
+Há equipamentos que utilizam microcontroladores como o da figura 20 para realizar funcionalidades programadas rígidas, ou seja, que variam pouco. Exemplo: máquinas de lavar, forno micro-ondas, sistemas de freio ABS, sistemas de navegação em aviões etc.
+
+Os sistemas em que são usados os microcontroladores são conhecidos como sistemas embarcados.
+                    Figura 20 – Microcontrolador
+---
+
+---
+Durante essa aula, conhecemos o modelo de sistema computacional usado na maioria dos computadores, proposto por Von Neumann. Esse modelo inclui uma unidade de processamento e uma memória, através dos quais o computador pode executar programas escritos usando uma linguagem de programação.
+
+Também vimos os componentes de hardware que compõem os computadores modernos e os tipos de sistemas computadorizados que estão ao nosso redor, de laptops e tablets a smart cards. Na próxima aula, estudaremos a lógica e entenderemos sua função na criação de programas de computador.
+-----
+CDD
+
+
+
+Acabamos de realizar algumas práticas que nos fizeram raciocinar um pouco mais sobre o processamento de uma informação em um núcleo computacional e sobre a classificação de componentes de um sistema computacional acerca de ser um componente de software, hardware, ser um dispositivo de entrada, saída ou os dois. Como dica, procure sempre perceber se um determinado elemento é físico ou lógico (ou virtual). Se for físico, que você consegue carregá-lo ou tocá-lo, será classificado como hardware; se o componente for algo lógico, como um programa ou uma informação que você escreveu no computador, será classificado como software. Para dispositivos de entrada ou saída de dados, perceba que sempre será um dispositivo de saída se ele emitir ou fornecer qualquer tipo de informação ao usuário a partir do sistema computacional. Se esse dispositivo recebe uma informação do usuário e a fornece ao sistema computacional, será classificado como um dispositivo de entrada de dados. Há ainda a possibilidade de um mesmo dispositivo emitir e receber informações, sendo considerado de entrada e saída. Continue seus estudos! Até breve!

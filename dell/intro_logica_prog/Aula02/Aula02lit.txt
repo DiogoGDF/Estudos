@@ -1,0 +1,896 @@
+AULA 2 - CONCEITOS DE ABSTRAÇÃO E SISTEMA BINÁRIO
+
+---
+INTRODUÇÃO
+
+Caro(a) aluno(a),
+
+Nesta segunda aula do Curso de Introdução à Lógica de Programação, estudaremos um pouco da história da lógica e qual a sua função na criação de programas de computador. Também conheceremos o sistema de numeração binário e aprenderemos sobre as operações binárias “Não”, “E” e “OU”.
+
+    Objetivos
+    - Conhecer o conceito de lógica e sua história;
+    - Compreender a importância da lógica para a computação;
+    - Compreender o conceito de abstração e sua aplicação;
+    - Conhecer o sistema binário de numeração e suas regras;
+    - Executar operações lógicas do sistema binário de numeração.
+
+
+
+
+---------------------------------------------------------------
+
+
+
+
+Tópico 1 – Introdução à Lógica
+
+    Objetivos
+    - Compreender o conceito de lógica e a sua evolução histórica;
+    - Compreender a aplicação da lógica na computação.
+
+Antes de começarmos o assunto desta aula, responda à seguinte pergunta: você sabe o que é lógica? abstração
+---
+
+---
+Marque a alternativa que descreve corretamente o conceito de lógica.
+
+a) Lógica é o estudo da validade ou falsidade de argumentos verbais (em texto) ou simbólicos (utilizando apenas símbolos).
+b) Lógica é um conjunto de regras pelas quais é possível representar corretamente um raciocínio matemático.
+c) Lógica é a ciência que orienta o encadeamento válido de expressões que o computador consegue interpretar, também chamada de Lógica de Programação.
+d) Lógica é a propriedade do pensar e agir que revela a consistência da ação, ou seja, que indica que a ação (seja pensar ou agir) é válida segundo a realidade.
+
+Resposta certa: Todas as respostas estão corretas, elas são definições sobre a lógica e suas vertentes em diversas áreas do conhecimento como filosofia computação e matemática
+a -> ponto de vista da retórica
+b -> ponto de vista da matemática
+c -> ponto de vista da computação
+d -> ponto de vista da filosofia
+---
+
+---
+A definição formal de lógica é exaustivamente discutida entre estudiosos do assunto e, certamente, não haverá uma descrição única que agrade a todos. Para muitas pessoas, a lógica pode ser resumida como a característica de “fazer sentido”. Se uma situação faz sentido, ou seja, se ela é aceitável para o nosso conceito de realidade, então ela “tem lógica”.
+
+Para o nosso caso, vamos considerar que a lógica é a ciência que avalia se uma expressão, esteja ela em linguagem natural (como o português) ou simbólica (como a álgebra), é válida ou inválida, tendo o nosso referencial de realidade como base.
+
+Essa é uma definição próxima da definição de lógica clássica ou aristotélica. Lógica Aristotélica? Bem, para entender do que estamos falando, vamos conhecer um pouco da história do estudo da lógica.
+---
+
+---
+História da lógica
+
+Sabe-se que os primeiros indícios sobre o estudo do raciocínio datam de aproximadamente 400 anos a.C., na Grécia Antiga, onde homens conhecidos como sofistas discursavam para grupos de pessoas sobre como melhorar a qualidade da argumentação. Um grande personagem desse período foi Platão, fundador da academia de Atenas, que produziu diversos textos sobre política e filosofia. A primeira grande contribuição para o estudo da lógica como área do conhecimento foi dada por Aristóteles, pupilo de Platão.
+
+    Aristóteles foi um filósofo grego que escreveu sobre política, ética, física e diversos outros temas. Sua obra, que define toda a teoria da lógica clássica, manteve-se como principal referência sobre esse assunto durante quase dois mil anos.
+
+O trabalho de Aristóteles sobre a lógica é conhecido até hoje como lógica clássica ou lógica aristotélica (em referência ao seu criador). Seu conteúdo descreve uma metodologia de análise da argumentação, que visa diferenciar as sentenças verdadeiras das falsas. Esse tipo de conhecimento era muito importante e apreciado na Grécia antiga, palco de grandes debates nos espaços públicos.
+---
+
+---
+Vejamos alguns exemplos clássicos da aplicação da lógica aristotélica:
+
+- Exemplo 1:
+    1. Todo mamífero é um animal vertebrado.
+    2. Uma girafa é um mamífero.
+    3. Uma girafa é um animal vertebrado.
+
+- Exemplo 2:
+    1. Se não está chovendo, podemos ir à praia.
+    2. Não está chovendo.
+    3. Então podemos ir a praia.
+
+Após ler os exemplos 1 e 2, você deve ter tido a impressão que eles fazem sentido, ou seja, que eles “têm lógica”. Palavras com sentido de universalidade (como todo, que aparece no exemplo 1) e sentenças que identificam elementos com precisão, são a base da lógica proposta por Aristóteles. Esses elementos fazem com que a metodologia que ele criou seja consistente.
+---
+
+---
+A forma de avaliar esses exemplos é simples. No exemplo 1, temos que “Todo mamífero é um animal vertebrado”, o que sabemos ser verdade a partir dos nossos conhecimentos sobre biologia. A biologia também nos garante que “Uma girafa é um mamífero”, ou seja, outra afirmação verdadeira. Pelo encadeamento dessas duas afirmações, e levando em consideração que ambas são verdadeiras, concluímos que “Uma girafa é um animal vertebrado” também é uma sentença verdadeira!
+
+O exemplo 2 segue o mesmo padrão do exemplo 1. Considerando que o fato de “estar chovendo” é a única condição que impede o objetivo “ir à praia”, se essa condição é falsa, ou seja, “não está chovendo”, o objetivo de “ir à praia” está garantido.
+---
+
+---
+Com o tempo, estudiosos perceberam que a linguagem natural tornava frágil a análise de argumentações e que, ao injetar em sentenças palavras que possuem um sentido vago, como alguns, qualquer, quase, maioria, poucos etc., a metodologia de Aristóteles perde a capacidade de validar a veracidade ou a falsidade dessas sentenças. Por exemplo:
+
+- Exemplo 3:
+    1. Alguns estudantes têm desempenho ruim em matemática.
+    2. Pedro é um estudante.
+    3. Pedro tem desempenho ruim em matemática.
+
+É possível perceber, no exemplo 3, que existe uma certa incoerência. Baseado apenas no fato de que alguns estudantes apresentam desempenho ruim em matemática e sabendo que Pedro é um estudante, não é possível inferir com a certeza de que Pedro terá um desempenho ruim nessa disciplina.
+---
+
+---
+Durante o século XVII, estudiosos, como René Descartes e Gottfried Leibniz, deram suas contribuições para o estudo da lógica através da formalização matemática, no caso, representando partes da argumentação com símbolos. Leibniz foi o primeiro a propor que uma argumentação poderia ser reduzida à combinação de elementos (como palavras e números). Mas apenas em 1879, o matemático e filósofo Gottlob Frege publicou um trabalho que colocaria o mundo na era da lógica moderna: a lógica de predicados.
+
+A proposição da lógica de predicados, trabalho de Frege, amplia a capacidade da lógica de Aristóteles, já potencializada pela simbolização matemática de Leibniz, ao adicionar quantificadores, dentre eles o universal (∀) e o existencial (∃). Com o uso desses operadores, foi possível descrever expressões complexas de maneira formal e consistente. O quantificador universal é traduzido como “para todo” e o quantificador existencial é traduzido como “existe um”. Também é preciso nomear os predicados, ou seja, o grupo de elementos que se deseja analisar.
+---
+
+---
+Veja o exemplo a seguir. Considere que n e m são números naturais. Sabendo que o conjunto dos números naturais é infinito, é possível dizer que:
+
+- Exemplo 4:
+    - *Para todo* número natural n, *existe um* número m tal que m é maior que n.
+
+A metodologia de associar um grupo de objetos ou situações de uma argumentação ao conceito matemático de conjunto é uma das bases das provas matemáticas modernas. Porém, em vez de usar linguagem natural, essas provas utilizam uma notação simbólica, que tornam as expressões menores e mais fáceis de manipular. O exemplo 4 pode ser reescrito simbolicamente, sem perder nenhum significado, da seguinte forma:
+            ∀ n ∈ ℕ, ∃ m ∈ ℕ | m > n
+---
+
+---
+Um dos principais resultados positivos da criação da lógica de predicados foi a possibilidade de dividir expressões maiores em pequenos pedaços e representá-los separadamente. Assim, ficou mais fácil provar a validade de uma expressão a partir da prova de cada uma de suas pequenas partes.
+
+Atualmente a lógica ganhou várias vertentes e é utilizada nas mais diversas áreas do conhecimento, como física, matemática e filosofia. A ciência da computação é uma das áreas que mais se beneficiou da evolução do estudo da lógica. E é sobre a participação da lógica na computação que iremos estudar de agora em diante.
+---
+
+---
+A lógica na Computação
+
+O nível de formalismo matemático, ao qual chegou a lógica moderna, que permitiu o desmembramento de expressões lógicas em pedaços menores e mais simples, foi fundamental para o surgimento e desenvolvimento da área da computação. Isso se deve a uma característica muito simples dos computadores: eles não possuem inteligência. É preciso tornar as tarefas do computador o mais simples possível, para que ele possa executá-las corretamente.
+
+Observe o exemplo ao lado. Ele representa uma questão comum de teste psicotécnico, teste de encaixe de formas, aplicado para crianças e adultos.
+
+Qual dos objetos a seguir encaixa perfeitamente no molde abaixo?
+(molde quadrado)
+
+A Quadrado
+B Circulo
+C Triângulo
+---
+
+---
+Você pode estar se perguntando “Por que esta é uma tarefa difícil? Computadores não são capazes de executar operações complicadíssimas em centésimos de segundos?” Sim, contudo, uma pergunta mais importante seria: como um computador consegue fazer coisas complicadas em tão pouco tempo?
+
+O computador não possui a subjetividade e a inteligência humana. Isso significa que observar uma imagem e inferir a qual forma geométrica ela corresponde é uma ação que a máquina não é capaz de fazer sozinha. Tudo o que o computador é capaz de fazer, por mais complexo que seja, é formado de pequenas tarefas muito simples. Assim, ao encadear uma tarefa com outras tarefas, sucessivamente, o computador consegue realizar coisas incríveis.
+
+A quebra da descrição de tarefas complexas em porções menores e mais simples é justamente o que torna o trabalho dos computadores viável. Veremos, no próximo tópico, que a atividade de quebra e estruturação de uma tarefa em pequenas partes é algo natural, que fazemos o tempo inteiro, e que faremos artificialmente para o computador. Na verdade, nosso trabalho é dizer ao computador o que ele deve fazer. Para isso, precisamos de uma linguagem para nos comunicarmos com ele. E é nesse momento que entra a lógica.
+---
+
+---
+A lógica é uma peça fundamental para a construção das linguagens formais, ou seja, linguagens que permitam a análise e compreensão de suas expressões, sem ambiguidade. A linguagem natural, por exemplo, é ambígua, e não serve para dizer ao computador o que fazer. Quer ver? Responda à questão a seguir.
+
+Qual das figuras a seguir representa uma manga?
+
+A) Camiseta com um circulo indicando a manga da camiseta
+B) Fruta manga
+
+Ambas as respostas estão corretas. Na língua portuguesa, a palavra “manga” pode se referir a duas coisas distintas: pode ser a fruta, e também pode ser a parte da camisa que começa no ombro e segue na direção do braço. Em outras línguas como inglês, francês, LIBRAS (Linguagem Brasileira de Sinais) etc., a palavra “manga” pode ter uma grafia ou sinal diferente para cada significado. O fato é que toda linguagem possui palavras ou sinais que se repetem para significados diferentes.
+---
+
+---
+Usamos as linguagens formais para construir as linguagens de programação. Através de uma linguagem de programação, somos capazes de informar ao computador o que ele deve fazer, sem ambiguidade. Afinal, ele não tem um cérebro humano que o ajude a distinguir entre manga fruta e manga parte da roupa.
+
+As linguagens de programação surgiram da mudança no processo de construção dos computadores. No começo do século XX, o matemático húngaro John Von Neumann propôs que, ao invés do computador ter suas funcionalidades programadas a nível de hardware (fios e componentes elétricos, que eram difíceis de modificar), eles deveriam executar um pequeno conjunto de funções básicas. A partir daí, seria possível definir comportamentos mais complexos através de um conjunto de instruções mutáveis e armazenáveis: os programas.
+
+Nascia, então, a ideia de programas de computador, um conjunto de instruções que poderiam ser interpretadas por uma máquina. Um programa poderia ser modificado mais facilmente que religar componentes elétricos. A formalidade da lógica permite a definição de linguagens não ambíguas para esse propósito.
+
+A lógica também tem sua importância em questões mais avançadas da computação como validação de semântica (semântica é o sentido das palavras, que pode variar dependendo do contexto, como a palavra “manga”), inteligência artificial (interpretação de padrões pelo computador que o fazem “aprender” algo por conta própria) e questões de segurança da informação.
+---
+
+---
+Chegamos ao final desse tópico! Nele, conhecemos um pouco da evolução da lógica, desde a discussão de argumentos na Grécia antiga, passando pela criação das regras clássicas por Aristóteles e o surgimento da lógica moderna impulsionada por Frege. Vimos também que a lógica é parte fundamental da ciência da computação, pois permite a criação de linguagens formais de programação, pelas quais podemos transmitir instruções ao computador de maneira não ambígua.
+
+No próximo tópico, discutiremos sobre a quebra da descrição de tarefas complexas em tarefas menores. Esse processo é fundamental para a criação de programas de computador. Vamos lá?
+---
+
+-----------------------------------------------------------------------
+Tópico 2 – Abstração do Mundo Real
+
+    Objetivos
+    - Analisar e extrair características de elementos do mundo real;
+    - Representar elementos do mundo real de maneira abstrata.
+
+
+No tópico anterior, conhecemos a lógica formal de Aristóteles, que evoluiu para a lógica de predicados proposta por Frege. Esta é a base para a construção de linguagens de programação.
+
+Discutiremos, neste tópico, o processo que devemos executar antes de dizer ao computador o que fazer: a interpretação de problemas e divisão da sua solução em pequenas tarefas.
+---
+
+---
+Praticamente tudo o que está ao nosso redor é descritível, ou seja, podemos criar uma representação que seja semelhante ao objeto real. Para representar uma paisagem, podemos fazer uma pintura. Para representar um sentimento ou uma cena, podemos escrever um texto. Na verdade, podemos usar o texto para descrever a maioria das coisas.
+
+Porém, existe um limite para a profundidade de uma representação. Por exemplo: mesmo a fotografia, de maior qualidade e resolução, não é capaz de representar uma paisagem com todos os seus detalhes. Uma poesia não tem como expressar todo o sentimento que o seu autor gostaria de transmitir. Essa limitação pode ser decorrente da natureza do que se deseja representar, mas também pode ser intencional, proposital.
+
+Chamamos de abstração a ação de analisar um objeto ou situação, e descrever apenas aquilo que julgamos necessário. Nesse caso, nos limitamos a descrever o objeto com apenas alguns detalhes, considerando somente as características essenciais para o que queremos fazer. Na computação, assim como em outras áreas do conhecimento, o processo de abstração é usado para simplificar a descrição de problemas a serem resolvidos.
+---
+
+---
+Vejamos um exemplo. João está indo visitar Pedro, mas sabe apenas o nome da rua em que Pedro mora, falta saber qual é a casa. Então João liga para Pedro e pede ajuda. Observe as duas situações ilustradas na figura 2 a seguir:
+
+    Situação 1:
+    João:
+        "Alô, Pedro, tudo bem? Você mora na Rua dos Jardins não é? Mas, em qual casa?"
+    Pedro
+        "João, a minha casa é uma casa de apenas um pavimento, e possui 80 m². O piso inteiro é de madeira e tem cortinas brancas nas janelas. Na frente tem dois arbustos do tipo ligustro. Tem um telhado em V com inclinação de 43°. A chaminé fica na parte de trás da casa. A casa tem um rodapé de tijolos marrons."
+
+    Situação 2
+    João:
+        "Alô, Pedro, tudo bem? Você mora na Rua dos Jardins não é? Mas, em qual casa?"
+    Pedro
+        "João, a minha casa é de número 13."
+---
+
+---
+Percebeu a diferença na quantidade de detalhes fornecidos sobre a casa na situações 1 e 2? Você concorda que, na situação 2, a simplicidade de informar apenas o número da casa foi suficiente para o que João precisava? Esse tipo de “corte” na quantidade de detalhes da descrição de um objeto é fundamental para reduzirmos a complexidade da interpretação de problemas.
+
+    O processo essencial da abstração não é ignorar detalhes do objeto estudado, e sim escolher quais são relevantes para cada situação.
+
+
+Vamos fazer um pequeno exercício sobre isso?
+---
+
+---
+Exercício 1
+
+Imagine que você está muito ocupado e por isso pediu a um amigo que fosse ao shopping comprar um cartucho de tinta específico para a sua impressora. Que informações você deve dar a ele?
+
+    a) Apenas a cor da tinta do cartucho.
+    b) A cor da tinta do cartucho, o valor médio de quantas páginas é possível imprimir com um cartucho cheio, o peso do cartucho e o valor que você pagou no cartucho na última vez que comprou.
+    c) A marca da impressora, a cor externa da impressora, a medida da largura do cartucho.
+    d) A marca e o código de referência do cartucho.
+
+    Resposta: d
+
+O seu amigo precisaria da marca do cartucho, que é a mesma marca da impressora, e do código de referência do cartucho. Assim, a compra seria clara e direta. Note que algumas informações sugeridas nos outros itens são pouco relevantes para a identificação do cartucho ou até desnecessárias.
+---
+
+---
+O que fizemos no exercício 1 foi criar uma abstração para um cartucho de impressora. Mantivemos as informações relevantes para o nosso contexto, que era a compra de um cartucho novo, e descartamos informações menos importantes.
+
+Vamos exercitar mais um pouco? Diga que informações precisamos para criar uma abstração em cada um dos casos a seguir (exercícios 2 e 3).
+
+    Exercício 2
+
+    Pensando no dinheiro que vai ganhar no futuro trabalhando com programação de computadores, você decide abrir uma conta no banco. Que informações você irá fornecer no banco para abrir sua conta?
+
+    a) Seu nome completo, documento de identidade (RG), CPF e endereço.
+    b) O nome completo dos seus pais, seu endereço e seu CPF.
+    c) O telefone de contato do seu melhor amigo(a), seu RG e seu endereço.
+    d) O valor que você pretende ganhar por mês e seu nome completo.
+
+    Resposta: a
+---
+
+---
+    Exercício 3
+
+    Você conseguiu um emprego como programador e precisa cadastrar sua conta bancária para receber seu salário todo mês. Que informações sobre a sua conta você irá fornecer ao setor financeiro da empresa?
+
+    a) Seu nome completo e nome do banco.
+    b) O nome do banco e o seu número da conta corrente.
+    c) Seu nome completo, nome do banco, número da agência e número da conta corrente.
+    d) O número da agência, número da conta corrente e seu nome completo.
+
+    Resposta: c
+---
+
+---
+
+Abstração na Computação
+
+Na computação, utilizamos a abstração não só como ferramenta para criar representação de objetos, mas também para simplificar problemas que desejamos resolver com ajuda do computador. Você lembra que no tópico 1 dissemos que o computador executa pequenas tarefas? Então, para fazer o computador resolver problemas complexos através de pequenas tarefas, precisamos quebrar os problemas em partes menores, usando o conceito de abstração.
+
+O primeiro passo para simplificar um problema é identificar os elementos que fazem parte dele e criar as abstrações necessárias. Vejamos o seguinte exemplo:
+
+    Exemplo 1
+
+    Digamos que precisamos *desenhar um quadrado*. O que precisamos saber para resolver esse problema?
+
+    1. *Saber* o tamanho do lado do quadrado (quadrados tem a mesma medida para todos os lados);
+    2. *Desenhar* uma linha reta, dado a sua medida.
+---
+
+---
+Agora vamos ver um exemplo um pouco mais complexo.
+
+    Exemplo 2
+
+    Digamos que temos que resolver a seguinte equação do segundo grau: 3x² + 7x + 1 = 0. O que precisamos saber para resolver esse problema?
+
+    1. O nosso objetivo é encontrar os valores de x que satisfaçam a equação. Para resolver a equação precisamos de um método de resolução. Usaremos a Fórmula de Bhaskara:
+             x = (-b +- √Δ) / 2a --> Δ = b² - 4ac
+
+    2. Para aplicar a fórmula de Bhaskara, precisamos *identificar* os termos *a*, *b* e *c* na equação (a = 3, b = 7 e c = -45).
+
+    3. Precisamos também *calcular* o valor de delta (Δ), que é baseado nos valores de a, b e c.
+
+    4. Por fim, poderemos *calcular* os valores de x baseados em a, b, c e delta.
+
+Com as quatro informações indicadas, seremos capazes de resolver a equação do segundo grau dada, pois uma abstração que represente uma equação do segundo grau, e que seja suficiente para resolvê-la, deve possuir o valor de a, b, c e delta.
+---
+
+---
+Note que, nos dois exemplos que acabamos de ver, destacamos alguns verbos em negrito como calcular, identificar e desenhar, que são ações a serem executadas para resolver um problema. Assim, podemos dizer que a abstração de um problema consiste em identificar quais informações e ações são necessárias para resolvê-lo. Dessa forma, dividimos o problema em partes menores e podemos resolvê-lo mais facilmente.
+
+    Criar uma abstração consiste em descrever um objeto ou uma situação com as informações relevantes para o seu objetivo. Se queremos resolver um problema, devemos identificar quais informações e ações são necessárias para resolvê-lo. Se queremos apenas representar um objeto, devemos reunir as características desse objeto que são importantes para identificá-lo.
+    
+---
+
+---
+Além de aplicar abstração diretamente em problemas do dia a dia, ela será muito útil quando formos trabalhar no computador. Na computação, a descrição de problemas de forma abstrata é fundamental para tornar o computador capaz de resolvê-lo. Detalhes que não são necessários para o nosso objetivo ocupam um espaço precioso na memória do computador, e portanto devem ser descartados. Além disso, eles podem tornar a compreensão e organização mais difícil, atrapalhando a resolução do problema.
+
+Quer um exemplo? Uma área de grande importância na indústria é o tratamento de imagens, como balanceamento de cores e detecção de bordas. Existem equações na matemática para essas operações, porém elas são longas e complicadas para o homem calcular manualmente. O computador consegue manipular imagens com muito mais eficiência que o homem, executando operações de soma, multiplicação e divisão, sem se preocupar com informações irrelevantes da imagem.
+---
+
+---
+Nesse tópico, conhecemos o conceito de abstração. Vimos exemplos de como criar abstrações de elementos do mundo real, representando-os de maneira abstrata, em texto ou imagem.
+
+Na computação, usamos abstrações do mundo real para permitir que o computador efetue cálculos e análises dos objetos reais, sem realmente ter contato com os objetos reais. Veremos como aplicar a abstração para representar elementos reais no computador durante as próximas aulas.
+
+No próximo tópico, conheceremos o sistema de numeração binário, que é um sistema de numeração diferente do que usamos no dia a dia, mas que tem papel fundamental para o funcionamento dos computadores, principalmente com relação a sua velocidade.
+
+-----------------------------------------------------------------------
+
+Tópico 3 – Sistema de numeração binário
+
+    Objetivos
+    - Conhecer as regras do sistema de numeração baseado em 0 e 1;
+    - Descrever as aplicações do sistema de numeração binário.
+
+Nós utilizamos números todo o tempo. A quantidade de farinha de trigo para fazer um pão, o preço do pão e a proporção de brasileiros que comem pão todo dia podem ser representados em números. Não é difícil imaginar que os computadores também usem números o tempo inteiro. Mas os números seguem um padrão, um sistema. No nosso caso, usamos o sistema decimal.
+---
+
+---
+O nosso sistema de numeração é chamado de decimal porque ele possui dez símbolos distintos: 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9. Com esses símbolos, também chamados de números, podemos criar infinitos números. Esses números, então, são usados para representar coisas do nosso dia a dia. Você já viu esse conceito antes na nossa aula, então responda à seguinte pergunta:
+
+Utilizar números para representar elementos do mundo real, do nosso dia a dia, corresponde ao conceito de:
+
+a) Imaginação
+b) Abstração
+c) Lógica
+c) Colaboração
+Resposta: b
+---
+
+---
+No nosso sistema de numeração, se o número tem um dígito, ele corresponde a unidades (como números de 1 a 9). Se ele tem dois dígitos, está na casa das dezenas (como números de 10 a 99). Se tem 3 dígitos, já passa a representar centenas (como números de 100 a 999), e assim por diante. Você sabe como os números decimais são montados? Que tal conhecermos esse processo?
+
+Um número decimal possui base 10. Isso significa que o valor final do número é o resultado da soma dos seus fatores. Cada fator consiste no seu valor unitário multiplicado por 10, elevado à sua posição, menos um. Está complicado de entender?
+---
+
+---
+Observe o exemplo a seguir.
+
+        Figura 3 – Processo de formação de um número decimal:
+
+            275 = 2x10² + 7x10¹ + 5x10⁰
+            '' = 2x100 + 5x10 + 5x1
+            '' = 200 + 70 + 5
+
+
+Perceba, na figura 3, que um número decimal é formado por fatores multiplicados à base 10. Como dissemos anteriormente, o expoente de cada base é igual à posição do dígito menos uma unidade, contando da direita para esquerda.
+
+Porém, os computadores utilizam um sistema de numeração diferente, que o torna muito mais rápido: o sistema de numeração binário.
+---
+
+---
+O que é um sistema de numeração binário?
+
+    Figura 4 – Transistor
+
+Um sistema de numeração é dito binário quando possui apenas 2 símbolos para representar todos os números. No caso do sistema binário usado nos computadores, são usados os números 0 (zero) e 1 (um). Na verdade, os únicos símbolos que o computador entende são o zero e o um. Isso significa que tudo o que o computador manipula, desde textos até jogos 3D, é representado dentro dele usando apenas 0 e 1.
+
+Mas por que o computador usa um sistema binário em vez de um sistema decimal, como o nosso? Um computador é formado de diversos componentes elétricos, em especial, de transistors.
+
+Para saber mais sobre o transistor e seus usos na eletrônica em geral, acesse < http://www.mundoeducacao.com/fisica/transistor.htm >
+---
+
+---
+Para simplificar o projeto de representação de informação dentro de um computador, os componentes elétricos usados nele têm a característica de identificar apenas dois estados: ligado e desligado. Dessa forma, se um componente está recebendo uma tensão elétrica de 5 volts, ele pode ser considerado no estado “ligado”. Se ele não está recebendo tensão, ou seja, 0 (zero) volts, é considerado “desligado”.
+
+Essa característica de ter apenas dois estados (ligado ou desligado) do hardware do computador, ou seja, dos seus componentes físicos, combina perfeitamente com o sistema binário, que possui apenas dois símbolos. Assim, o 1 (um) fica associado à ideia de “ligado” e o 0 (zero) fica associado à ideia de “desligado”.
+
+Estes são alguns exemplos de números binários:
+
+Tabela 1 - Correspondência entre números binários e decimais
+| Notação binária |	Notação decimal|
+|        0	      |       0        |
+|        1	      |       1        |
+|       11	      |       3        |
+|      1011	      |      11        |
+|     11011	      |      27        |
+|  100010100110	  |     2.214      |
+---
+
+---
+Conversão de binário para decimal
+
+A construção de valores numéricos no sistema binário segue um padrão parecido com o do sistema decimal. Começamos com 0 (zero), que representa o valor decimal 0 (zero). O símbolo 1 (um) também representa o valor decimal 1(um). Mas, e valor 2 (dois)? Bem, para representar os valores decimais maiores que 1 (um), é preciso combinar os símbolos do sistema binário.
+
+Podemos converter número binários em números decimais. Os números binários crescem da direita para a esquerda, como no sistema decimal, e respeitam a seguinte regra de formação: cada dígito equivale ao seu valor multiplicado por 2, elevado ao valor da sua posição no número, menos um. Depois de calcular o valor de cada dígito, basta somá-los para ter o valor final em decimal.
+---
+
+---
+Exemplos de conversão para binário:
+
+0 = ?
+= 2⁰ x 0 -> 1 x 0 
+= 0
+
+1 = ?
+= 2⁰ x 1 
+= 1
+
+101 = ?
+= (2² x 1) + (2¹ x 0) + (2⁰ x 1)
+= 4 + 0 + 1
+= 5
+---
+
+---
+Prática:
+
+    Exercício 4
+
+    Converta os seguintes números binários para decimais.
+        (pra facilitar eu vou começar com a casa mais da direita, contrário de como foi feito em cima, e vou ignorar os 0s já que eles adicionam 0 na soma final)
+
+    11001 = 
+        2⁰ + 2³ + 2⁴
+        1 + 8 + 16
+        25
+
+    11 = 
+        2⁰ + 2¹
+        1 + 2
+        3
+
+    111 = 
+        2⁰ + 2¹ + 2²
+        1 + 2 + 4
+        7
+
+    100101 = 
+        2⁰ + 2² + 2⁵
+        1 + 4 + 32
+        37
+
+    100 = 
+        2²
+        4
+
+---
+
+---
+Conversão de binário para alfanumérico
+
+Se o computador só trabalha com zeros e uns, como fazemos para representar, por exemplo, a palavra “Casa” no computador? É simples! Basta fazer uma relação entre aquilo que se deseja representar e o valor correspondente em binário, ou seja, usando apenas 0 e 1. Essa relação é colocada em uma tabela, para que possa ser consultada. Uma das mais famosas é a tabela ASCII. Observe a seguir:
+
+    Tabela 2 - ASCII de conversão de caracteres alfanuméricos para binário
+
+Consultado a tabela ASCII, podemos construir a representação de palavras em binário facilmente. A palavra “Casa”, por exemplo, corresponde ao valor binário 0100 0011 0110 0001 0111 0011 0110 0001.
+---
+
+---
+Agora vamos praticar a conversão entre caracteres alfanuméricos e binários usando a tabela ASCII?
+
+Exercício 5
+
+Para cada item a seguir, forneça a conversão para o sistema oposto, ou seja, se o item tem um número binário, converta para alfanumérico, e vice versa. Não se esqueça de agrupar os números binários sempre de 4 em 4.
+
+ab =
+    a = 97
+        97%2=1
+        48%2=0
+        24%2=0
+        12%2=0
+         6%2=0
+         3%2=1
+             1
+        0110 0001
+
+    b = 98
+        98%2=0
+        49%2=1
+        24%2=0
+        12%2=0
+         6%2=0
+         3%2=1
+             1
+        0110 0010
+
+    ab = 0110 0001 0110 0010
+
+
+0100 1111 0110 1001 =
+    (vou dividir em dois números)
+    Primeiro:
+        2⁰ + 2¹ + 2² + 2³ + 2⁶
+        1 + 2 + 4 + 8 + 64
+        79 -> O
+    Segundo:
+        2⁰ + 2³ + 2⁵ + 2⁶
+        1 + 8 + 32 + 64
+        105 -> i
+
+    O + i = Oi
+
+Cinco =
+    C = 67
+        67%2=1
+        33%2=1
+        16%2=0
+         8%2=0
+         4%2=0
+         2%2=0
+             1
+        0100 0011
+
+    i = 105
+        105%2=1
+         52%2=0
+         26%2=0
+         13%2=1
+          6%2=0
+          3%2=1
+              1
+        0110 1001
+
+    n = 110
+        110%2=0
+         55%2=1
+         27%2=1
+         13%2=1
+          6%2=0
+          3%2=1
+              1
+        0110 1110
+        
+    c = 99
+        99%2=1
+        49%2=1
+        24%2=0
+        12%2=0
+         6%2=0
+         3%2=1
+             1
+        0110 0011
+
+    o = 111
+        111%2=1
+         55%2=1
+         27%2=1
+         13%2=1
+          6%2=0
+          3%2=1
+              1
+        0110 1111
+
+Cinco = 0100 0011 0110 1001 0110 1110 0110 0011 0110 1111
+
+0100 0010 0110 1111 0110 1001 =
+    Três números:
+        0100 0010:
+            2¹ + 2⁶
+            2 + 64
+            66 -> B
+
+        0110 1111:
+            2⁰ + 2¹ + 2² + 2³ + 2⁵ + 2⁶
+            1 + 2 + 4 + 8 + 32 + 64
+            111 -> o
+
+        0110 1001
+            Igual ao exercício anterior
+            105 -> i
+
+    Resultado: Boi
+
+
+Você deve ter observado que o valor binário que representa palavras é geralmente muito grande. E é mesmo. Mas, para o computador, é simples armazenar apenas zeros e uns. Mais simples ainda é processar informações baseadas em zeros e uns. Veremos como fazer isso no próximo tópico.
+---
+
+---
+Conversão de decimal para binário
+
+Outra operação necessária é a conversão de números decimais para binários. O processo é simples, mas pode confundir. Tenha bastante atenção.
+
+Para converter um número decimal para binário, basta dividi-lo sucessivas vezes por 2. Quando o quociente da divisão resultar em 1 ou 0, pronto, você já pode parar. O número binário resultante é formado pelo quociente da última divisão, seguido do resto da última divisão, seguidos dos restos de cada divisão anterior, até chegarmos ao resto da primeira divisão.
+---
+
+---
+Nesse tópico, conhecemos o sistema de numeração binário. Os computadores utilizam esse sistema para representar toda a informação que eles manipulam, devido à característica de seus componentes elétricos de representar apenas os estados “ligado” e “desligado”. Assim, criou-se a relação: 1 (um) equivale a ligado, e 0 (zero) equivale a desligado.
+
+No próximo tópico, conheceremos mais uma vantagem para os computadores em armazenar todas as informações no formato binário. Vamos aprender também como manipular valores binários para executar operações lógicas e aritméticas básicas. Vamos lá?
+---
+
+-----------------------------------------------------------------------
+
+---
+Tópico 4 – Aritmética e lógica binária
+
+    Objetivos
+    - Diferenciar as operações lógicas “E” e “OU”;
+    - Compreender as operações binárias de soma e de produto.
+
+No tópico anterior, vimos os conceitos básicos sobre o sistema de numeração binário e a principal motivação para utilizar esse sistema em computadores, que são as associações “0 →  desligado” e “1 → ligado”, perfeita para a manipulação dos circuitos elétricos que formam o computador.
+
+Neste tópico, conheceremos duas operações envolvendo números binários: a operação “E” e a operação “OU”. Veremos que essas operações têm funções aritméticas e lógicas e que combinadas permitem a execução de todos os tipos de manipulação de dados dentro do computador.
+---
+
+---
+Operações lógicas usando números binários
+
+Você lembra que dissemos, no tópico anterior, que os valores 1 (um) e 0 (zero) do sistema binário são interpretados no computador como “ligado” e “desligado”, respectivamente? Essa interpretação pode ganhar mais utilidade se associarmos os valores 1 (um) ao sentido de “verdadeiro” e 0 (zero) ao sentido de “falso”, pois podemos aplicar as regras da lógica sobre esses valores.
+
+O conceito de operação lógica de negação é o mais simples de todos: a negação transforma 0 em 1 e 1 em 0. Na argumentação, essa operação se caracteriza pela palavra “não”. Ao adicionar o “não” a uma afirmativa, você torna falso o que é verdadeiro e verdadeiro o que é falso. A negação é simbolizada por “¬”.
+
+Por exemplo: “Eu estou com fome” é uma afirmativa que indica que eu tenho fome. Mas se incluo o “não”, a afirmativa se torna “Eu não estou com fome”, o que é exatamente o contrário do que foi dito antes.
+---
+
+---
+Se negarmos uma afirmativa que já é negativa, ou seja, já possui o “não”, as negações se anulam e a afirmação se torna positiva. Por exemplo: “Eu não não estou com fome” é o mesmo que “Eu estou com fome”.
+
+Podemos dizer então que, se aplicarmos negação a algo verdadeiro (1), ele se torna falso (0), e se aplicarmos novamente a negação ao que já era falso (0), ele se torna verdadeiro (1).
+
+A operação de negação pode ser executada sobre um número binário inteiro. Por exemplo: se aplicarmos negação em 101, o resultado será 010, que é igual a 10 (o primeiro zero pode ser descartado, como no sistema binário). Se aplicarmos negação em 10001 o resultado será 1110, e assim por diante.
+---
+
+---
+Agora vamos analisar um argumento mais complexo, semelhante ao exemplo 2 do tópico 1. Observe o seguinte enunciado:
+
+        Se eu tiver tempo e dinheiro, viajarei amanhã.
+        Eu tenho tempo.
+        Eu tenho dinheiro.
+        Então viajarei amanhã.
+
+Esse é um enunciado que indica um objetivo (viajar amanhã) que está limitado a duas condições: de ter tempo e de ter dinheiro. Se ambas forem verdadeiras, o objetivo será alcançado, ou seja, viajarei. Se uma das condições for desfavorável, não poderei viajar. Podemos atribuir valores lógicos de “verdadeiro” ou “falso” a cada parte desse enunciado, sendo que 1 representa “verdadeiro” e 0 representa “falso”. Vejamos como ficaria essa representação em uma tabela:
+
+    Tabela 3 – Representação da situação “com tempo e com dinheiro”
+        +-------------+----------------+------------+
+        | Tenho tempo | Tenho dinheiro | Vou viajar |
+        +-------------+----------------+------------+
+        | 1           | 1              | 1          |
+        +-------------+----------------+------------+
+---
+
+---
+Agora, imagine que precisei gastar o dinheiro que iria precisar para a viagem com um reparo no carro. Dessa forma, não tenho mais o dinheiro para viajar, ou seja, a condição “tenho dinheiro” passa a ser falsa. Como consequência, não poderei mais viajar e o objetivo “vou viajar” também se torna falso. Se adicionarmos essa situação à tabela, ele ficará assim:
+
+    Tabela 4 – Tabela com a nova situação “com tempo e sem dinheiro”
+        +-------------+----------------+------------+
+        | Tenho tempo | Tenho dinheiro | Vou viajar |
+        +-------------+----------------+------------+
+        | 1           | 1              | 1          |
+        | ----------- | -------------- | ---------- |
+        | 1           | 0              | 0          |
+        +-------------+----------------+------------+
+
+Vamos considerar outra situação. Digamos que eu tenha a quantia que preciso para viajar, mas ocorreu um imprevisto no trabalho e vou precisar fazer hora extra. A condição “tenho tempo” não será mais verdadeira e, portanto, não poderei mais viajar. Assim, se representarmos essa nova situação na tabela, ela ficaria assim:
+
+    Tabela 5 – Tabela com a nova situação “sem tempo e com dinheiro”
+        
+        +-------------+----------------+------------+
+        | Tenho tempo | Tenho dinheiro | Vou viajar |
+        +-------------+----------------+------------+
+        | 1           | 1              | 1          |
+        | ----------- | -------------- | ---------- |
+        | 1           | 0              | 0          |
+        | ----------- | -------------- | ---------- |
+        | 0           | 1              | 0          |
+        +-------------+----------------+------------+
+
+
+Agora vejamos o último caso. Se eu não tiver dinheiro e tempo, é claro que não vou poder viajar. Colocando esse último caso na tabela, completamos as 4 possibilidades para o nosso exemplo, e ela ficará assim:
+
+    Tabela 6 – Tabela com a nova situação “sem tempo e sem dinheiro”
+        # Head
+        
+        +-------------+----------------+------------+
+        | Tenho tempo | Tenho dinheiro | Vou viajar |
+        |-------------+----------------+------------|
+        | 1           | 1              | 1          |
+        | ----------- | -------------- | ---------- |
+        | 1           | 0              | 0          |
+        | ----------- | -------------- | ---------- |
+        | 0           | 1              | 0          |
+        | ----------- | -------------- | ---------- |
+        | 0           | 0              | 0          |
+        +-------------+----------------+------------+
+
+
+A tabela que criamos para esse exemplo tem um nome: tabela verdade. Uma tabela verdade reúne todas as combinações de verdadeiro e falso para um determinado cenário. Sua última coluna, a da direita, representa o objetivo geral do cenário estudado, enquanto as demais colunas representam uma das condições que influenciam esse resultado.
+
+A lógica que descrevemos com o exemplo da viagem chama-se lógica “E” e corresponde à seguinte descrição: o resultado final só é verdadeiro (1) se todas as condições forem verdadeiras. Para todos os outros casos, o resultado será falso (0).
+---
+
+---
+Agora vamos pensar em outro cenário. Digamos que eu quero comprar um computador novo. Mas só vou poder comprar se meu amigo me emprestar um dinheiro ou meu chefe me der um aumento. Se qualquer uma dessas condições for verdadeira, eu poderei comprar meu novo computador, ou seja:
+
+1. Se um amigo não me emprestar o dinheiro e meu chefe não me der um aumento, não vou poder comprar o computador.
+2. Se meu chefe me der um aumento, poderei comprar o computador.
+3. Se um amigo me emprestar o dinheiro, poderei comprar o computador.
+4. Se um amigo me emprestar o dinheiro e meu chefe me der um aumento, poderei comprar o computador.
+---
+
+---
+Perceba que apenas no primeiro caso, em que nenhuma das condições foi atendida, eu não posso comprar o computador. Se quiser construir uma tabela verdade para esse cenário, ela ficaria assim:
+
+    Tabela 7 – Tabela verdade do cenário da compra do computador
+    +---------------------+------------------+--------------------+
+    | Empréstimo do amigo | Aumento do chefe | Comprar computador |
+    +---------------------+------------------+--------------------+
+    | 0                   | 0                | 0                  |
+    | ------------------- | ---------------- | ------------------ |
+    | 0                   | 1                | 1                  |
+    | ------------------- | ---------------- | ------------------ |
+    | 1                   | 0                | 1                  |
+    | ------------------- | ---------------- | ------------------ |
+    | 1                   | 1                | 1                  |
+    +---------------------+------------------+--------------------+
+---
+
+---
+A lógica que descrevemos nesse exemplo chama-se lógica “OU” e corresponde à seguinte descrição: o resultado é sempre verdadeiro (1), exceto se todas as condições forem falsas.
+
+Podemos resumir o comportamento das operações lógicas “E” e “OU” baseados na sua tabela verdade.
+
+Tabela 8 – Tabelas verdade das operações “E” e “OU”
+
++---------------------------------------+
+|              Lógica "E"               |
++---------+---+---------+---+-----------+
+| Valor 1 |   | Valor 2 |   | Resultado |
++---------+---+---------+---+-----------+
+| 0       |   | 0       |   | 0         |
+| 0       | e | 1       | = | 0         |
+| 1       |   | 0       |   | 0         |
+| 1       |   | 1       |   | 1         |
++---------+---+---------+---+-----------+
+
++----------------------------------------+
+|              Lógica "OU"               |
++---------+----+---------+---+-----------+
+| Valor 1 |    | Valor 2 |   | Resultado |
++---------+----+---------+---+-----------+
+| 0       |    | 0       |   | 0         |
+| 0       | ou | 1       | = | 1         |
+| 1       |    | 0       |   | 1         |
+| 1       |    | 1       |   | 1         |
++---------+----+---------+---+-----------+
+---
+
+---
+Que tal praticarmos um pouco sobre os conceitos de “E” e “OU”?
+
+    Exercício 6
+
+    Para cada item a seguir, forneça a resposta para a operação lógica binária pedida.
+
+    a) 0 ou 0 = 0
+    b) 0 e 1 = 0
+    c) 1 e 1 = 1
+    d) 1 e 0 = 0
+    e) 1 ou 0 = 1
+    f) 1 ou 1 = 1
+---
+
+---
+Ambas as lógicas “E” e “OU” foram estudadas e divulgadas pelo matemático inglês George Boole, ganhando assim o nome de álgebra booleana. Hoje em dia, o conceito de booleano remete à ideia de verdadeiro ou falso, 0 ou 1 etc.
+---
+
+---
+Soma e produto binário
+
+Já conhecemos os comportamentos dos operadores lógicos “E” e “OU” com apenas dois operandos, ou seja, usando apenas dois bits para definir o resultado. Mas ainda não descobrimos como isso ajuda o computador a executar operações matemáticas rapidamente como dissemos nos tópicos anteriores.
+
+O segredo para a velocidade dos computadores está na natureza da manipulação de números binários. Existem apenas dois resultados possíveis para as operações “E” e “OU”: 0 (zero) ou 1 (um). Por esse motivo, os computadores possuem circuitos especialmente desenvolvidos apenas para executar essas operações (e algumas outras poucas operações derivadas de “E” e “OU”), de modo que mesmo contas complexas são realizadas em frações de segundos; soma, multiplicação, divisão e subtração são apenas operações que podem resultar em 0 (zero) ou 1 (um).
+---
+
+---
+A operação “OU” corresponde à soma aritmética. O mesmo padrão aplicado à soma de decimais vale na soma de números binários. A regra do “vai um”, que, para números decimais, ocorre quando a soma de dois dígitos é maior que 10, ocorre para números binários na soma de dois dígitos 1, ou seja, 1 + 1. Nesse caso, o valor 0 (zero) fica sendo o resultado da soma e o valor 1 (um) deve ser somado na operação seguinte.
+
+    Vejamos um exemplo. Para executar a operação 5 + 6 = 11, temos:
+           ¹5  -->    ¹101
+        +   6  -->  +  110
+        -----       ------
+           11         1011    
+---
+
+---
+Da mesma forma, a operação de produto binário é similar ao processo decimal. Veja um exemplo de operação de multiplicação decimal e sua correspondente em números binários:
+   20  -->  (vou fazer 2 x 13      1101
+x  13  -->   por praticidade)   x    10
+ -----                           -------
+   00                              0000   
++ 26                            + 1101
+ -----                           -------
+  260                             11010
+  
+---
+
+---
+A multiplicação dos dígitos é feita através de uma operação “E” como estudamos anteriormente. Note que, para cada dígito multiplicado, ocorre um deslocamento dos resultados para a esquerda. Depois, a soma de cada fator é executada normalmente.
+
+    Exercício 7
+
+    Para cada item a seguir, efetue a operação binária pedida.
+
+    a) 1100 + 110 = 
+    1100
+    110
+    -----
+    10010
+
+    b) 10 x 10 = 
+    10
+    10
+    ---
+    00
+    10
+    ---
+    100
+
+    c) 100 x 11 = 
+    100
+    11
+    ----
+    100
+    100
+    ----
+    1100
+  
+Nesse tópico, conhecemos as operações lógicas “E” e “OU”. Vimos que as operações entre números binários são simples porque os resultados sempre resultam em 0 (zero) ou 1 (um). Assim, o computador por executar operações binárias em frações de segundos. Também vimos que as operações “E” e “OU” são empregadas para executar a soma e multiplicação decimal.
+---
+
+---
+Chegamos ao final de nossa primeira aula sobre lógica de programação. Conhecemos um pouco da história da lógica como uma área do conhecimento. A lógica é peça fundamental para o desenvolvimento da matemática, da física, da política e da computação.
+
+Também aprendemos como criar abstrações de elementos do mundo real, com o objetivo de analisar problemas, isolar informações essenciais e resolvermos tais problemas com mais facilidade. Conhecemos o sistema de numeração binário e como ele é utilizado dentro dos computadores.
+
+Na próxima aula, aplicaremos nossos conhecimentos sobre abstração para estruturar problemas da forma que o computador interpreta e resolve. Iremos criar algoritmos! Até lá.
+
+-----------------------------------------------------------------------
+CDD
+
+Olá! Na webaula, estudamos sobre o processo de abstração de objetos, o sistema de numeração binário e sobre as lógicas binárias "E", "OU" e "NÃO". Aprendemos que, para criar algoritmos, precisamos, primeiramente, pensar na lógica que resolve um problema para, então, abstraí-lo, tornando-o mais simples. Após a lógica ser definida e o problema abstraído, é hora de organizar essa lógica em um passo a passo. Primeiro, devemos receber os dados necessários para a resolução do problema e processá-los para, depois, apresentar a solução de uma maneira estruturada. A partir de agora, praticaremos um pouco o que aprendemos sobre abstração, operações lógicas e cálculos com números binários. Vamos lá!
+
+...
+Converta o número binário 10 em decimal
+10
+2¹ = 2
+
+Converta o número binário 1000 em decimal
+1000
+2³ = 2x2x2 = 8
+
+Converta o número binário 101 em decimal
+101
+2⁰ + 2² = 1 + 4 = 5
+
+Converta o número decimal 5 em binário
+5%2=1
+2%2=0
+    1
+0101
+
+Converta o número decimal 11 em binário
+11%2=1
+5%2=1
+2%2=0
+    1
+1011
+
+Converta o número 17 em binário
+17%2=1
+8%2=0
+4%2=0
+2%2=0
+    1
+10001
+
+ 1101
+  101
+10010
+
+Durante a webaula, compreendemos os conceitos e a teoria acerca de abstração, sistemas de numeração, operações lógicas e operações numéricas com números binários. Fizemos algumas práticas utilizando esses conceitos a partir de situações do dia a dia, em seguida, praticamos um pouco soma e multiplicação de números binários. É importante que você continue praticando esse conteúdo, pois ele é muito importante para a compreensão dos próximos conteúdos de maneira mais fácil. Qualquer dúvida, entre em contato com o seu tutor. Até mais!
+
+  1 0 0 1
+×   1 1 0
+----------
+ 10010
+100100
+--------
+110110
+
+10%2=0
+5%2=1
+2%2=0
+    1
+1010

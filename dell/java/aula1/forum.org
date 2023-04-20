@@ -1,0 +1,50 @@
+#+TITLE: Forum
+
+* Enunciado
+O texto a seguir se trata de um e-mail enviado por um funcionário de uma empresa de desenvolvimento de softwares em Java. Neste fórum, você deverá ler o e-mail e atender o que é solicitado, buscando aplicar o que aprendeu na aula. Bom estudo!
+
+Olá, pessoal.
+Eu me chamo Baltazar e trabalho em uma empresa que desenvolve softwares em Java. Nesta semana, teremos uma reunião importante com um grupo de investidores e minha missão é persuadi-lo a utilizar nossas soluções de sistemas.
+Na realidade, o grupo já utiliza softwares com outras linguagens concorrentes. Precisamos, então, convencê-lo das vantagens de utilizar aplicações em Java.
+Gostaria da sua ajuda para montar uma estratégia com as principais vantagens da Linguagem Java de uma forma mais atrativa, para que possamos garantir mais investimentos para nossa empresa.
+Aguardo o seu retorno.
+Desde já, agradeço pela atenção.
+* Minha resposta
+
+Caro Baltazar,
+
+Acredito que podemos convencer os investidores mostrando as principais vantagens de utilizar a linguagem Java e algumas curiosidades
+
+** Vantagens
+- Portabilidade
+  - A linguagem Java utiliza uma JVM para compilar e executar os seus códigos, ou seja, ela tem uma plataforma própria que consegue pegar qualquer código escrito em Java, independente de em qual máquina foi escrito, e customizar os bits executáveis para as características da máquina onde será utilizado.
+
+- Orientada a objetos
+  - A orientação a objetos torna o código mais organizado, fácil de entender e explicar para os companheiros de trabalho e de fazer a manutenção a curto e longo prazo.
+
+- Multi-threads
+  - A linguagem Java é capaz de suportar várias threads, ou seja, é capaz de suportar vários processamentos ocorrendo ao mesmo tempo
+
+- Facilidade de gerenciamento de memória
+  - A linguagem Java consegue por conta própria lidar com ponteiros, o que pode tornar o desenvolvimento muito mais fácil e com menos erros do que em linguagens de baixo nível como o C
+  - A linguagem Java tem um "coletor de lixo", que lida com a memória alocada durante a execução do programa e consegue liberar a memória que não está sendo mais usada, o que evita erros e em outras linguagens é necessário realizar manualmente.
+
+- Facilidade em encontrar recursos
+  - Java tem uma documentação extensa e uma comunidade grande, então provavelmente conseguimos encontrar qualquer coisa que queiramos tanto na documentação oficial ou em fóruns na internet
+  - Java tem várias bibliotecas que conseguem expandir a capacidade e funcionalidade da linguagem a quase qualquer coisa que precisarmos
+
+** Curiosidades
+- Minecraft, um dos jogos mais jogados no mundo foi desenvolvido em Java
+- Grande parte do sistema operacional Android foi desenvolvido em Java
+- Java é a linguagem de programação mais utilizada no mundo
+
+Acho que esses pontos são o que tornam a linguagem única e com eles provavelmente convencerás os investidores de porque eles deveriam escolher nossa empresa por utilizar essa linguagem. Espero ter ajudado, qualquer outra dúvida estou a disposição.
+
+Abraços, Diogo.
+
+* Dica do tutor
+Olá pessoal! Tudo certo?
+
+Como podem ver no enunciado acima, vocês precisam atender a solicitação do funcionário da empresa de desenvolvimento de softwares em Java, mostrando e discutindo as vantagens da linguagem Java.
+
+Não deixem de analisar e discutir a opinião de seus colegas, pois isso proporciona interação entre os participantes num fórum e contribui positivamente para o nosso aprendizado.

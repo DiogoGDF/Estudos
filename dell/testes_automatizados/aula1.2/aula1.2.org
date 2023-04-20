@@ -1,0 +1,58 @@
+#+TITLE: Aula 1.2 - Testes Ágeis
+
++ Métodos ágeis mudaram o paradigma existente de teste anterior. Antes *se testava logo após a funcionalidades principais estarem prontas*. Isso resultava em _baixa qualidade de software, falhas e erros_, que eram descubertos apenas na faze final de desenvolvimento.
++ Métodos ágeis solucionaram todos os problemas do paradigma anterior pois *eles são implementados desde o início do processo*
+
++ Testes ágeis não são sequênciais, mas *contínuos*:
+  + pode começar no início do projeto, e ter uma integração contínua durante do desenvolvimento e teste
+  + O plano de etste é desenvolvido e atulizado a cada versão do sistema
+
++ Modelo Ágil:
+  + Tipos de testes realizados a cada iteração
+    + Requisitos de dados de teste
+    + Infraestrutura
+    + Ambientes de teste
+    + Resultados de teste
+
++ Planos de teste:
+  + Escopo do teste
+  + Novas funcionalidades
+  + Nível ou tipos de teste
+  + Teste de carga
+  + Teste de desempenho
+  + Infraestrutura
+  + Plano de migração ou riscos
+  + Recursos
+  + Resultados finais
+
+
+[[file:piramide.png][piramide de teste]]
+
++ É uma boa regra para estabelecer o próprio conjunto de testes
++ Em formato de pirâmide para pensar em diferentes camadas de teste:
+  + UI Tests (testes de interface do usuário):
+    + Camada em que se testaria o produto da perspectiva do usuário final
+  + Service Tests (testes de serviço):
+    + Garantem que o código está corretamente integrado com os serviços externos
+    + Qualquer mudança na lógica de negócios pode ser rápidamente transformados em testes
+    + São mais lentos que testes de unidade
+    + Podem depender de recursos externos
+  + Unit Tests (testes de unidade):
+    + A automação oferece o melhor ganho para o cliente
+    + Verifica se o novo código está funcionando corretamente:
+      + Se o desenvolvedor que escreveu o código é qualificado
+      + Se os seus testes cobrem o código
+
+
++ Papel do testador:
+  + Garantir que os fluxos de testes estão alinhados com os requisitos
+
+* Fórum
+
+Nesta aula, você conheceu o conceito e algumas possibilidades de aplicação de testes ágeis. Então, para responder este fórum, proponho que você imagine um software que vai ser desenvolvido para acompanhar as notas e desempenho de alunos em uma determinada escola. Levando em consideração que, na metodologia ágil, os testes são incluídos desde o início das atividades, comente como esse processo poderia ser estruturado, a partir do conceito da pirâmide de teste de Mike Cohn.
+
+Em um primeiro momento, enquanto o código e o software está em faze de desenvolvimento inicial, será realizado apenas os testes do tipo "unit tests" ou testes de unidade, onde será testado e averiguado se a o código está funcionando corretamente, por exemplo se os métodos estão dando as saídas esperadas para x entradas.
+
+Depois que as funcionalidades principais estiverem concluídas podemos partir para os testes de serviço "Service Tests", onde será testado a integridade do código com serviços externos, estes, por estarem em um nível mais elevado da pirâmide são mais lentos do que os testes de unidade. Nestes testes iremos ver se o código está interagindo corretamente com os serviços externos a ele ligados, como um banco de dados por exemplo, estaremos testando se ao criar contas de novos alunos elas estão sendo armazenadas corretamente, se ao utilizar os métodos de cálculo de notas (já testados na fase anterior) os resultados estão sendo corretamente registrados no banco de dados, etc.
+
+Por fim, temos os testes de UI, ou seja, os testes da interface de usuário, onde faremos testes no software pela perspectiva de usuário. Ou seja, faremos testes na visão de usuário final do software, estes por sua vez são os mais lentos e começam a ser postos em prática nas fases finais do desenvolvimento de software.

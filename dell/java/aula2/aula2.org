@@ -1,0 +1,576 @@
+#+TITLE: Aula 2 - Java
+
+* Indice :toc:
+- [[#introdução][Introdução]]
+- [[#tópico-1--tipos-de-dados-básicos-primitivos][Tópico 1 – Tipos de dados básicos (primitivos)]]
+  - [[#declaração-de-variáveis][Declaração de variáveis]]
+- [[#tópico-2--métodos][Tópico 2 – Métodos]]
+  - [[#entendendo-o-exemplo][Entendendo o exemplo:]]
+- [[#tópico-3--comandos-básicos-de-java][Tópico 3 – Comandos básicos de Java]]
+  - [[#controle-de-fluxo][Controle de Fluxo]]
+- [[#tópico-4--arrays][Tópico 4 – Arrays]]
+  - [[#11-arrays-unidimensionais][1.1 Arrays Unidimensionais]]
+  - [[#12-arrays-multidimensionais][1.2 Arrays Multidimensionais]]
+- [[#video][Video]]
+  - [[#algoritmos-utilizados-durante-o-vídeo][Algoritmos utilizados durante o vídeo]]
+
+* Introdução
+Olá! Nesta aula, estudaremos os tipos de dados básicos de Java, conhecidos como tipos primitivos de dados; em síntese, são tipos de dados que representam valores básicos, não classes. Além disso, aprenderemos como utilizar array (vetor) em Java. Mostraremos também o que são métodos e sua aplicabilidade na Linguagem Java e conheceremos seus elementos básicos (comandos básicos), suas definições e exemplos de onde são empregados. Vamos lá!?
+
+*Objetivos*
++ Conhecer os tipos de dados básicos e os elementos da sintaxe Java;
++ Aprender a criar e manipular arrays usando Linguagem Java;
++ Compreender o que são métodos em Java e aprender a utilizá-los.
+
+* Tópico 1 – Tipos de dados básicos (primitivos)
+
+*Objetivo*
++ Conhecer os tipos de dados básicos (primitivos) utilizados em Java.
+
+Neste tópico, conheceremos os tipos primitivos de dados, aprenderemos a declarar variáveis e utilizar operadores em Linguagem Java.
+
+#+begin_quote
+O que são tipos primitivos de dados?
+
+As tarefas executadas por computadores, tais como escrever mensagens na tela, resolver problemas matemáticos ou até mesmo desenhar arquivos tridimensionais, são baseadas em manipulação de dados. Esses dados podem ser de vários tipos: números, caracteres, textos etc. Chamamos de tipos primitivos os tipos de dados básicos de uma linguagem de programação a partir dos quais é possível criar tipos mais complexos. Java, assim como outras linguagens de programação, também possui seus tipos primitivos.
+#+end_quote
+
+No quadro a seguir, apresentamos os oito tipos primitivos de dados da Linguagem Java e suas descrições:
+
+[[file:quadro1.png][Quadro 1 – Tipos primitivos de dados em Java.]]
+
+Conforme você pôde perceber, Java possui oito tipos primitivos de dados. Para facilitar o entendimento sobre eles, confira o diagrama a seguir, que apresenta os tipos primitivos da Linguagem Java divididos por categoria.
+
+[[file:figura01.png][Figura 1: Estrutura organizacional de dados primitivos em Java.]]
+
+** Declaração de variáveis
+Já conhecemos os tipos de dados primitivos da Linguagem Java. Agora, você aprenderá a declarar e inicializar variáveis em Java. Estes dois procedimentos – declaração e inicialização – são diferentes.
+
+Declarar uma variável significa que você garantirá que ela existirá no programa, mesmo que ela não receba um valor. A inicialização garante que a variável conterá um valor útil que poderá ser utilizada para algum procedimento. Assim como a declaração, a inicialização de uma variável também é permitida ser feita durante todo o código.
+
+A declaração de variáveis segue esta estrutura:
+
+< TIPO > < VARIÁVEL > = < VALOR >;
+
+Como mostrado na estrutura anterior, para se declarar uma variável, precisamos informar, primeiramente, o tipo dela e seu nome em seguida. Também podemos dar um valor a ela, que é sua inicialização, que mostramos compreendido por colchetes ([ e ]), que também é opcional durante a declaração, podendo ser feito, posteriormente, de acordo com a estrutura a seguir:
+
+< VARIÁVEL > = < VALOR >;
+
+Exemplo:
+
+#+begin_src java
+double peso;
+boolean ativo;
+char letra = ‘a’;
+int idade = 35;
+#+end_src
+
+Diferentemente de algumas linguagens, como C ANSI, Java permite a declaração e inicialização de variáveis por todo o código, não somente no início de métodos e classes.
+
+Neste tópico, você estudou tipos primitivos de dados em geral, o intervalo de seus possíveis valores, seus tamanhos e conheceu sua importância em um programa Java no que diz respeito à declaração de variáveis, ainda, analisou operadores Java. No próximo tópico, estudará sobre como criar e manipular arrays usando a linguagem Java.
+
+* Tópico 2 – Métodos
+
+*Objetivo*
++ Estudar a definição de métodos em Java e suas aplicabilidades.
+
+Neste tópico, conheceremos o conceito de métodos, exemplos de sua aplicação e buscaremos, através dos exemplos, compreender sua funcionalidade.
+
+#+begin_example
+Mas o que são métodos?
+
+Métodos são blocos organizados de código que podem ser programaticamente executados. Sua utilidade principal é agrupar trechos de código que trabalham conjuntamente para alcançar um determinado objetivo. Por exemplo, um método que efetua a soma de dois números deve conter todas as instruções para executar com sucesso a soma de dois números dados. Assim, se precisarmos somar dois números diversas vezes em nosso programa, não é obrigatório repetir todas as instruções que são necessárias para efetuar essa soma, basta executar nosso método de soma. Embora métodos também sejam conhecidos como funções em outras linguagens como C e C++, na literatura relacionada à Linguagem Java, você sempre os encontrará com o nome de "método".
+#+end_example
+
+
+A estrutura que compõe um método é denominada “assinatura” e possui, pelo menos, três partes. A primeira é um nome, a segunda é o tipo de dado do que é gerado como resultado da sua execução e a terceira parte é uma lista de parâmetros. Um método pode gerar um resultado que precise ser "devolvido", ou seja, repassado à linha de código fonte onde ele foi requisitado. Nesse caso, devemos definir o tipo do resultado que será devolvido pelo método após a sua execução (como int, float, boolean, String etc). Quando não é necessário devolver este resultado, define-se o retorno do método como void (vazio). Além disso, um método pode receber uma lista de parâmetros, que é uma lista de variáveis que ele precisa para trabalhar. Essa lista pode ser vazia, o que significa que o método não precisa de informações de fora dele para trabalhar.
+
+Existem mais dois elementos que podem compor a assinatura de um método: modificador de visibilidade e modificador de contexto. O modificador de visibilidade diz se o método é público, protegido ou privado. Esse conceito tem efeito sobre quem pode acessar o método em questão. Já o modificador de contexto indica se o método precisa de um objeto da classe à qual pertence para ser acessado ou não. Estudaremos mais sobre esses dois parâmetros nas próximas aulas. Podemos resumir a assinatura mais completa de um método como sendo:
+
+#+begin_example
+< modificador de visibilidade > < modificador de contexto >
+
+< tipo de retorno > < nome do método > ( < lista de parâmetros.. .> )
+#+end_example
+
+Exemplo de um método contendo todos os elementos descritos anteriormente:
+
+#+begin_example
+public static void soma(int valor_1, int valor_2) { ... }
+#+end_example
+
+Você deve se lembrar do método main que já estudamos no exemplo HelloWorld. Agora, temos um novo exemplo contendo a declaração de três métodos
+
+
+ #+begin_src java
+ /*
+   *Esta classe demonstra a criação de métodos em Java
+   */
+  public class MetodosJava{
+      /* Todos os métodos estão declarados com palavra-chave static, que indica
+       * que os métodos serão acessados através de um contexto stático. Assim não
+       * existe a necessidade de se instanciar uma classe.
+       */
+
+      public static void metodo1(){
+          System.out.println("Eu sou um método que não retorna valor devido a palavra chave void.");
+      }
+
+      public static int metodo2(){
+          System.out.println("Eu sou um método que retorna um valor inteiro");
+          return 1;
+      }
+      public static void metodo3(String nome, int idade){
+          System.out.println("Eu sou um método que não retorna valor");
+          System.out.println("Recebe dois parâmetros.");
+          System.out.println("Uma string nome: " +nome);
+          System.out.println("Um inteiro idade: " +idade);
+      }
+      public static void main(String args[]){
+          metodo1();
+          System.out.println("O valor retornado pelo método2 é:" +metodo2());
+          metodo3("Rafael", 29);
+      }
+  }
+ #+end_src
+
+ A título de curiosidade, e por ainda não ter sido comentado neste curso, é válido informar que é possível definir comentários no código através do conjunto de caracteres // (barra dupla) para comentários de uma linha e, para comentários de múltiplas linhas, podemos comportá-los entre /* (barra mais asterisco) e */ (asterisco mais barra), iniciando e finalizando, respectivamente, o bloco de comentário.
+
+** Entendendo o exemplo:
+Linha 4: nesta linha, é declarado o início da classe principal do arquivo Java. Não se preocupe com o conceito de classes por enquanto, pois estudaremos esse assunto mais adiante.
+
+Linhas 9-13: o método metodo1, que apenas imprime um valor no console, é declarado. A assinatura do método está na seguinte forma:
+
+#+begin_example
+< modificador de visibilidade > < modificador de contexto > < tipo de retorno > < nome do método >
+#+end_example
+
+No caso citado, o tipo de retorno é void, significando que não há retorno.
+
+Linhas 14-17: declaração do método metodo2, que é capaz de retornar valor do tipo inteiro (int).
+
+Linhas 18-23: declaração do método metodo3, que recebe dois parâmetros: nome e idade. Note que os argumentos são definidos entre os parênteses, na seguinte forma:
+
+#+begin_example
+(Tipo parametro1, Tipo parametro2, Tipo parametro3, ... )
+#+end_example
+
+Os parâmetros do método metodo3 são acessíveis apenas no contexto do método em que estão declarados, ou seja, dentro do bloco de código do método. Damos o nome de “escopo” para esse limite de abrangência. Trataremos sobre escopo durante boa parte do nosso curso.
+
+Linhas 24-28: é o método main, principal da classe. Em seu interior, há exemplos de utilização dos demais métodos como metodo1, metodo2 e metodo3.
+
+#+begin_example
+Atenção!
+
+Agora, para aplicar o que aprendeu, tenha como base os exemplos apresentados neste tópico e pratique-os no ambiente de programação da plataforma. Lembre-se de que a teoria e a prática caminham juntas e o exercício é muito importante. Por isso, não deixe de praticar os exemplos desta aula. Se preferir, também pode criar e praticar seus próprios exemplos referentes aos assuntos estudados aqui.
+#+end_example
+
+Você deve ter percebido o uso da palavra static na assinatura de todos os métodos do nosso exemplo. Essa palavra-chave é um modificador de contexto e tem relação com a possibilidade de execução de um método sem a presença de um objeto do mesmo tipo da classe que o contém. Estudaremos o significado exato desta palavra-chave e suas aplicações em outras aulas.
+
+Neste tópico, estudamos o uso de métodos, suas características e sua aplicação em Java. No próximo tópico, é a vez de abordarmos os comandos básicos da linguagem de programação Java.
+
+Fim
+
+* Tópico 3 – Comandos básicos de Java
+
+*Objetivos*
++ Conhecer os comandos básicos da linguagem de programação Java;
++ Compreender as estruturas de controle de fluxo em Java.
+
+Neste tópico, estudaremos estruturas básicas de controle de fluxo em Java como estruturas de decisão e laços, necessárias para escrevermos nossos primeiros programas.
+
+** Controle de Fluxo
+Chamamos de controle de fluxo a ação de modificar a sequência de execução normal de instruções dentro de um programa. Isso é possível através de comandos que têm a capacidade de repetir ou ignorar instruções. Esses comandos podem ser condicionais (associados a uma condição) ou incondicionais (sem condição). Uma estrutura de controle condicional só tem efeito quando a sua condição é satisfeita, ou seja, quando ela é verdadeira. O Java possui diversas estruturas de controle de fluxo conforme você conhecerá a seguir.
+
+*** Estruturas de Decisão
+Estruturas de decisão são um tipo de estrutura de controle de fluxo que permite ou impede a execução de determinados trechos de código. Isso é possível através de condições. Basicamente, estruturas de decisão possuem uma condição lógica que é analisada e, dependendo do resultado (verdadeiro ou falso), é tomada a decisão sobre executar ou não um trecho de código. Vamos começar estudando a estrutura de decisão mais simples do Java, o if (se).
+
+#+begin_example
+if, if-else e if-else aninhado
+#+end_example
+
+O if, que pode ser traduzido para português como "se", é uma estrutura condicional, ou seja, que utiliza uma condição para decidir sobre a execução de um bloco de código. O funcionamento é simples: apenas se a condição for verdadeira, o bloco de código que segue o if será executado. Assim, se a condição for falsa, o bloco de código é ignorado e a execução continua depois dele. O if pode ser combinado com o comando else (senão) que serve como o complemento para a condição lógica (booleana). Assim, em uma estrutura if-else, se a condição do if for verdadeira, o bloco que vem relativo ao if é executado e, se a condição não for verdadeira, o bloco relativo ao else é executado. A utilização das estruturas if e if-else pode ser vista na figura a seguir:
+
+#+begin_src java
+if(expressão booleana)
+	 instrução_simples;
+	 if(expressão booleana){
+	 	instruções
+	 }
+#+end_src
+
+#+begin_src java
+if(expressão booleana){
+	instruções
+}else if(expressão booleana){
+	instruções
+}else{
+	instruções
+}
+#+end_src
+
+No código a seguir, temos dois exemplos de utilização da estrutura if.
+No primeiro (linha 6), a estrutura if contém apenas uma instrução, que está na linha 7 e, portanto, não precisa de chaves para delimitar um bloco.
+Já no segundo exemplo (linha 9), foi utilizado um par de chaves para "envolver" as linhas 10 e 11. Assim, se a condição for verdadeira, as linhas 10 e 11 serão executadas.
+
+#+begin_src java
+/*01*/ public class Usalf{
+/*02*/ 	public static void main(String args[]){
+/*03*/			int numero = 8;
+/*04*/
+/*05*/     // se a diretiva if tiver apenas uma instrução no seu escopo,
+/*06*/     // não é necessário utilizar chave - ()
+/*07*/
+/*08*/    		if(numero%2==1)
+/*09*/    		       System.out.println("O número é impar!");
+/*10*/    		/* Neste caso o if deve ter chaves, pois tem duas instruções no seu escopo*/
+/*11*/    					if(numero%2==0){
+/*12*/    					   System.out.println("O número é par!");
+/*13*/    					    numero++;
+/*14*/    					}
+/*15*/    }
+/*16*/ }
+
+#+end_src
+
+No código da próxima figura, temos um exemplo do uso da estrutura if-else, também chamada de if composto.
+Se a condição da linha 5 for verdadeira, a instrução da linha 6 será executada.
+Caso contrário, a instrução da linha 9 será executada.
+
+#+begin_src java
+/*01*/ public class Usalf{
+/*02*/   public static void main(String args[]){
+/*03*/       int numero = 12345;
+/*04*/   /* Utilização do if composto.*/
+/*05*/       if(numero%2==0){
+/*06*/            System.out.println("O número é par!");
+/*07*/       }
+/*08*/       else{
+/*09*/           System.out.println("O número é ímpar!");
+/*10*/      }
+/*11*/  }
+/*12*/ }
+#+end_src
+
+Podemos também alocar várias estruturas if-else em sequência, criando o que chamamos de if aninhados.
+Dessa forma, a seção else de um if é tratada por um novo if, e assim sucessivamente.
+Confira o exemplo do uso de if aninhados no código a seguir:
+
+#+begin_src java
+/*01*/ import java.util.Random;
+/*02*/
+/*03*/ public class IfAninhando{
+/*04*/  public static void main(String args[]){
+/*05*/		//Esta classe exemplifica uma outra maneira de se utilizar a derivada if.
+/*06*/	 // Verifica se um número gerado aleatoriamente é positivo e par
+/*07*/    int numero = new Random().nextInt(200) - 100;
+/*08*/    if(numero%2 == 0){
+/*09*/        if(numero > 0){
+/*10*/            System.out.println("O número é par e positivo");
+/*11*/	 	   }
+/*12*/	 	   else{
+/*13*/	 	       System.out.println("O número é par e negativo");
+/*14*/	 	   }
+/*15*/    }
+/*16*/    else {
+/*17*/        if(numero > 0){
+/*18*/           System.out.println("O número é impar e positivo");
+/*19*/        }
+/*20*/        else {
+/*21*/    	      System.out.println("O número é impar e negativo");
+/*22*/    	   }
+/*23*/    }
+/*24*/  }
+/*25*/}
+
+#+end_src
+
+Neste código, temos um comando ainda não apresentado anteriormente.
+Estamos falando do comando *import*, presente na primeira linha do código.
+Este comando importa uma classe para que possamos utilizar seus recursos.
+Neste caso, estamos importando a classe Random, que pertence a um dos pacotes padrão do Java, o java.util. Esta importação se faz necessária por conta da inicialização do objeto número do tipo int, na qual usamos o método nextInt(), passando o valor 200 como parâmetro.
+
+Explicando melhor, o que o método nextInt() faz é nos retornar um número aleatório no intervalo fechado de 0 ao valor do parâmetro passado, neste caso, o intervalo fechado de 0 a 200.
+
+Na linha 7, também temos o comando new, que é novo, diante do que aprendemos até agora.
+Ele é usado para *instanciar* (criar/inicializar) um objeto a partir de uma classe, ou tipo de dado primitivo.
+
+Este último caso só ocorre se ainda não tivermos o seu valor. Neste exemplo, estamos instanciando um objeto da classe Random, que está sendo usado apenas para fazer a chamada ao método nextInt() da classe Random. Aprenderemos mais posteriormente com outros exemplos
+
+*** Uso de break e continue
+Existem duas palavras-chave que podem ser usadas dentro dos blocos de instruções de laços e estruturas condicionais com a função de parar a execução dessas instruções de determinada maneira:
++ break
++ continue
+
+Ambas têm como ação imediata a interrupção da execução de instruções que venham depois delas. Porém, quando usamos break, efetuamos a saída completa da estrutura de repetição ou decisão em que estamos, enquanto o uso de continue força a realização de um novo teste de condição nessa estrutura. O uso de continue está associado a estruturas de repetição. Quando aparece dentro de um laço, a palavra continue faz com que todas as instruções, a partir dela, sejam ignoradas e a condição do laço seja avaliada novamente.
+
+Estudaremos mais sobre a aplicação de break e continue adiante.
+
+*** Switch
+
+Uma outra estrutura de decisão oferecida pelo Java é o switch. Com o switch, é possível analisar uma variável e, dependendo do valor contido nela, escolher um bloco de instruções a ser executado. Cada bloco de instruções é considerado um caso e é precedido pela palavra-chave case. Existe um caso especial, chamado de default (padrão), que tem seu bloco de instruções executado apenas quando nenhum dos demais casos tenha sido executado antes. A palavra-chave break é usada em estruturas switch para evitar que os casos subsequentes sejam executados. Assim, a palavra-chave break é, normalmente, usada como última instrução de cada caso. Observe, na figura, o formato da estrutura switch.
+
+#+begin_src java
+switch (valor analisado) {
+  case [valor caso 1]: <instruções> break;
+  case [valor caso 2]: <instruções> break;
+  case [valor caso 3]: <instruções> break;
+  ...
+ default: <instruções>
+}
+#+end_src
+
+A seguir, um exemplo de uma estrutura switch:
+
+#+begin_src java
+public class UsaSwitch{
+	public static void main(String args[]){
+   int opcao = 4;
+		switch(opcao){
+			case 1:
+				System.out.println("Opção 1, escolhida");
+				break;
+			case 2:
+				System.out.println("Opção 2, escolhida");
+				break;
+			case 3:
+				System.out.println("Opção 3, escolhida");
+				break;
+			case 4:
+				System.out.println("Opção 4, escolhida");
+				break;
+			default:
+				System.out.println("Opção não existe!");
+			}
+	}
+}
+#+end_src
+
+Você observou que a instrução break não foi colocada no caso default.
+Como o caso default é sempre declarado como o último caso, não há a necessidade desta instrução. Também não haveria a necessidade de colocar a instrução break em qualquer outro caso que fosse o último a ser testado.
+Resumindo, o *uso do /break/ na última instrução é facultativo*, não alterando o funcionamento da estrutura de decisão switch. Aqui, o removemos por questão de otimização e simplificação
+
+
+*** Estruturas de Repetição
+
+Estruturas de repetição são um tipo de estrutura de controle de fluxo que faz com que um trecho de código seja executado várias vezes. Através do teste de validade de uma condição, estas estruturas mantêm a repetição do bloco de código relacionado a elas até que a condição falhe.
+
+Vamos estudar três estruturas de repetição oferecidas pela linguagem Java: for (para), while (enquanto) e do-while (faça-enquanto). Observe, a seguir, o formato das estruturas while e do-while.
+
+#+begin_src java
+while (expressão booleana) {
+ instruções
+}
+#+end_src
+
+#+begin_src java
+do {
+  instruções
+} while (expressão booleana)
+#+end_src
+
+A diferença entre as estruturas while e do-while está no seu formato, implicando na quantidade de repetições do bloco de instruções da estrutura.
+Na estrutura while (enquanto), o teste de validade da condição é executado antes do bloco de instruções a ser repetido. Já na estrutura do-while (faça-enquanto), o teste de validade é executado depois do bloco de instruções, o que significa que esse bloco é executado ao menos uma vez antes mesmo da condição ser analisada.
+
+Na estrutura while, enquanto a condição (linha 7) for avaliada como verdadeira, um conjunto de instruções é repetido. Note que o while avalia o resultado da condição antes de executar o seu bloco de instruções, que corresponde às linhas 8, 9 e 10.
+
+
+#+begin_src java
+/*01*/  public class UsaWhile{
+/*02*/  public static void main(String args[]){
+/*03*/ 			int num = 0;
+/*04*/ 		    int loop;
+/*05*/ 		    loop = 5;
+/*06*/
+/*07*/ 		    while(loop > num){
+/*08*/ 		    	System.out.println("Valor da variável num "+
+/*09*/          num +"\n");
+/*10*/ 		        num++;
+/*11*/ 		    }
+/*12*/   }
+/*13*/ }
+#+end_src
+
+No do-while, o teste da condição de repetição é avaliado apenas depois da execução do bloco de instruções da estrutura. Assim, esse bloco de instruções é executado pelo menos uma vez, mesmo que a condição seja falsa desde o início. Esse tipo de estrutura é útil para determinadas situações em que o bloco de repetição precise ser executado ao menos uma vez independentemente da condição. Observe o mesmo exemplo do uso de while re-escrito com do-while.
+
+
+#+begin_src java
+/*01*/  public class UsaDoWhile{
+/*02*/ 	public static void main(String args[]){
+/*03*/ 			int num = 0;
+/*04*/ 			int loop;
+/*05*/ 			loop = 5;
+/*06*/ 	/* Na estrutura do-while, o bloco da instrução é executado
+/*07*/ 	* pelo menos uma vez, mesmo que inicialmente o valor da variável
+/*08*/     * 'num' seja maior do que o valor da variável 'loop' */
+/*09*/
+/*10*/     do{
+/*11*/      	System.out.println("Valor da variável num "+num+"\n");
+/*12*/     	num++;
+/*13*/     } while(loop > num);
+/*14*/     }
+/*15*/  }
+#+end_src
+
+A seguir, é apresentado o formato da estrutura for (para).
+
+#+begin_src java
+for (inicialização; expressão booleana; passo da repetição ) {
+  instruções
+}
+#+end_src
+
+Podemos observar que a estrutura for tem um formato um pouco mais complexo que o formato das estruturas while e do-while.
+Dentro dos parênteses, existem três seções.
+    + A primeira é chamada de inicialização e é onde são criadas e inicializadas as variáveis que serão usadas dentro do bloco de instruções do for.
+    + A segunda seção é a condição, que funciona da mesma forma que a condição do-while.
+    + A terceira seção é chamada de passo da repetição e é onde ocorre a manipulação de variáveis relacionadas à condição de repetição do for, geralmente, envolvendo ações de incremento ou decremento.
+
+
+A figura a seguir mostra um código que contém um laço (loop) do tipo for.
+Note que todo o controle da variável i está na linha 5, desde sua criação, passando pelo teste de validade da condição (se i é menor que 5) e seu incremento de uma unidade a cada iteração do laço.
+Assim, com o bloco de código a ser repetido, resta apenas as instruções que realmente importam para o programa.
+
+
+#+begin_src java
+/*01*/  public class UsaFor {
+/*02*/ 	public static void main(String args[]){
+/*03*/     /* A instrução for  representa um laço que irá girar
+/*04*/      * quantas vezes o usuário determinar */
+/*05*/      	for(int i = 1; i < 5; i++ ){
+/*06*/      			System.out.println("O valor da variável i = "+i);
+/*07*/      	}
+/*08*/     }
+/*09*/  }
+
+#+end_src
+
+Neste tópico, estudamos algumas estruturas básicas da linguagem Java. Aprendemos a utilizar estruturas de decisão e repetição, a fim de tornar o processamento do nosso código mais seletivo e mais organizado também. Agora, você precisa praticar os exemplos deste tópico no ambiente de programação da plataforma. Lembre-se de que a prática leva ao crescimento! Você pode, ainda, criar e praticar seus próprios exemplos referentes aos assuntos aqui estudados. No próximo tópico conheceremos o que são arrays, ou vetores, em Java. Vamos lá!?
+
+* Tópico 4 – Arrays
+
+*Objetivos*
++ Aprender a criar e manipular arrays usando a Linguagem Java;
++ Conhecer o conceito e a diferença entre arrays unidimensionais e multidimensionais.
+
+Neste tópico, você aprenderá tudo sobre array, desde a definição, a classificação até a sua utilidade em programas Java e compreenderá sua importância para programadores Java nos seus trabalhos do dia a dia. Perceberá que, em Java, array pode ser um vetor ou uma matriz, aprenderá como criar, inserir e acessar elementos em arrays. Vamos nessa!
+
+Arrays são estruturas de dados que agrupam itens de um mesmo tipo, que são ordenados sequencialmente e de tamanho fixo.
+
+Vetores são estruturas de dados de tamanho fixo que agrupam elementos do mesmo tipo. Em Java, chamamos vetores e matrizes de arrays. Você encontrará conteúdos sobre vetores e matrizes com o nome de array em todos os materiais de Java escritos em inglês e algumas classes da biblioteca padrão do Java também terão esse nome. Vetores são chamados de arrays unidimensionais e matrizes são arrays multidimensionais.
+
+Para criação de arrays em Java, precisamos das seguintes especificações: um nome (identificador), o tipo de dado e o tamanho de cada dimensão.
+
+** 1.1 Arrays Unidimensionais
+Vamos analisar dois exemplos do uso de arrays unidimensionais. Primeiro, observe o método exemplo1:
+
+#+begin_src java
+/*01*/  public void Exemplo1(){
+/*02*/
+/*03*/   /* Array (vetor) de caracteres, com tamanho igual a 4*/
+/*04*/   char letras[];
+/*05*/   letras = new char[4];
+/*06*/
+/*07*/   /* Adicionando elementos ao array*/
+/*08*/   letras[0] = 'J';
+/*09*/   letras[1] = 'a';
+/*10*/   letras[2] = 'v';
+/*11*/   letras[3] = 'a';
+/*12*/
+/*13*/   /* Exibição do conteúdo do array */
+/*14*/   int indice = 0;
+/*15*/   while(indice < 4){
+/*16*/       System.out.println(letras[indice]);
+/*17*/       indice++;
+/*18*/   }
+/*19*/  }
+#+end_src
+
+No exemplo, estamos declarando um array de caracteres na linha 4 e atribuímos a ele o tamanho na linha 5, sendo que a inicialização com valores é feita nas linhas 8 a 11.
+
+Portanto, perceba que o processo de inicializar um array é diferente do modo de inicialização de uma variável de tipo primitivo comum.
+
+Primeiro, é necessário declarar o array e, em seguida, utilizar a palavra-chave “new” para alocar o tamanho do array no seu respectivo tipo.
+
+Assim, a Máquina Virtual Java (JVM) saberá quanto espaço em memória será necessário alocar para esse array.
+
+Nas linhas 8 a 11, atribuímos o valor de cada elemento do array, que são as letras 'J','a','v' e 'a'.
+
+Declarada a variável indice do tipo inteiro na linha 14, utilizamos um laço while (linha 15) para executar 4 vezes as instruções das linhas 16 e 17, que exibem um elemento do array e incrementam uma variável de controle indice, respectivamente.
+
+Em outras palavras, acessamos cada elemento do array letras através da variável inteira indice. Se esse método for executado, a palavra "Java" deve aparecer no console do usuário.
+
+Agora, observe o método exemplo2:
+
+#+begin_src java
+/*01*/  public void Exemplo2(){
+/*02*/    /* Array (vetor) de inteiros, com tamanho igual a 50 */
+/*03*/   int numeros[] = new int[50];
+/*04*/   /* Laço 'for' que preenche o vetor com valores de 0 a 50
+/*05*/   // sempre aumentando de 10 em 10 unidades
+/*06*/   //
+/*07*/     for(int i = 0; i <= numeros.length; i++){
+/*08*/       numeros[i] = i * 10;
+/*09*/     }
+/*10*/   }
+#+end_src
+
+No exemplo, declaramos e inicializamos, ao mesmo tempo, o array números, na linha 28. Na linha 33, temos um laço for, responsável por percorrer cada posição do vetor, baseado no valor inteiro i, e define o valor de cada elemento como sendo o valor de i multiplicado por 10. Isso significa que os elementos do vetor numeros serão 0, 10, 20, 30, 40, 50 e assim por diante até o valor 500. Na condição do laço for, usamos a propriedade length do array, que pode ser considerada uma variável que todo array tem. Essa propriedade é muito importante, pois contém o valor do tamanho do array e é muito útil, principalmente para condições de controle de laço, como nesse exemplo. Mas atenção! O valor de length é igual ao tamanho do array, e não igual à quantidade de elementos que o array possui. Por exemplo: para um array de tamanho 15 e que contém apenas 3 elementos, o valor de length será sempre igual a 15.
+
+** 1.2 Arrays Multidimensionais
+Um array multidimensional nada mais é que uma matriz. Isso implica que, para acessar uma posição de um array multidimensional, precisamos de um índice para cada dimensão dele. Considere o seguinte exemplo:
+
+#+begin_src java
+public void Exemplo3(int quantidadeAlunos, int notasPorAluno){
+    float notas[][] = new float[quantidadeAlunos][notasPorAluno];
+    for(int i = 0; i < quantidadeAlunos; i++){
+        System.out.println("Notas do Aluno " + (i+1));
+        for(int j = 0; j < notasPorAluno; j++){
+            float temp = 0;
+            System.out.println("Informe a nota " +(j+1) +" do Aluno " + (i+1) +": ");
+          // Considere que o usuário irá formecer um valor para a variável temp aqui:
+         /* Atribuição da nota j para aluno i */
+            notas[i][j] = temp;
+       }
+    }
+}
+#+end_src
+
+No código do método exemplo3, temos a criação de uma matriz de duas dimensões. Essa matriz armazenará as notas de vários alunos. A quantidade de alunos e de notas que cada um deve possuir é passada para o método como parâmetros, através das variáveis quantidadeAlunos e notasPorAluno, respectivamente. Para percorrer todas as posições dessa matriz, utilizamos duas variáveis, i e j, como contadores. Vamos considerar que a cada iteração do laço for interno (baseado na variável j), será coletado um valor de nota dado pelo usuário que será armazenado na variável temp, na linha 15. Na linha 18, atribuímos ao elemento da linha i e da coluna j da matriz o valor da variável temp. Esse exemplo está incompleto porque não explicitamos como requisitar dados ao usuário. Abordaremos sobre entrada de dados no próximo tópico.
+
+Perceba que a criação e o acesso a elementos é muito similar para arrays unidimensionais (vetores) e multidimensionais (matrizes). Tenha sempre cuidado com a quantidade de dimensões quando utilizar matrizes.
+
+A matriz do exemplo anterior pode ser representada pela figura a seguir. Supondo que as variáveis quantidadeAlunos e notasPorAluno tivessem os valores 6 e 4, respectivamente, cada linha da figura vai representar a lista de notas de um aluno, e cada coluna vai representar uma nota específica.
+
+[[file:figura05.png][Figura 2 – Representação gráfica de uma matriz de 6 linhas e 4 colunas.]]
+
+
+#+begin_example
+ATENÇÃO!
+Agora, para aplicar o que aprendeu, tenha como base os exemplos apresentados neste tópico e pratique-os no ambiente de programação da plataforma. Lembre-se de que a teoria e a prática caminham juntas e o exercício é muito importante. Por isso, não deixe de praticar os exemplos desta aula. Se preferir, também pode criar e praticar seus próprios exemplos referentes aos assuntos estudados aqui.
+#+end_example
+
+Chegamos ao fim da nossa aula!
+
+Estudamos os tipos de dados, sua definição, sua estrutura organizacional e sua conversão; também aprendemos a criar e manipular arrays em Java. Apresentamos ainda os métodos, sua definição e exemplos com diferentes assinaturas; mostramos como usar comandos básicos em Java, sua estrutura de controle de fluxo específica da linguagem de programação Java. Até a próxima!
+
+* Video
+
+[[file:video.mp4]]
+
+
+** Algoritmos utilizados durante o vídeo
+#+begin_src java
+Criação das variáveis:
+String nome = “Carlos”;
+int tempoNaEmpresa = 5;
+float salario = 2.500;
+
+Comandos para exibir as variáveis no Console:
+System.out.println(“Nome: ” + nome);
+System.out.println(“Tempo na empresa: ” + tempoNaEmpresa);
+System.out.println(“Salário: ” + salario);
+
+Atribuição da variável:
+String nome= “Carlos Silva”;
+#+end_src

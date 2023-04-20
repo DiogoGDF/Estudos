@@ -1,0 +1,166 @@
+SISTEMAS COMPUTACIONAIS
+
+Introdução:
+- Objetivo do curso:
+    - Me preparar para estudar uma linguagem de programação
+- No curso:
+    - Conjunto de conceitos de lógica de programação
+        - Ferramenta para resolver problemas com uma abordagem computacional
+- Capacidades criadas:
+    - Analisar um problema no mundo real
+    - Criar soluções estruturadas em forma de algoritmo
+    - Poderei adaptar meus conhecimentos a qualquer linguagem que desejar usar
+- Na aula 01:
+    - Componentes básicos de um sistema computacional
+    - Arquitetura de um modelo computacional
+    - Os tipos de sistemas computacionais
+
+
+-----------------------------------------------------------------------------
+TÓPICO 1 - O MODELO COMPUTACIONAL DE JOHN VON NEUMANN
+
+O que é o conceito de modelo computacional?
+Qual é o relacionamento entre os componentes do modelo de Von Neumann?
+
+Computadores:
+- Máquinas:
+    - hardware:
+        - Dispositivos físicos:
+            - Entrada
+            - Saída
+            - Memória
+            - CPU
+- Recebem dados
+- Recebem instruções de programação:
+    - software:
+        - Todos os programas que fazem o hardware funcionar
+- Executam instruções de programação
+- Utilizam os dados recebidos
+- Produzem um resultado -> saída
+- Resumindo:
+    - Entrada -> Processamento -> Saída
+- Seguem um modelo criado pelo cientista Von Neumann
+
+O modelo computacional de Von Neumann:
+- Define o computador como uma máquina programável
+- Componentes:
+    - Memória Principal (MP)
+    - Unidade Central de Processamento (CPU):
+        - Registradores:
+            - Unidades de memória temporária
+            - Armazenam alguns bits
+            - Variedade de memória mais rápida que existe atualmente
+            - +Velocidade +Preço
+        - Unidade Lógica e Aritmética (ULA):
+            - Conjuntos de circuitos eletrônicos que executam:
+                - Operações lógicas
+                - Operações aritméticas
+                - Recebem dados da UC:
+                    - dados para as operações
+                    - código da operação que deve executar
+                - Devolve um resultado
+        - Unidade de Controle (UC):
+            - Executa instrução por instrução na MP com os dados de entrada carregados nos registradores
+- Modelo:
+               ----------------------------
+ |Disp|        ||  | --instruções--> |   ||        |Disp |
+ |Entr| -----> ||MP| <----dados----  |CPU|| -----> |Saída|
+               ||  |                 |   ||
+               ----------------------------
+ Dispositivo de entrada -> Sistema Computacional -> Dispositivo de saída
+
+    - Dispositivos de entrada:
+        - define que dados e programas serão carregados
+        - envia isso para dentro do sistema computacional
+    - Dispositivos de saída:
+        - Recebe o resultado do processamento
+    - Sistema Computacional / Processamento (descrito acima):
+        - CPU (Central Processing Unit):
+            - Registradores
+            - ULA
+            - UC
+        - MP (Memória Principal)
+
+Arquitetura de execução do programa de acordo com o modelo:
+- Programa:
+    - Conjunto de instruções:
+        - Serão executadas na CPU
+        - São lidas através dos dispositivos de entrada
+        - São armazenadas na Memória Principal depois de lidas
+        - Movimentam dados para a CPU
+        - A CPU:
+            - Executa as instruções que envolvem operações lógicas ou aritméticas na ULA, utilizando dados armazenados em Registradores
+            Registradores:
+                - Armazenam dados instruções utilizados pela CPU
+            - Envia o resultado da execução das instruções à MP em forma de informação a ser armazenada
+    - Isso tudo a cima é um ciclo de processamento da informação
+    - O ciclo é executado continuamente até uma condição que caracteriza finalização do processo seja lançada
+    - As saídas geradas pelo ciclo são enviadas aos dispositivos de saída
+
+
+
+
+
+----------------------------------------------------------------------------
+
+
+
+
+TÓPICO 2 – Componentes de um Sistema Computacional
+
+Quais são os componentes de um sistema computacional?
+(Componentes físicos - hardware)
+
+1. Dispositivos de entrada (I - Input):
+- Servem exclusivamente para a entrada de dados ou comandos para execução
+- Teclado, mouse, ...
+
+2. Dispositivos de saída (O - Output):
+- Servem exclusivamente para a saída de dados // geralmente resultados de processamento
+- Impressora, monitor, ...
+
+3. Dispositivos de entrada E saída (I/O):
+- Funcionam TANTO para entrada e para saída de dados
+- A maioria é utilizado para armazenamento
+- Ex: HD, Pen-drive, ...
+
+4. Memória Principal:
+- Circuito eletrônico onde são armazenados dados e programas
+- Estes circuitos são fixados na placa-mãe (o encaixe é chamado de banco de memórias)
+
+5. UCP (Unidade Central de Processamento//CPU):
+- Circuito integrado que executa as instruções de programação
+
+Placa-mãe:
+- Circuito eletrônico
+- Reúne todos os dispositivos acima
+----------------------------------------------------------------------------
+
+TÓPICO 3 - TIPOS DE SISTEMAS COMPUTACIONAIS
+
+Quais são os tipos de sistemas computacionais?
+
+Diversidade de Sistemas computacionais:
+- Todos possuem os componentes apresentados no tópico anterior
+- O que varia são as características desses componentes:
+    - CPU -> Desempenho
+    - Memória -> Desempenho/Capacidade de armazenamento
+    - I/O: -> Desempenho/Capacidade de Armazenamento
+- Mainframe:
+    - Processam e armazenam grandes volumes de dados
+- Servidor de aplicação de dados:
+    - Processamento distribuído de aplicações e de dados
+    - Agrupa diversos sistemas computacionais por meio de redes
+- Processamento local:
+    - Desktop
+- Processamento móvel:
+    - notebooks, tablets, smartphones
+- Smart Cards:
+    - Dispositivos de identificação de usuários
+    - Cartão de crédito, Carteira de estudante, ...
+    - Sim, eles tem um sistema computacional dentro!!!
+    - Tem memória e CPU
+    - São programáveis em Java
+- Microcontrolador (Sistemas Embarcados):
+    - Funcionalidades programáveis rígidas (variam pouco)
+    - Máquina de lavar, forno micro-ondas, sistema de freio ABS, sistema de navegação em aviões, ...

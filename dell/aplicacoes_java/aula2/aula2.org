@@ -1,0 +1,288 @@
+* Introdução
+Caro aluno, nesta aula, estudaremos o que são as exceções, onde elas acontecem, quando elas podem ocorrer e como manuseá-las com antecedência para produzirmos programas mais robustos e tolerantes a falhas. No decorrer da aula, utilizaremos o termo "tratar exceções" para todas as situações de criação e manuseio de objetos que representam exceções.
+
+*Objetivos*
+- Entender a definição de exceções;
+- Aprender a tratar exceções em Java;
+- Compreender a importância de tratar exceções.
+
+* Tópico 1 – O que são exceções?
+*Objetivos*
+- Entender o que são exceções e como elas ocorrem;
+- Compreender a importância do tratamento de exceções.
+
+Todo tipo de ação, por mais simples que seja, está sujeita à ocorrência de falhas. No desenvolvimento de softwares, não é diferente. Não podemos saber exatamente quando e onde uma falha ocorrerá, mas podemos utilizar ferramentas e estratégias que são suficientes para que nossos programas se recuperem de falhas e continuem a funcionar. Vamos aprender a fazer isso?
+
+Quando desenvolvemos programas, podem ocorrer dois tipos de falhas: os erros e as exceções. Erros são falhas críticas, como problemas na JVM, em dispositivos de I/O (Input/Ouput ou Entrada e Saída) ou falta de memória e, geralmente, não podem ser tratados ou corrigidos durante a execução do programa. Já as exceções são falhas passíveis de tratamento, ou seja, se elas ocorrerem durante a execução dos nossos programas, temos condições de instruir o programa sobre como contorná-las e como seguir funcionando normalmente ou, pelo menos, como informar ao usuário o que está acontecendo de errado. Ambos os tipos são considerados exceções porque refletem situações que não são rotineiras do funcionamento do programa, isto é, casos isolados de falhas, exceções à regra.
+
+Existem muitos tipos de exceções. São elas:
+
++ Exceção aritmética, que ocorre quando tentamos executar ações que ferem as regras da aritmética e que, portanto, não podem ser concluídas normalmente pelo processador;
++ Exceção de acesso a índices, normalmente relacionada ao uso de vetores. Ocorre quando tentamos acessar um índice que não existe, ou seja, que está fora dos limites de um vetor, matriz ou outros tipos de dados agrupados;
++ Exceção de acesso a ponteiros nulos, que ocorre quando tentamos usar um objeto que ainda não foi instanciado e que, portanto, é uma referência nula, vazia;
++ Exceção de formato de número, que ocorre quando tentamos converter para número um texto que não representa um valor numérico.
+
+Tratar exceções em um programa é importante para que o usuário tenha uma boa experiência com ele. Você já deve ter conhecido algum programa que aborrece o usuário por não tratar falhas corretamente, apresentando comportamentos inesperados ou mensagens de erro que não ajudam a resolver problemas. É por isso que devemos nos preocupar com a ocorrência de falhas nos nossos programas e nos cercar de cuidados para que elas não os tornem tediosos e improdutivos.
+
+Chegamos ao fim do nosso primeiro tópico. Nele, aprendemos o que são exceções, conhecemos seus principais tipos e entendemos porque devemos tratá-las em nossos programas. A seguir, constataremos como as exceções se apresentam em Java e o que devemos fazer para tratá-las.
+
+* TÓPICO 2 – Tratamento de exceções em Java
+*Objetivos*
+- Conhecer as principais classes de exceções em Java;
+- Aprender a utilizar as cláusulas try, catch e finally.
+
+Já discutimos sobre alguns tipos de exceções que podem ocorrer em nossos programas. Na Linguagem Java, as exceções são apresentadas como classes, pois trabalham com Programação Orientada a Objetos. Mas como elas são, em termos de código-fonte? A seguir, você conhecerá as principais classes de exceções em Java e, de agora em diante, ao tratar sobre isso, utilizaremos a expressão “lançar uma exceção”, muito encontrada em livros e muito expressa pelos desenvolvedores quando querem informar que uma exceção ocorreu ou foi criada.
+
+A API (Application Program Interface) Java nos fornece uma hierarquia de herança relacionada às exceções, começando na classe Throwable, que representa um tipo genérico de falhas que podem ser “lançadas” e que deriva nas classes Error e Exception. Neste curso, vamos trabalhar apenas com a classe Exception e suas subclasses, principalmente as derivadas de RuntimeException.
+
+[[file:figura01.png][Figura 1 – Hierarquia de herança a partir da classe Throwable.]]
+
+Comentamos anteriormente que existem alguns tipos mais comuns de exceções. Para cada um deles, existe uma subclasse de Exception que o representa. Elas são:
+
++ ArithmeticException: lançada quando ocorrem exceções ligadas ao mau uso da aritmética;
++ ArrayIndexOutOfBoundsException: lançada quando se tenta acessar um índice inexistente de um array ou matriz;
++ NullPointerException: lançada quando se tenta utilizar uma referência nula, ou seja, que não aponta para nenhum objeto na memória;
++ NumberFormatException: lançada quando se tenta converter um objeto String mal formatado em valor numérico. Exemplo: converter “ABC” para inteiro.
+
+[[file:figura02.png][Figura 2 – Hierarquia de herança a partir da classe RuntimeException.]]
+
+Todas as classes citadas anteriormente são subclasses de RuntimeException, chamadas de exceções não verificadas. Isso significa que representam as exceções que podem ocorrer durante a execução do programa e que não são verificadas pelo compilador. Existem outras subclasses de Exception que representam exceções que podem ocorrer, por exemplo, no momento da compilação de classes, como a ClassNotFoundException, ou por problemas nos dispositivos de entrada e saída, como a IOException.
+
+[[file:figura03.png][Figura 3 - Hierarquia de herança a partir da classe Throwable, incluindo ClassNotFoundException e IOException.]]
+
+** 2.1 As cláusulas try, catch e finally
+Suponha que tenhamos uma classe qualquer, como a classe TesteExcecoes do exemplo a seguir. Se tentarmos executá-la, perceberemos que o programa será interrompido e uma mensagem de erro será exibida.
+
+
+#+begin_src java
+01. public class TesteExcecoes {
+02.
+03.     public static void main(String[] args) {
+04.         String[] a = new String[2];
+05.         a[0] = "Projeto"; a[1] = "LEAD";
+06.
+07.         System.out.println("O valor da posição 5 do vetor é: ");
+08.         System.out.prontln(a[5]);
+09.     }
+10. }
+#+end_src
+
+Exception in thread “main” java.lang.ArrayIndexOutOfBoundsException: 5 at TesteExcecoes.main(TestExcecoes.java:9)
+
+A mensagem de erro é exibida após a execução de TesteExcecoes porque tentamos acessar a posição 5 de um vetor que só possui 2 elementos. Essa situação lança uma exceção, ou seja, cria um objeto do tipo ArrayIndexOutOfBoundsException (índice do array fora dos limites) e o injeta dentro do método main para que seja tratado. Como não existe um código especializado para manipular esse objeto, o programa para de maneira abrupta e não há nada que possa ser feito. Para evitar que isso ocorra, vamos utilizar as cláusulas try, catch e finally. Observe a sintaxe a seguir:
+
+
+#+begin_src java
+try {
+    //Trecho de código que pode gerar falhas
+} catch(TipoDeExcecao obj) {
+    //Tratamento de exceção usando obj
+} finally {
+    //Comandos que sempre são executados
+}
+#+end_src
+
+O uso dessas cláusulas é simples. Dentro do bloco delimitado pelas chaves da cláusula try, fica o código que pode lançar uma exceção. Caso não ocorram problemas na execução do código, o programa segue normalmente. Caso ocorra uma exceção da mesma classe que foi definida entre os parênteses da cláusula catch, é criado um objeto dessa classe com o nome que também foi definido entre os parênteses e que pode ser manipulado dentro do bloco da cláusula catch. Dentro do bloco finally, fica o código que sempre irá executar, independentemente de o fluxo passar no try ou no catch. O que existe após o bloco catch é executado normalmente.
+
+Aplicando um bloco try/catch ao código que falhou no exemplo da Classe TesteExcecoes, poderíamos avisar ao usuário sobre a falha ocorrida e continuar o programa normalmente, como a seguir. A saída do programa seria como no console:
+
+
+#+begin_src java
+String[] a = new String[2];
+a[0] = "Projeto"; a[1] = "LEAD";
+
+try {
+    System.out.println("O valor da posição 5 do vetor é: ");
+    System.out.println(a[5]);
+} catch(ArrayIndexOutOfBoundsException e) {
+    System.out.println("Houve um erro ao acessar o vetor." + e.getMessage());
+}
+
+#+end_src
+Console
+
+O valor da posição 5 do vetor é:
+# Houve um erro ao acessar o vetor.
+
+Observe que, conforme o exemplo anterior, juntamente com a mensagem “Houve um erro ao acessar o vetor”, estamos invocando o método getMessage() do objeto “e”. Esse método é herdado por todas as subclasses de Exception e fornece um String, contendo a descrição da exceção que ocorreu. Se você “imprimir” o objeto “e” diretamente, utilizando o comando System.out.println(), ou chamar explicitamente o seu método toString(), perceberá o nome da classe da exceção que ocorreu seguido da mensagem de descrição dela.
+
+É possível definir vários blocos catch associados a um mesmo bloco try. Isso nos permite tratar tipos de exceções diferentes que podem ocorrer dentro de um mesmo grupo de linhas de código. No exemplo a seguir, temos apenas um bloco try com duas linhas que disparam exceções diferentes e três blocos catch para tratar cada tipo de exceção que pode ocorrer.
+
+
+#+begin_src java
+try {
+    Aluno a;
+    int[] matriculas = new int[5];
+
+    a.setMatriculas(matriculas[20]); // 1 - Observar esta linha
+    a.setDataNascimento(new Date("QBHSJQSB")); // 2 - Observar esta linha
+} catch(ArrayIndexOutOfBoundsException e) {
+    System.out.println("# Houve um erro ao acessar o vetor.");
+} catch(NullPointerException e) {
+    System.out.println("# Erro: Manipulação de objeto nulo");
+} catch(IllegalArgumentException e) {
+    System.out.println("# Tipo de parâmetro incorreto." + e.getMessage());
+}
+
+#+end_src
+
+Para o exemplo anterior, as duas linhas referenciadas com o comentário “// - Observar esta linha” geram uma exceção de uso de referência nula (NullPointerException), que é tratada pelo segundo bloco catch. O trecho marcado pelo número 1 gera uma exceção de acesso ao índice inexistente no array (matrículas ArrayIndexOutOfBoundsException), tratada pelo primeiro bloco catch. Já o trecho referenciado pelo número 2 gera uma exceção de argumento ilegal (IllegalArgumentException), ou seja, um parâmetro em formato incorreto fornecido a um método, no caso, o texto “QBHSJQSB” não representa uma data válida para o método construtor da classe Date. Essa exceção é tratada no último bloco catch.
+
+Quando utilizamos mais de um bloco catch, devemos nos preocupar com a hierarquia de herança das classes de exceção que escolhemos para tratar. Dependendo da sequência em que colocamos os blocos catch, podemos obter situações indesejáveis. Observe o exemplo a seguir:
+
+
+    #+begin_src java
+    try {
+            lerTeclado();
+        } catch (Exception e) {
+            System.out.println("Erro.");
+        } catch (NumberFormatException e) {
+            System.out.println("Valor inválido.");
+        }
+    #+end_src
+
+Nesse exemplo, o segundo bloco catch, designado para tratar exceções do tipo NumberFormatException, nunca será alcançado. Isso acontece porque, quando ocorre uma exceção, o código é analisado, sequencialmente, à procura de um bloco catch que seja do mesmo tipo de exceção ou de sua superclasse, e o primeiro bloco, que trata Exception, já irá atender a qualquer caso. Assim, o segundo bloco nunca será alcançado, mesmo que a exceção seja exatamente NumberFormatException. Devido a essa propriedade do tratamento de exceções, o desenvolvedor tem a obrigação de definir a sequência dos blocos catch de forma a não colocar superclasses antes de suas subclasses, ou seja, definir os primeiros blocos catch com classes mais especializadas.
+
+Existe também a cláusula finally, que sempre é executada, independentemente da ocorrência de exceções no bloco try. O uso da finally é indicado para casos em que é preciso garantir que determinado trecho de código será executado após outro trecho que pode gerar exceções. A sintaxe segue o padrão do uso de try e catch, como no exemplo a seguir.
+
+
+    #+begin_src java
+    01. public void teste(Aluno a) {
+        02.     try {
+        03.     a.setMatricula(8949);
+        04.     } catch(NullPointerException e) {
+        05.         System.out.println("# Erro: manipulação de objeto nulo.");
+        06.         System.out.println(e.getMessage());
+        07.     } finally {
+        08.         System.out.println("Tentativa de definição de matrícula efetuada");
+        09.     }
+        10. }
+
+    #+end_src
+
+Quando criamos um bloco try, é obrigatório existir ao menos um bloco catch ou um bloco finally associado a ele. O bloco finally só pode ocorrer uma vez para cada bloco try. Já quando existe um ou mais blocos catch, o uso de finally é opcional.
+
+Perceba que, nos exemplos apresentados até aqui, utilizamos linhas de código que sempre geram falhas, para que pudéssemos explicar o funcionamento dos blocos try/catch/finally. Normalmente fazemos o tratamento de exceções para evitar falhas criadas pelos usuários durante o funcionamento dos programas, ou seja, falhas que são decorrentes das ações executadas pelo usuário enquanto interage com um programa e que geram situações inesperadas durante a fase de desenvolvimento (as exceções).
+
+O usuário pode criar diversas situações de falha, por exemplo:
+
+| Tipo de Falha                                                            | Exemplo Prático                                                       |
+|--------------------------------------------------------------------------+-----------------------------------------------------------------------|
+| Entrada de dados em formato incorreto;                                   | Digitar texto onde se deveria digitar números;                        |
+| Tentativa de executar ações fora da sequência normal de uso do programa; | Solicitar a exclusão de um elemento antes de selecioná-lo;            |
+| Fornecimento de valores vazios.                                          | Enviar um formulário em branco, quando este deveria estar preenchido. |
+
+- Enquanto você cria seu código-fonte, imagine as possibilidades de falhas que podem ocorrer durante o momento em que um usuário estiver executando um programa. Reflita sobre elas e monte os blocos try/catch/finally para tratar da melhor forma possível as exceções que podem surgir durante a execução do programa
+
+** 2.2 As cláusulas throw e throws
+Exceções podem ocorrer em diversos pontos das nossas classes. Se pensarmos em um projeto de várias classes, é fácil perceber que colocar blocos try/catch repetidas vezes em nossos códigos se torna uma tarefa tediosa e pode dificultar a manutenção do código no futuro. Por isso, temos a opção de não tratar nossas exceções no momento em que elas ocorrem, repassando-as para um local centralizado, que seja um local responsável por tratar todas as exceções ou parte delas. Observe o exemplo a seguir.
+
+
+    #+begin_src java
+    01. import java.util.Scanner;
+        02. public class TesteExcecoes {
+        03.     public static void main(String[] args) {
+        04.
+        05.         try {
+        06.             System.out.println("Informe um número.");
+        07.             int numero = LerTeclado();
+        08.             System.out.println("O número foi " + numero);
+        09.         } catch (NumberFormatException e) {
+        10.             System.out.println("Valor inválido.");
+        11.         }
+        12.     }
+        13.
+        14.     public static int lerTeclado() throws NumberFormatException {
+        15.         Scanner s = new Scanner(System.in);
+        16.         return Integer.parseInt(s.nextLine());
+        17.     }
+        18. }
+
+    #+end_src
+
+
+O método lerTeclado(), no exemplo a seguir, pode gerar uma exceção de formato numérico inválido. Afinal, o usuário, quando solicitado, pode digitar um texto em vez de um número. No entanto, decidimos deixar o tratamento dessa exceção a cargo do método principal (main), que possui o bloco try/catch para fazer esse trabalho. Para fazer isso, utilizamos a cláusula throws na assinatura do método, após o seu nome. Um método pode repassar diversos tipos de exceções para que o método que o chamou possa tratá-las. Para isso, basta listar os nomes das classes de exceção após a cláusula throws, separando-as por vírgula.
+
+Existe também a cláusula throw, que serve para lançarmos manualmente uma exceção. Imagine uma situação que você quer que seja tratada como uma exceção. Para fazer isso, “lançamos” um novo objeto que seja uma exceção, ou seja, uma instância de uma das subclasses de Exception, utilizando o comando throw, como no exemplo a seguir. Observe que é necessário mencionar o tipo de exceção que será lançada com throw após a cláusula throws, como no exemplo anterior. Observação: esse uso fará mais sentido quando estudarmos a criação de exceções personalizadas no tópico seguinte.
+
+
+#+begin_src java
+public static void lerTeclado() throws InvalidAttributeValueException {
+    Scanner s = new Scanner(System.in);
+    String texto = s.nextLine();
+    if(texto.isEmpty()) // Testa se o texto é vazio
+        throw new InvalidAttributeValueException();
+}
+
+#+end_src
+
+
+** 2.3 Praticando
+Vamos observar o comportamento das exceções na prática. Para isso, criaremos inicialmente a classe TesteExcecao que conterá nosso método main().
+
+Dentro do método main(), crie um vetor de String de duas posições e atribua a elas os seguintes valores: “Projeto”, para a primeira posição e “Le@d”, para a segunda.
+
+Após essas atribuições, exiba a quinta posição do vetor.
+
+Você perceberá que receberemos uma mensagem de erro de execução, visto que tentamos exibir uma posição inválida do vetor. Como podemos proceder para evitar possíveis problemas ao executar tal código? Faremos uso do bloco try/catch. Para tal, inicie o bloco try logo após a criação dos vetores, antes de tentarmos utilizar o mesmo. Após a utilização do vetor, feche o bloco try e inicie o bloco catch, em que faremos o tratamento das possíveis exceções. Para capturar a exceção de posições inválidas no vetor, utilizaremos o tratamento do tipo ArrayIndexOutOfBoundsException, que deve ser definido no bloco catch, como estudado anteriormente. Devemos também exibir uma mensagem, caso encontremos tal exceção. Imprima o erro ocorrido para que o usuário tenha conhecimento. Ao terminarmos esta etapa, poderíamos também criar um bloco finally para executarmos um trecho de código após a verificação. Tal bloco ficará por sua conta, teste e verifique o resultado dele.
+
+[[file:excecoes1.mp4]]
+
+Chegamos ao fim do segundo tópico. Nele, você pôde entender como trabalhar com as exceções predefinidas pela API Java. A seguir, aprenderemos a criar nossas próprias classes de exceções.
+
+* Tópico 3 – Criando exceções personalizadas
+*Objetivos*
+- Entender quais as vantagens de criar exceções personalizadas;
+- Compreender o processo de criação de exceções personalizadas.
+
+Pudemos conferir que existem diversos tipos predefinidos de exceções, ou seja, de classes que fazem parte da API Java. Esses tipos de exceções ocorrem quando o programa executa alguma operação ilegal que impossibilite a sua continuação. Mas podemos definir também as nossas próprias exceções, para casos nos quais a lógica específica do nosso programa seja ferida, tornando possível o tratamento centralizado e organizado, como o que fizemos para as exceções predefinidas.
+
+Observe o exemplo a seguir:
+
+#+begin_src java
+01. import java.util.Scanner;
+02. public class AparelhoDeSom {
+03.     private static Scanner scanner;
+04.     private static final int minVol = 0, maxVol = 100;
+05.     private int volume;
+06.
+07.     public AparelhoDeSom() {
+08.         scanner = new Scanner(System.in);
+09.     }
+10.
+11.     private void definirVolume() throws VolumeException {
+12.         System.out.print("Digite o valor do volume: ");
+13.         int volume = scanner.nextInt();
+14.         if(volume < minVol || volume > maxVol)
+15.             throw new VolumeException(volume);
+16.
+17.             this.volume = volume;
+18.     }
+19. }
+
+#+end_src
+Nesse exemplo, a classe AparelhoDeSom possui uma variável volume para armazenar o valor do volume e um método definirVolume() que lê, via teclado, o valor para o volume que o usuário quer definir. Se o valor estiver além dos limites definidos por minVol e maxVol, o método dispara uma exceção do tipo VolumeException.
+
+Observe a estrutura da classe VolumeException no exemplo a seguir.
+
+#+begin_src java
+01. public class VolumeExcepetion extends Excepetion {
+02.     private int valor;
+03.
+04.     public VolumeExcepetion(int valor) {
+05.         this.valor = valor;
+06.     }
+07.
+08.     public String getMessage() {
+09.         return "O valor" + valor + "não está dentro do limite aceitável para volume.";
+10.     }
+11. }
+
+#+end_src
+
+A classe VolumeException herda de Exception, portanto, ela representa uma exceção. Nela, temos uma variável do tipo inteiro chamada valor, que serve para armazenar o valor desejado para volume no momento em que a exceção foi lançada. Assim, temos como personalizar a mensagem dessa exceção, sobrescrevendo o método getMessage(). É importante perceber a vantagem de criar suas próprias classes de exceções: com elas, teremos a possibilidade de gerenciar casos inesperados ou considerados como “erros” com a praticidade do tratamento de exceções padrão da Linguagem Java em vez de espalhar diversos blocos if/else para teste de valores, adição de parâmetros que representam os erros nas assinaturas dos métodos e impressão de mensagens de forma isolada por todas as classes.
+
+[[file:excecoes2.mp4]]
+
+Chegamos ao fim da nossa aula!
+Nesta aula, estudamos o que são exceções e aprendemos a utilizá-las na Linguagem Java para tratar situações indesejadas ou não esperadas durante o funcionamento do nosso programa. Nas próximas aulas, começaremos a estudar conteúdos que necessitam de uma IDE mais completa. Até lá!

@@ -1,0 +1,29 @@
+Para este fórum, leia o seguinte relato e responda ao que se pede, buscando aplicar o que aprendeu na aula.
+
+“Olá! Estou trabalhando na manutenção de um sistema em Java.
+O sistema possui suporte para apenas um tipo de usuário que, no caso, é o usuário padrão.
+
+Recebi a tarefa de implementar as modificações necessárias para que o sistema funcione também com um usuário do tipo Administrador.
+
+Tenho dúvidas a respeito de como implementar essa tarefa causando o menor impacto possível no sistema.
+Teria que manipular nas classes existentes ou criar alguma nova?
+Existiria outra forma de solucionar meu problema sem utilizar herança e sem a necessidade de criar uma nova classe?
+Mas, caso eu utilize a herança, qual o impacto dessa decisão na minha aplicação?
+Utilizar herança afetará na conexão entre as classes envolvidas?
+
+Espero que possam me ajudar nessa tarefa, pois o tempo para completá-la é curto.
+Desde já, agradeço pela atenção!”
+Bom estudo!
+
+Olá, tudo bem?
+
+Assim como muitos problemas na criação de software, existem muitas possíveis soluções para a sua situação, então é possível solucionar tanto pela manipulação das classes já existentes quanto criando uma nova.
+
+No caso de não criar uma classe nova e não utilizar o sistema de herança, podemos então mudar a classe de usuário para ter alguma variável booleana que diz se o usuário logado é ou não um administrador. E de acordo com o valor dessa variável, o software disponibilizaria mais, ou menos, funções de acordo com o que deve ser acessável apenas para administradores. Essa disponibilização pode ser dada através de ifs e elses que verificam a variável booleana.
+
+Mas como você quer causar o minimo impacto possível no sistema, além de ter um tempo curto para completar tal tarefa minha recomendação é criar uma classe nova e utilizar o sistema de herança, onde a classe administrador herdaria a classe usuário. Ou seja, ela terá todas as funções da classe usuário herdadas sem precisar escrevê-las novamente. Além disso, é possível criar novas funções dentro dessa classe administrador sem afetar a classe usuário, e ainda se necessário é possível sobrescrever as funções da classe usuário ainda sem afetar a função original, se necessário.
+
+Espero que tenha ajudado, e lhe desejo boa sorte no seu projeto.
+Qualquer coisa pode me chamar novamente.
+
+Abraços.

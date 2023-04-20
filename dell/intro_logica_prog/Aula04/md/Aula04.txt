@@ -1,0 +1,27 @@
+FÓRUM
+
+Na aula 4, vimos que existem alguns tipos de dados básicos que são usados em algoritmos: Inteiro, Decimal, Lógico, Texto e Caractere. Tipos de dados são importantes para entendermos a natureza dos dados que manipulamos no algoritmo. Por exemplo: 5 pode ser um número Inteiro ou Decimal (no caso, 5.0), mas se for ‘5’ (entre aspas simples) deve ser tratado como caractere e não um número.
+
+Sabendo disso, analise a seguinte questão: você acha que os tipos de dados básicos são suficientes para representar qualquer tipo de informação em um algoritmo? Você acha que seria interessante unir algumas variáveis de tipos de dados diferentes para formar tipos complexos? Por exemplo: um tipo de dado chamado Pessoa, composto por idade do tipo Inteiro, nome do tipo Texto, altura do tipo Decimal etc.
+
+Discuta com seus colegas essa possibilidade de agregar tipos diferentes de dados sob um mesmo nome. Essa troca de ideias será muito útil quando você for estudar linguagens de programação como C e Java.
+
+Bons estudos!
+
+---
+
+OFICINA
+
+Imagine que você iniciou um estágio junto a equipe de programadores de uma escola e precisa esboçar um algoritmo para controlar as notas e situação de cada aluno de uma turma e disciplina. Como você ainda não é muito experiente, seu superior pediu para que você apenas declarasse as variáveis necessárias, realizasse a entrada e saída de valores para algumas delas e calculasse a média final do aluno.
+
+Diante disso, escreva um algoritmo que:
+
+1. Contenha as variáveis capazes de armazenar o nome do aluno, a turma que ele pertence, a disciplina atual, as notas 1, 2 e 3 e a média final;
+
+2. Faça a entrada de dados da turma, disciplina, nome do aluno e das três notas para as variáveis correspondentes (criadas no item 1);
+
+3. Faça o cálculo da média final do aluno somando as três notas parciais e dividindo por 3. Esse valor deve ser atribuído para a variável que armazena a média final;
+
+4. Faça a saída do nome do aluno, da turma, da disciplina e da média final.
+
+Dica: no item 1 tenha bastante cuidado com o tipo de dados de cada variável. Por exemplo, não faz sentido declarar “nome_aluno: Decimal” porque o nome do aluno é, na verdade, um Texto.

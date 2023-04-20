@@ -1,0 +1,28 @@
+Na aula 3, estudamos o que são algoritmos e suas características. Eles podem ser usados para representar uma solução organizada para qualquer tipo de tarefa, até mesmo do nosso dia a dia.
+
+Crie um algoritmo com uma atividade do seu cotidiano. Em seguida analise as atividades dos seus colegas e proponha melhorias para o algoritmo deles. Não esqueça de justificar por que a sua proposta de melhoria é válida e deve ser aplicada.
+
+Bons estudos!
+
+**Algoritmo** enviar mensagem de whatsapp
+
+Entrada: Nome do contato destino, número do contato (se não o tiver salvo antes), e a mensagem em si
+Saida: A mensagem enviada ao destino correto
+
+**Início**
+1. Pegar o celular
+2. Verificar se o celular esta com bateria
+3. Se não tiver bateria:
+    3.1 Colocar o celular para carregar
+    3.2 Esperar o celular ter o mínimo de bateria necessário para ligar
+    3.3 Ligar o celular
+4. Abrir o whatsapp
+5. Procurar o contado desejado na lista de contatos
+6. Se não tiver o contato:
+    6.1 Selecione 'novo contato'
+    6.2 Adicione o nome do contato
+    6.3 Adicione o número do contato
+7. Selecione o contato
+8. Escreva a mensagem desejada
+9. Clique na flechinha de enviar
+**Fim**

@@ -1,0 +1,75 @@
+
+Imagine que você foi contratado para implementar um software que _cuida da
+administração de uma clínica veterinária_ cujo funcionamento é descrito da
+seguinte forma:
+
+Em uma clínica veterinária, _os clientes, primeiramente, marcam consultas com a
+secretária_, fornecendo suas _informações pessoais e as dos animais que desejam
+tratar_.
+
+Se o cliente ou o animal ainda _não estiver cadastrado no sistema_ ou possuir
+algum dado que precise ser atualizado, a secretária deverá renovar o cadastro.
+
+Em cada sessão de tratamento, o cliente deve informar _os sintomas aparentes do
+animal_ para que sejam registrados.  Um tratamento pode ser encerrado em apenas
+uma consulta, quando se tratar de algo simples, ou pode prolongar-se por muitas
+sessões, dependendo do diagnóstico do médico.
+
+Durante uma consulta, o veterinário pode _solicitar exames para o animal, a serem
+apresentados na sessão seguinte. O pedido dos exames e os seus resultados devem
+ser registrados no histórico de tratamentos do animal_.
+
+Após cada sessão, a secretária deve atualizar o histórico da consulta com
+informações sobre os cadastros de clientes, animais, médicos e espécies.
+
+Agora, uma vez apresentado o contexto da clínica, discuta com seus colegas e
+aponte _quais são as possíveis classes desse sistema_. Pense em responder as
+seguintes questões:
+
+Quais são os respectivos métodos que cada classe pode apresentar?  Existe algum
+tipo de relacionamento entre as classes? Implementações de algumas classes serão
+muito bem-vindas.
+
+
+* Classes:
+** Agenda:
+*** Atributos
+**** [X] Data horarios_marcados[]
+**** [X] Cliente cadastros[]
+*** Metodos
+**** [ ] void novoHorario
+**** [ ] void novoCadastro
+**** [ ] void novoAnimal
+** Data
+*** Atributos
+**** [X] int dia
+**** [X] int mes
+**** [X] int ano
+**** [X] int hora
+**** [X] Cliente cliente
+*** Metodos
+**** [X] construtor(dia, mes, ano, hora, cliente, animal)
+**** [X] remarcarConsulta(dia, mes, ano, hora)
+** Cliente:
+*** Atributos:
+**** [X] String nome
+**** [X] int cpf
+**** [X] Animal animais[]
+*** Metodos
+**** [X] getNome e getCpf
+**** [ ] construtor(nome, cpf, Animal)
+**** [ ] novoAnimal(Animal)
+** Animal:
+*** Atributos
+**** [X] String nome
+**** [X] String especie
+**** [X] String sintomas[]
+*** Metodos
+**** [X] getters e setters
+**** [X] construtor(nome, especie, sintomas)
+** Principal
+*** Atributos
+**** [ ] Agenda agenda
+*** Metodos
+**** [X] main
+

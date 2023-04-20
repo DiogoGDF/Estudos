@@ -1,0 +1,287 @@
+CONCEITOS DE ABSTRAÇÃO E SISTEMA BINÁRIO
+
+Nesta aula:
+- História da lógica
+- Qual é a função da lógica na criação de programas de computador
+- Sistema de numeração binário
+- Operações binárias:
+    - não
+    - e
+    - ou
+
+- Qual é o conceito de lógica?
+- Qual é a importância da lógica para computação?
+- O que é abstração e qual é a sua aplicação?
+- Qual é o sistema binário e quais as suas regras?
+- Faça operações lógicas do sistema binário de numeração.
+
+
+---------------------------------------------------------------------
+Tópico 1 – Introdução à Lógica
+
+- Defina o conceito de lógica.
+- Qual é a evolução histórica da lógica?
+- Como se aplica a lógica na programação?
+
+- O que é abstração?
+- Minha resposta:
+    - Abstração significa abstrair todas as informações irrelevantes de algo, e também encontrar padrões nas coisas
+
+- Lógica:
+    - Tem várias definições, abaixo de acordo com quatro áreas do conhecimento diferentes, respectivamente, retórica, matemática, computação, e filosofia
+    - É o estudo da validade ou falsidade de argumentos verbais
+    - É um conjunto de regras que representam corretamente um raciocínio matemático
+    - Encadeamento válido de expressões que o computador consegue interpretar
+    - Propriedade do pensar/agir que revela a consistência da ação; indica que a ação é válida segundo a realidade
+
+    -Definição formal:
+        - Não existe uma descrição única que agrada a todos
+        - Pode ser "fazer sentido" para muitos
+            - Se uma coisa faz sentido, é aceitável para a realidade que entendemos, então é lógica
+        - No curso vamos considerar lógica como:
+            - É a ciência que avalia se uma expressão é válida ou inválida tendo nosso referencial de realidade como base
+            -> próximo da definição clássica aristotélica
+
+História da lógica:
+- Primeiros registros em +- 400a.C. na Grécia antiga:
+    - Sofistas discursavam sobre como melhorar argumentação
+    - Platão:
+        - Fundou academia de Atenas:
+            - Produziu vários textos sobre política e filosofia
+    - Aristoteles:
+        - 'Pupilo' de Platão
+        - Foi o primeiro a fazer uma grande contribuição a lógica como área do conhecimento
+        - Escreveu sobre política, ética, física, ...
+        - Sua obra define toda a teoria da lógica clássica
+        - Manteve-se como principal referência no assunto por quase 2 mil anos
+        - Sobre seu trabalho sobre lógica:
+            - Conhecido como Lógica clássica
+            - ou Lógica Aristotélica
+        - Descreve uma metodologia de análise de argumentação
+        - Procura diferenciar as sentenças verdadeiras das falsas
+- XVII:
+    - René Descartes e Gottfried Leibniz:
+        - Formalização da matemática > contribuiu para lógica
+        - Inserção de símbolos na lógica p. representar argumentação
+        - Argumentação poderia ser reduzida a elementos -> palavras + numeros
+- 1879:
+    - Gottlob Frege:
+        - A logica de predicados:
+            - Quebrar expressões grandes em pedaços pequenos
+            - Representação para cada pedaço
+            - Facilitando provar a validade de expressões:
+                - Provando verdadeira cada parte
+        - Adição de quantificadores:
+            - o universal (∀):
+                - 'para todo'
+            - o existencial (∃):
+                - 'existe um'
+- Atualmente:
+    - Lógica tem várias vertentes
+    - Utilizada em diversas áreas do conhecimento:
+        - Física
+        - Matemática
+        - Filosofia
+        - Computação
+
+Exemplo de transformação de uma frase em símbolos:
+- Frase:
+    "Para todo número natural n, existe um número m tal que m é maior que n"
+- Símbolos:
+        ∀ n ∈ ℕ, ∃ m ∈ ℕ | m > n
+
+Lógica na computação:
+- A lógica moderna (evolução da lógica de predicados) foi essencial no desenvolvimento da área da computação:
+    - Computadores não possuem inteligência
+    - Logo, precisamos tornar as coisas o mais simples possível para que um computador possa executar passo a passo corretamente
+    - Um computador não consegue por exemplo observar um molde e dizer qual figura geométrica encaixa ali, mesmo isso sendo uma tarefa trivial para um ser humano
+    - As tarefas complexas que vemos computadores modernos realizar se dão pelo encadeamento de milhares de tarefas muito simples
+    - Por isso precisamos, como programadores, ser capazes de quebrar uma tarefa em várias tarefas menores e o mais simples possíveis
+    - Ajuda na validação da semântica, inteligência artificial e na segurança da informação
+
+
+    - Lógica --> Construção de linguagens formais:
+        - Linguagens que permitem:
+            - Análise
+            - Compreensão de suas expressões
+            - Sem ambiguidade
+    - Linguagens formais --> Linguagens de programação:
+        - Nos permite informar ao computador o que ele deve fazer, sem ambiguidade
+    - Linguagens de programação --> Programas:
+        - Conjuntos de instruções mutáveis
+        - Graças a lógica formal podemos criar linguagens de programação que não são ambíguas
+
+-----------------------------------------------------------------------
+TÓPICO 2 - ABSTRAÇÃO DO MUNDO REAL
+
+Como analisar e extrair características de elementos do mundo real?
+Como representar elementos do mundo real de maneira abstrata?
+
+Neste tópico:
+- Qual é o processo que devemos fazer antes de dizer ao computador o que fazer?
+--> Como interpretar problemas, e como dividi-los em tarefas menores
+
+
+
+Existem diversas formas de representar/descrever as coisas:
+- Pinturas
+- Textos
+- Fotografias
+- ...
+ Todas as formas de descrição porém não são capazes de mostrar o todo:
+    - Pode ser:
+        - Intencional
+        - Ou da natureza da coisa que se deseja descrever
+- Abstração:
+    - Analisar algo e descrever apenas com o que é necessário (essencial)
+    - Descrever um objeto, por exemplo, com apenas os detalhes essenciais para o que queremos fazer.
+    - Podemos usar na computação para simplificar a descrição do problema que pretendemos resolver
+
+Abstração na Computação:
+- Como comentado anteriormente precisamos reduzir problemas a uma série de comandos simples que o computador consegue executar
+- Primeiro passo:
+    - Identificar os elementos de um problema
+    - Criar as abstrações necessárias (eliminar o que não serve)
+        - Identificar quais informações e ações são necessárias para resolver o problema
+        - Dividir o problema em partes menores
+- Importância:
+    - Detalhes que não são necessários ocupam um espaço precioso na memória --> devem ser descartados
+        - Podem tornar a compreensão e a organização mais difíceis 
+
+-----------------------------------------------------------------------
+
+Tópico 3 – Sistema de numeração binário
+
+Como funciona o sistema binário?
+Qual é a aplicação do sistema binário?
+
+Sistemas numéricos:
+- Decimal:
+    - O sistema que humanos usam como padrão
+    - 10 símbolos distintos (0, 1, 2, ..., 9)
+    - Número de dígitos india sua casa:
+        - unidades (1 a 9)
+        - dezenas (10 a 99)
+        - centenas (100 a 999)
+        - ...
+- Binário:
+    - É o sistema numérico que os computadores utilizam    
+    - Apenas 2 símbolos distintos (0 e 1)
+        - Transistores (ligado = 1 e desligado = 2)
+
+Conversão de binário para decimal:
+- 0 -> 0
+- 1 -> 1
+- 2 -> ?
+    - Acima de 0 e 1 precisamos combinar os símbolos do sistema binário
+    - Assim como no sistema decimal os números crescem da direita para a esquerda (9 -> 10 [decimal])
+- Regra de formação:
+    - Cada dígito equivale a seu valor multiplicado por 2, elevado ao valor da sua posição no número menos 1 (ou seja, é igual que um array, começa na casa 0)
+    - Depois de calcular o valor de cada dígito basta somá-los para ter o valor final em decimal.
+
+- Exemplos:
+
+    11001 = 
+        2⁰ + 2³ + 2⁴
+        1 + 8 + 16
+        25
+
+    11 = 
+        2⁰ + 2¹
+        1 + 2
+        3
+
+    111 = 
+        2⁰ + 2¹ + 2²
+        1 + 2 + 4
+        7
+
+    100101 = 
+        2⁰ + 2² + 2⁵
+        1 + 4 + 32
+        37
+
+    100 = 
+        2²
+        4
+
+Conversão de binário a alfanumérico:
+- Alfanumérico = números, letras, símbolos
+- Tabela ASCII:
+    - Transformamos os numeros binários em decimal
+    - Depois podemos transformar esse número no respectivo símbolo da tabela ASCII
+- Para seres humanos não é viável utilizar o sistema binário para representar palavras ou números, porém para computadores o mesmo é verdade para nosso sistema alfanumérico, enquanto para eles é muito fácil armazenar e calcular 0s e 1s
+
+
+Conversão de Decimal para Binário
+- Dividir um número decimal por 2 sucessivamente
+- A cada divisão anotar o resto (1 ou 0)
+- No final colocar mais um 1
+- Agora é só juntar pra formar o número binário
+    - Começando pelo ultimo 1 vai subindo até o resto da primeira divisão
+    - (da esquerda para a direita no caso)
+    - daí separar a cada quatro números e adicionar 0s no inicio do número até ser exatamente 4 no ultimo byte 
+-Exemplo
+    7 para binário
+        7%2=1 > 1bit
+        3%2=1 > 2bit
+            1 > 3bit
+        0111
+    
+    98 para binário:
+        98%2=0 > 1bit
+        49%2=1 > 2bit
+        24%2=0 > 3bit
+        12%2=0 > 4bit
+         6%2=0 > 5bit
+         3%2=1 > 6bit
+             1 > 7bit
+        0110 0010
+
+-----------------------------------------------------------------------
+TÓPICO 4 - ARITMÉTICA E LÓGICA BINÁRIA
+
+Qual é a diferença entre as operações lógicas 'E' e 'OU'?
+Como são as operações binárias de soma e de produto?
+
+Neste tópico:
+- Operações com numeros binários com as operações 'E' e 'OU'
+- Como que as operações binárias somadas a esses dois operadores torna o computador capaz de realizar todos os tipos de manipulação de dados?
+
+Operações Lógicas Usando Números Binários:
+- Podemos associar os sinais 1 e 0 como:
+    - 1 > verdadeiro
+    - 0 > falso
+    - Assim podemos aplicar as regras da lógica
+
+- Operador Lógico 'Negação':
+    - transforma 0 em 1 e 1 em 0
+    - Na argumentação seria equivalente ao "não"
+    - Símbolo -> "¬"
+    - Se negamos uma afirmativa que já é negativa:
+        - As negações se anulam
+        - A afirmação se torna positiva
+    - Negação sob um número binário:
+        ¬101 = 010 = 10 (descartando o primeiro 0)
+        ¬10001 = 01110 = 1110
+
+- Operador Lógico 'Condicionais':
+    - Podemos inserir uma ou mais frases de condição
+    - Se essas condições são verdadeiras então algo (planejado) ocorre
+    - Tabela verdade:
+        - Reúne todas as combinações de verdadeiro ou falso
+    - Operador 'E':
+        - Entre duas afirmações
+        - Ambos os lados devem ser verdadeiros para o total ser verdadeiro
+    - Operador 'OU':
+        - Entre duas afirmações:
+        - Se apenas um dos lados for verdadeiro já valida o total
+
+- Soma e produto binário:
+    - Computadores possuem circuitos desenvolvidos especialmente para realizar operações lógicas, de modo que em frações de segundos consegue realizar contas complexas de soma, multiplicação, divisão, ...
+    - Operador "OU" corresponde a soma aritmética:
+        0+0 =  0
+        0+1 =  1
+        1+1 = 10
+    - Operador "E" corresponde a multiplicação dos dígitos:
+        - é literalmente igual a multiplicação de decimais

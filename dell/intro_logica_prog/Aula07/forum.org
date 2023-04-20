@@ -1,0 +1,78 @@
+#+TITLE: Forum
+
+#+begin_src
+Procedimento ehPrimo(numero:Inteiro):
+
+Variáveis:
+
+numero, i, cont :inteiro
+Inicio
+para i de 1 ate numero faça:
+     se numero % i == 0 entao
+        cont = cont+1
+     fim_se
+     i = i+1
+fim_para
+se cont == 2 entao:
+   escreva(" e primo!")
+se_nao
+   escreva(" NAO e primo!")
+fim_se
+fim_algoritmo
+#+end_src
+
+Olá Beatriz, tudo bem?
+
+Eu tenho uma sugestão para melhorar seu algoritmo na parte de checar se um número é primo ou não. Minha sugestão é utilizar uma função que retorna um booleano
+
+funcao ehPrimo(numero: Inteiro): Booleano
+Variáveis:
+    i: Inteiro
+PARA i de 2 até numero PASSO 1
+    Se numero % i == 0 então
+        retorne 0
+    fim_se
+    retonre 1
+FIM_PARA
+fim_funcao
+
+Porque fazer isso? Pois como vimos na aula, as funções encerram sua execução quando retornam um valor, então dessa forma no momento que descobrirmos que o número não é primo já encerraremos a execução, possivelmente nos economizando várias iterações, pois por exemplo se o número for divisível por 2, na primeira iteração ele já vai encerrar o laço, não precisando repetir um número de iterações igual ao número.
+
+Durante a aula 7, aprendemos o funcionamento da modularização em algoritmos, além de conhecer seus tipos: funções e procedimentos.
+
+Os procedimentos são módulos que recebem uma lista de parâmetros, mas não retornam valores. Já as funções são tipos de módulos que recebem uma lista de parâmetros e, obrigatoriamente, retornam algum valor.
+
+Podemos citar, como exemplo de procedimento, um módulo responsável por enviar um SMS para um cliente. Como parâmetros, passamos o número do destinatário e a mensagem que será enviada.
+
+Como exemplo de função, podemos citar um módulo responsável por calcular o salário líquido de um funcionário. A função recebe por parâmetro o salário bruto do empregado e retorna o salário líquido do mesmo.
+
+Partindo desses exemplos, cite outras aplicações de funções e procedimentos, especificando seus parâmetros (caso necessário) e seu retorno (se for função).
+
+Escreva em algoritmo algumas funções e procedimentos para as situações descritas por você (escreva apenas as funções ou procedimentos, não precisa escrever todo o algoritmo).
+
+Por fim, analise as respostas dos seus colegas, sugerindo melhorias ou correções.
+
+Bons estudos!
+
+
+
+Olá, eu pensei em dois exemplos. Primeiro um exemplo de uma função que recebe um valor de m/s e retorna o mesmo valor em km/h. E o segundo exemplo é um procedimento que recebe um Inteiro que é uma quantidade de horas e imprime na tela o valor equivalente em minutos e depois imprime o valor equivalente em segundos.
+
+
+funcao conversao(ms: Decimal): Decimal
+Variaveis:
+    kmh: Decimal
+Inicio
+    kmh = ms * 3,6
+    retorne kmh
+fim_funcao
+
+procedimento formatoHorario(h: Inteiro)
+Variaveis:
+    m, s: Inteiro
+Inicio
+    m = h * 60
+    SAIDA(h+" horas são "+ m + " minutos")
+    s = m * 60
+    SAIDA(h + " horas são " + s + " segundos")
+fim_procedimento

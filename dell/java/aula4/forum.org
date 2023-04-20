@@ -1,0 +1,10 @@
+* Enunciado
+Para este fórum, leia o seguinte relato e responda as dúvidas levantadas, buscando aplicar o que aprendeu na aula.
+
+“Olá! Estou com alguns problemas no desenvolvimento de um trabalho sobre Java, que é a criação de um sistema para um Banco.
+
+Escrevi as classes Cliente, Premium e Estudante que representam clientes e tipos distintos de clientes. Depois, criei as classes Funcionario, Gerente e Caixa, que representam tipos de funcionários de um Banco. Em seguida, criei a classe ServicoBanco, que implementa serviços básicos que o banco deve oferecer aos seus clientes.
+
+Por fim, implementei uma classe chamada ExecutaBanco, que contém o método principal Main().
+
+Minhas dúvidas são: realmente preciso criar uma estrutura de pacotes para a minha aplicação? Quais as vantagens dessa estratégia de pacotes? Caso eu deseje alocar as classes em pacotes, qual seria a melhor opção? De quantos pacotes eu precisaria? Qual a melhor forma de organizar as classes nesses pacotes?”

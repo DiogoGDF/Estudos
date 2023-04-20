@@ -1,0 +1,48 @@
+Situação: Realizar um saque em um caixa eletrônico
+
+1) Identificar os dispositivos computacionais envolvidos nesta operação?
+Resposta:
+Para esta operação precisamos de dois sistemas computacionais principais:
+ - Caixa eletrônico (Sistema computacional de processamento local)
+ - Cartão de crédito (Smart Card)
+
+2) Quais informações e/ou dispositivos são necessários para a ENTRADA de dados?
+Resposta:
+
+Informações de entrada:
+- Identidade bancária da pessoa realizando o saque (inserir cartão)
+- Operação que o usuário deseja realizar (escolher saque)
+- Escolher conta que deseja utilizar
+- Escolher o valor que deseja retirar
+- Senha
+- Escolher a opção "finalizar"
+
+Dispositivos de entrada:
+- Identificador de cartão
+- Teclado
+- Botões ao lado da tela
+- Touchscreen (Tela que reconhece toques)
+
+3) Quais as ações ou verificações acontecerão para que a operaçao aconteça com sucesso?
+Resposta:
+- Verificar os dados do cartão (ID, validade, ...)
+- Verificar a operação que o usuário deseja realizar
+- Verificar a quantidade de dinheiro que o usuário deseja retirar
+- Verificar se o caixa tem essa quantidade de dinheiro disponível
+- Verificar a senha do usuário
+- Verificar se usuário pegou o dinheiro
+- Verificar se o usuário deseja finalizar a operação
+- "Imprimir" o dinheiro (enviar o dinheiro para fora da máquina)
+
+
+4) Saída:
+Resposta:
+Informações de saída:
+ - Instruções para o usuário (coloque cartão/retire o dinheiro)
+ - Mostrar opções de operação, quantidade de dinheiro, ...
+ - Mostrar sucesso ou falha nas etapas do processo (se o cartão foi identificado, se o dinheiro foi sacado, ...)
+ - Mostrar operação finalizada no final
+
+Dispositivos de saída:
+ - Tela
+ - Impressora (não é de fato uma impressora, estou me referindo ao dispositivo que envia para fora da máquina o dinheiro)

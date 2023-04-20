@@ -1,0 +1,35 @@
+#+TITLE: Officina
+
+* Enunciado:
+Durante a aula 6, você aprendeu que as estruturas de repetição ENQUANTO e PARA,
+também chamadas de laços, permitem a repetição de blocos de instruções em um
+algoritmo, subordinados a uma condição de continuidade da repetição, que pode
+ser uma contagem ou uma expressão lógica qualquer.
+
+Em sua opinião, é sempre vantagem usar estruturas de repetição para repetir
+instruções em um algoritmo? Como a quantidade de instruções a repetir e a
+complexidade da condição de continuidade podem influenciar na escolha do laço a
+ser usado ou, até mesmo, na decisão de usar ou não um laço?
+
+Não deixe de analisar e discutir a opinião de seus colegas.
+
+Dica: considere um algoritmo que precisa repetir uma instrução duas ou três
+vezes. Vale a pena usar uma estrutura de repetição nesse caso? E no caso de um
+algoritmo dinâmico, que ficará a cargo do usuário escolher a quantidade de
+repetição que terá?
+
+Bons estudos!
+
+* Minha resposta:
+
+* Resposta a um colega:
+** A resposta dele:
++ Acredito que o uso de estrutura de repetição nem sempre é vantajoso,  o uso
+  dessas estruturas tem benefícios em repetições longas por exemplo quando
+  usamos o Enquanto aonde não há previsão de termino, ou quando usamos o PARA em
+  uma repetição que já sabemos o seu termino, mas digamos que seja 30
+  repetições, agora quando repetição é curta como uma contagem regressiva de 5,3
+  segundos não convém usa-las, pode ser escrito manual sem muita poluição do
+  código.
+** Minha resposta:
++ Olá Roger, tudo bem? Eu entendo sua argumentação, mas concordo parcialmente, acho que ainda é possível que seja vantajoso utilizar laços de repetição para códigos com poucas repetições como o seu exemplo pois podemos fácilmente alterar o código futuramente se necessário (ou reutilizar o código em outras partes ou outros programas). Para demonstrar isso eu vou utilizar seu exemplo de 5 ou 3 segundos, onde pode até ser fácil e rápido de implementar manulamente cada repetição, mas se fizermos com um laço de repetição, fácilmente podemos alterar o código para fazer a contagem regressiva de 1000 segundos ou qualquer outro número, precisando só mudar o número no laço.

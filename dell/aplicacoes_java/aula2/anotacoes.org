@@ -1,0 +1,21 @@
+
+
+* Exceções
+** Métodos
+*** getMessage()
+Fornece um String com a descrição do que ocorreu (erro)
+
+** Try/catch/finally
+*** Catch
++ Podemos ter vários blocos catch para um mesmo bloco try
++ Sequenciais
+  + Vai procurando nos blocos catch em ordem que foi escrita, até encontrar alguma excessão que se encaixe. Por isso se a gente usar alguma classe de excessão muito genérica antes de uma específica, irá entrar no bloco genérico e não vai alcançar o específico.
+*** Finally
++ Bloco que é sempre executado independente de excessões
++ ideal para trechos de código que precisam ser executados em ambos os casos, sem ou com excessões
+
+* Fórum
+Olá, acredito que devemos criar excessões personalizadas quando queremos tratar excessões que não tenham ocorrido de uma operação ilegal (como tentar ler uma posição inexistente de um vetor), ou seja, quando queremos tratar uma excessão que é possível a partir da linguagem, mas não se adequa a lógica específica do nosso programa. Por exemplo, ao criar um cadastro de alguém em um programa, ao solicitar o número do CPF, podemos criar uma exceção personalizada que é lançada caso o número digitado tiver mais, ou menos que 11 dígitos.
+
+Olá Kaio, tudo bem?
+Seria legal se você pudesse postar um exemplo prático de como utilizar exceções ao invés de if/else para deixar o código mais limpo

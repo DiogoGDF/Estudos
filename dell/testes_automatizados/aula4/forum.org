@@ -1,0 +1,59 @@
+* Forum aula 4
+
+*Funcionalidade*: Cadastrar Aluno
+
+Cenário: Realizar cadastro com sucesso
+
+*Dado* que estou na página de criar um novo cadastro para aluno
+
+*Quando* preencho o campo de nome do aluno com um nome válido
+*E* preencho o campo de senha com uma senha válida
+*E* preencho o campo do número da matrícula do aluno com uma matrícula válida
+E preencho o campo do email do aluno com um email válido
+E seleciono o curso do aluno no botão de multiplas escolhas pré-definidas
+E clico em cadastrar
+
+*Então*, devo ver uma linha de texto que diz "Cadastro realizado com sucesso!"
+
+Cenário: Falha ao realizar cadastro
+
+*Dado* que estou na página de criar um novo cadastro para aluno
+
+*Quando* preencho o campo de nome do aluno
+*E* preencho o campo de senha
+*E* preencho o campo do número da matrícula do aluno
+E preencho o campo do email
+E seleciono o curso do aluno no botão de multiplas escolhas pré-definidas
+Mas algum dos campos foi preenchido de maneira inválida
+E clico em cadastrar
+
+*Então*, devo ver os campos realizados de maneira inválida destacados em vermelho
+E devo ver uma mesagem "* dados inválidos" abaixo de cada campo inválido
+
+------
+
+* Formum aula 4.2
+
+Os três pontos diferentes que eu escolhi são:
+
+1) Escrita: Em TDD os testes são escritos em linguagem de programação pelos próprios desenvolvedores, enquanto em BDD os testes são escritos em sintaxe Gherkin, que tem termos fixos, mas são facilmente entendidos por todos, então os testes podem ser escritos com mais facilidade por qualquer envolvido no projeto.
+
+
+2) Foco: Em TDD o foco é a qualidade de código, onde o objetvio é garantir que cada parte do código está funcionando de acordo com o esperado, por exemplo as saídas de um método serem as saídas esperadas. Em BDD o foco é no valor do negócio, onde o objetivo é o entendimento e a comunicação clara entre todos os envolvidos no projeto, desde o cliente a aos desenvolvedores, por exemplo ao descrever uma funcionalidade nova, com o resultado esperado para respectivos cenários de testes.
+
+3) Manutenção: TDD tem a natureza de ser altamente específico para cada trecho do código, então ao ocorrer qualquer alteração, os testes são diretamente afetados, além de que devemos realizar a mudança nos testes antes de alterar o código fonte. Já em BDD, temos testes de natureza mais ampla, e independentes da forma de implementação do código, logo, mudanças em testes do tipo BDD são bem menos frequentes.
+
+Exemplo de TDD:
+     @Test
+     void testeSoma() {
+         int output = calculadora.soma(1, 1);
+         assertEquals(2, output);
+     }
+
+Exemplo de BDD:
+    Funcionalidade: Realizar login no Outlook
+    Cenário: realizar login com sucesso
+    Dado que estou página de login do Outlook
+    Quando preencher o campo de usuário com um email válido
+    E preencher o campo da senha com uma senha válida para o usuário inserido
+    Então devo ver a caixa de entrada do email

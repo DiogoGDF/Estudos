@@ -1,0 +1,40 @@
+#+TITLE: Aula 1 - Introdução sobre Testes Automatizados
+
+*Objetivos*
++ Definir o que são testes automatizados
++ Apresentar vantagens e desvantagens de testes automatizados
+
+* Aula
+** Testes Manuais
++ Realizado por um ser humano
++ Simula o que um usuário faria
++ Ainda deve ser utilizado mesmo quando usando testes automatizados
++ Porém possibilita maior quantidade de falhas
+
+** Testes Automatizados
++ Realizado através de uma ferramenta de Automação:
+  + Base em scripts de testes
+  + Mantidos de acordo com as mudanças e regras de negócio do sistema
++ Adequado para grandes projetos que exigem testar rapidamente as mesmas áreas e projetos que já passaram por um processo inicial de teste manual
+
+** Uso
++ Buscar automatizar testes para validação dos fluxos:
+  + Mais importantes
+  + Utilizados mais frequentemente
++ Assim verificamos todas as vezes que uma nova funcionalidade for implementada se ela afeta ou não esses fluxos
+
+
+* Fórum
+
+A partir do aprendizado e discussões realizadas no vídeo sobre automação de testes, pense em um sistema online de uma loja de venda de celulares. Esta loja tem como objetivo principal garantir que qualquer usuário consiga, rapidamente, escolher o modelo do celular desejado e efetivar a compra com sucesso.
+
+Com isso, descreva, com suas próprias palavras, quais são as vantagens e desvantagens de implementar testes automatizados neste sistema, levando em consideração que o teste será desenvolvido do zero.
+
+* Vantagens:
+- O fluxo principal do site terá sido testado diversas vezes e se poderá arrumar quaisquer erros e bugs que tenham surgido, assim reduzindo as chances de que quando os clientes entrarem para comprar um celular, tenha algum erro ou bug na loja virtual.
+- Como a loja não tem muitas funcionalidades além do fluxo principal, facilmente será possível desenvolver e manter os scripts de testes automáticos
+- Com os scripts desenvolvidos é possível testar o site novamente toda vez que forem implementadas mudanças, como adicionar novos modelos de celulares e excluir antigos, agilizando a manutenção da loja.
+
+* Desvantagens
+- O tempo ganho na utilização dos testes atomatizados vem ao longo prazo, e ainda é necessário realizar testes manuais, então para projetos pequenos pode não valer a pena o tempo de desenvolvimento e manutenção dos scripts de testes automatizados.
+- Os testes automaticos não são recomendados no caso de a loja estar em desenvolvimento inicial, pois ela pode acabar mudando diversas vezes seus fluxos e funcionalidades, assim os scripts de testes sofrerão diversas mudanças também, precisando de muita manutenção e talvez tendo que ser desenvolvidos completamente de novo.

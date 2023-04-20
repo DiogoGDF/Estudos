@@ -1,0 +1,404 @@
+#+TITLE: Aula 6 - Classes Abstratas e Interfaces
+
+* Indice :TOC:
+- [[#introdução][Introdução]]
+- [[#tópico-1--o-que-são-classes-abstratas][Tópico 1 – O que são Classes Abstratas?]]
+  - [[#11-como-criar-classes-abstratas][1.1 Como criar Classes Abstratas?]]
+  - [[#12-métodos-abstratos][1.2 Métodos Abstratos]]
+- [[#tópico-2--o-que-são-interfaces][TÓPICO 2 – O que são Interfaces?]]
+  - [[#21-características-das-interfaces][2.1 Características das interfaces]]
+  - [[#22-interfaces-importantes-da-api-java][2.2 Interfaces importantes da API Java]]
+- [[#forum][Forum]]
+  - [[#resposta][Resposta]]
+
+* Introdução
+
+Nesta aula, estudaremos o que são Classes Abstratas e Interfaces.
+Perceberemos que o conceito de Classes Abstratas surge para gerenciar a instanciação de objetos de determinadas classes, enquanto o uso das Interfaces nos permite expandir as capacidades dos nossos objetos.
+Ambos são importantes e necessários.
+
+*Objetivos*
++ Entender a definição e a importância de Classes Abstratas e de Interfaces;
++ Aprender a aplicar os conceitos de Classes Abstratas e de Interfaces em uma hierarquia de heranças.
+
+* Tópico 1 – O que são Classes Abstratas?
+
+*Objetivos*
++ Entender o que são Classes Abstratas;
++ Aprender a identificar os casos nos quais as Classes Abstratas são necessárias.
+
+Classes Abstratas são um tipo especial de classe que impõe restrição: não é permitido instanciar objetos de uma classe dita abstrata.
+
+Isso parece pouco inteligente, afinal, para que serve uma classe que não pode gerar objetos? A questão é que, _em certos casos, queremos restringir os tipos de objetos que podem existir no nosso programa_. Observe o exemplo a seguir.
+
+- *CLASSE PESSOA*
+#+begin_src java
+public class Pessoa {
+    private String nome;
+
+    public Pessoa(String nome){
+        this.nome = nome;
+    }
+
+    public String toString(){
+        return nome;
+    }
+}
+#+end_src
+
+- *CLASSE PROFESSOR*
+#+begin_src java
+public class Professor extends Pessoa {
+    private String disciplina;
+    private String[] turmas;
+
+    public Professor(String nome, String disciplinas){
+        super(nome);
+        this.disciplinas = disciplinas;
+    }
+    public String toString(){
+        return super.toString() + "(Professor)" + "\n Disciplina: " + disciplina;
+    }
+}
+#+end_src
+
+- *CLASSE ALUNO*
+#+begin_src java
+public class Aluno extends Pessoa {
+     private String matricula;
+
+     public Aluno(String nome, String matricula){
+        super(nome);
+        this.matricula = matricula;
+    }
+
+     public String toString(){
+        return super.toString() + "(Professor)" + "\n Matricula: " + matricula;
+     }
+}
+#+end_src
+
+- *CLASSE TESTE*
+#+begin_src java
+public class Teste {
+    public static void main(String[] args){
+        Pessoa professor = new Professor("João", "Matemática");
+        Pessoa aluno = new Aluno("Rafael", "124873223");
+
+        System.out.println(professor);
+        System.out.println(aluno);
+    }
+}
+#+end_src
+
+Além da possibilidade de criarmos objetos a partir da superclasse Pessoa, o fato de podermos ter objetos do tipo Aluno e Professor, sendo apontados por referências de Pessoa, é bastante útil para trabalharmos com métodos herdados dessa superclasse.
+Mas existem casos em que precisamos limitar que tipo de objeto pode existir dentro do sistema.
+
+Por exemplo, se para um sistema que utiliza as classes citadas no exemplo apresentado só forem previstas entidades do tipo Aluno e Professor, ou seja, todos os objetos devendo, necessariamente, ser de um desses tipos, não faz sentido para o sistema ter um objeto do tipo Pessoa sendo instanciado, pois, por ele ser genérico demais, não representa algo que o sistema deva manusear. Para o sistema, não existem pessoas genéricas, apenas Alunos e Professores. Essa é uma condição lógica do programa, chamada Regra de Negócio, a qual pode ser facilmente violada com um trecho de código, como o do exemplo a seguir (observe na próxima página).
+
+  - *Saiba mais!*
+  - Em Java, assim como em outras linguagens, é possível utilizar alguns caracteres curinga, afim de facilitar a formatação de textos nos Consoles. Eles são interpretados como um único caractere, de acordo com a tabela ASCII e realizam algumas tarefas comuns de formatação. Os mais utilizados são: ‘\n’ – quebra de linha; ‘\t’ – tabulação na mesma linha
+
+#+begin_src java
+public class Teste {
+  public static void main(String[] args){
+      Pessoa professor = new Professor("João", "Matemática");
+      Pessoa aluno = new Aluno("Rafael", "124873223");
+      Pessoa pessoa = new Pessoa("Claudio");
+      System.out.println("pessoa");
+  }
+}
+#+end_src
+
+Para evitar que esse tipo de situação ocorra e para evitar a perda dos benefícios da herança, podemos aplicar o conceito de Classe Abstrata, que, como apresentada anteriormente, são aquelas classes das quais não se pode gerar um objeto, ou seja, não é permitida a instanciação de um objeto.
+
+** 1.1 Como criar Classes Abstratas?
+Para fazer com que uma classe se torne uma classe abstrata, basta adicionar a palavra-chave /abstract/ antes da palavra-chave class. A partir desse momento, a classe em questão se torna abstrata e não pode instanciar objetos diretamente. Assim, para o primeiro exemplo mostrado, se fizermos com que a classe Pessoa se torne uma classe abstrata, não poderíamos criar um novo objeto a partir dela. A tentativa de criar um objeto do tipo Pessoa resultaria em um erro apontado pelo compilador, como mostra o exemplo:
+
+#+begin_src java
+public abstract class Pessoa {
+  private String nome;
+
+}
+#+end_src
+#+begin_src java
+public class Teste {
+  public static void main(String args[]){
+    Pessoa p = new Pessoa();
+  }
+}
+#+end_src
+#+begin_example
+Console:
+    Erro na linha:3 coluna:18
+    Mensagem: 1/Teste.java:3: Pessoa is abstract; cannot be instantiated
+#+end_example
+
+Agora que conhecemos o conceito de classes abstratas, podemos utilizar a nomenclatura formal para separá-las das demais.
+Dizemos que uma classe marcada com a palavra-chave abstract é uma classe abstrata e que todas as outras classes são concretas, as únicas que permitem a instanciação de objetos.
+
+Quando modificamos a classe Pessoa tornando-a abstrata, estamos explicitamente proibindo a instanciação de objetos do tipo Pessoa e, portanto, garantindo a Regra de Negócio, que diz que não deve haver objetos que não sejam, nesse caso, do tipo Aluno ou Professor no sistema.
+Essa é a principal função do uso de classes abstratas. Classes abstratas não devem ter "vida", exceto no caso em que elas são estendidas, ou seja, possuem subclasses concretas. Observe o diagrama a seguir:
+
+[[file:figura01.png][Figura 1 – Exemplos de classes abstratas e concretas.]]
+
+Para o exemplo da figura, apenas as classes Triangulo, Quadrilatero e Pentagono representam entidades que podem ser instanciadas no sistema.
+Poligono e FormaGeometrica são classes abstratas e não podem gerar objetos diretamente, por não representarem uma forma definida, por exemplo.
+
+** 1.2 Métodos Abstratos
+Uma vez que uma classe é dita abstrata, ela pode conter métodos abstratos. Um método abstrato não tem um corpo definido e existe para ser implementado em subclasses concretas de uma classe abstrata.
+
+Na verdade, todos os métodos marcados como abstratos devem ser, *obrigatoriamente*, implementados em uma subclasse concreta que herda da classe abstrata. Observe o exemplo:
+
+#+begin_src java
+public abstract class Poligono extends FormaGeometrica {
+    private int quantidadeLados;
+    public abstract double area();
+}
+#+end_src
+
+Baseado no que foi dito anteriormente, vamos imaginar uma classe Quadrado que estende a classe Poligono.
+Nesse caso, a classe Quadrado é obrigada a conter uma implementação do método area.
+O próximo exemplo apresenta a implementação da classe Quadrado, que é subclasse da classe Poligono.
+
+É importante dizer que métodos abstratos são opcionais em uma classe abstrata, ou seja, _uma classe abstrata pode conter métodos concretos._
+Além disso, _não é possível definir construtores abstratos_, uma vez que eles não são herdados, logo, nunca poderiam ser implementados.
+
+#+begin_src java
+public class Quadrado extends Poligono {
+    private double lado;
+    public double area(){
+        return lado*lado;
+    }
+}
+#+end_src
+
+[[file:figura02.png]]
+
+
+- Agora, para aplicar o que aprendeu, tenha como base os exemplos apresentados neste tópico e pratique-os no ambiente de programação da plataforma. Lembre-se de que a teoria e a prática caminham juntas e o exercício é muito importante. Por isso, não deixe de praticar os exemplos desta aula. Se preferir, também pode criar e praticar seus próprios exemplos referentes aos assuntos estudados aqui.
+
+Chegamos ao fim do nosso primeiro tópico. Nele, você estudou sobre classes abstratas e aprendeu porque elas são necessárias em alguns casos para manter a Regra de Negócio dos nossos programas. No tópico 2, serão apresentadas Interfaces e como elas complementam o conceito de herança.
+
+* TÓPICO 2 – O que são Interfaces?
+
+*Objetivos*
++ Entender o que são Interfaces;
++ Compreender a utilidade das Interfaces.
+
+Interfaces são um tipo especial de classe completamente abstrata.
+Elas permitem que criemos um conjunto de comportamentos, ou seja, métodos que desejamos que façam parte de nossas classes, mas que sejam _independentes de uma hierarquia de heranças de classes._
+
+Dizemos que uma classe X implementa uma interface I quando relacionamos X e I através da palavra-chave implements, como será apresentado em breve.
+
+As Interfaces são definidas pela palavra-chave /interface/ e constituídas de _métodos sempre públicos_ (mesmo que estes não possuam o modificador public, serão públicos) e _sem corpo definido_. Isso quer dizer que elas definem uma série de métodos que as classes que as implementarem terão, mas sem dizer como esses métodos trabalharão. O corpo dos métodos sempre terá de ser definido nas classes concretas que as implementarem. Observemos o exemplo a seguir:
+
+#+begin_src java
+public interface Organizavel {
+   void ordemCrescente();
+   void ordemDecrescente();
+   String listarItens();
+}
+#+end_src
+
+No exemplo anterior, temos a interface Organizavel.
+Uma boa prática é sempre definir os nomes de uma interface com uma palavra que indique capacidade, que será injetada nas classes que implementarem essa interface.
+No caso, Organizavel tenta nos dizer que uma classe que implementá-la será, de alguma forma, organizável. Essa classe deverá definir corpo, ou seja, implementar os métodos ordemCrescente, ordemDecrescente e listarItens de acordo com as suas necessidades.
+A classe Lista, no exemplo a seguir, é um modelo de implementação da interface Organizavel.
+
+#+begin_src java
+public class Lista implements Organizavel {
+    int numeros[];
+    boolean continuar;
+
+    public void ordemCrescente(){
+        // Organiza os elementos do vetor
+        // numeros em ordem crescente
+        continuar = true;
+        while(continuar == true){
+            continuar = false;
+            for(int i=0; i<(numeros.length-1); i++){
+                if(numeros[i] > numeros[i+1]){
+                    int variavelAuxiliar = numeros[i+1];
+                    numeros[i+1] = numeros[i];
+                    numeros[i] = variavelAuxiliar;
+                    continuar = true;
+                }
+            }
+        }
+    }
+
+    public void ordemDecrescente(){
+        // Organiza os elementos do vetor
+        // numeros em ordem decrescente
+        continuar = true;
+        while(continuar == true){
+            continuar = false;
+            for(int i=0; i<(numeros.length-1); i++){
+                if(numeros[i] <= numeros[i+1]){
+                    int variavelAuxiliar = numeros[i+1];
+                    numeros[i+1] = numeros[i];
+                    numeros[i] = variavelAuxiliar;
+                    continuar = true;
+                }
+            }
+        }
+    }
+
+    public String listarItens(){
+        String itens = "";
+        for(int i=0; i<numeros.length; i++)
+            itens = numeros[i] + "" ;
+        return itens;
+    }
+}
+#+end_src
+
+Dentro da classe Lista, temos um vetor de inteiros chamado numeros.
+Implementamos a interface Organizavel utilizando a palavra-chave implements, logo após o nome da classe, seguido do nome da interface.
+Então, para efetuar os trabalhos de organização, implementamos, sobre o vetor números, cada um dos três métodos listados na interface.
+Os métodos ordemCrescente e ordemDecrescente utilizam o algoritmo Bolha com flag para colocar os valores do vetor em ordem. O método listaItens monta um String com a lista de todos os valores do vetor.
+
+Na aula passada, comentamos que Java não permite herança múltipla, como a linguagem C++. O uso de interfaces complementa o recurso de herança da linguagem Java, permitindo que classes não relacionadas por herança compartilhem comportamentos. Por exemplo: suponhamos a hierarquia de classes da figura 2.
+
+[[file:figura03.png]]
+
+Nesse caso, temos as classes Gato e GatoRobo que implementam a mesma interface Movimentavel, que lhes fornece os métodos dormir, moverRabo e arranhar.
+Assim, as classes Gato e GatoRobo possuem esses métodos, os quais elas não poderiam herdar de uma segunda classe, uma vez que cada uma já possui uma superclasse e, de outra forma, só seria possível se as classes Animal e Maquina já possuíssem esses métodos.
+
+Não existe um limite de quantidade para a implementação de interfaces por parte de uma classe. Isso significa que uma mesma classe pode implementar várias interfaces, enquanto só pode estender (ser subclasse) de apenas uma superclasse.
+Para implementar várias interfaces, basta listar os seus nomes após a palavra-chave interface, separando-as por vírgula, como no exemplo a seguir.
+
+#+begin_src java
+// Triangulo deve implementar os métodos Desenhavel, Imprimivel e Calculavel.
+public class Triangulo implements Desenhavel, Imprimivel, Calculavel { }
+#+end_src
+
+Note que, para esse exemplo, a classe Triangulo, que é concreta, deverá implementar todos os métodos das interfaces Desenhavel, Imprimivel e Calculavel.
+
+** 2.1 Características das interfaces
+Interfaces podem estender outras interfaces, ou seja, você pode utilizar a palavra-chave extends para construir interfaces a partir de outras. Observe o seguinte exemplo.
+
+#+begin_src java
+public interface InterfaceA {
+    int metodoX();
+    int metodoY();
+}
+
+public interface InterfaceB extends InterfaceA {
+    void metodoZ(int param1; int param2);
+}
+#+end_src
+
+Para o exemplo mostrado, uma classe que implementar InterfaceB terá de definir o corpo de metodoX, metodoY e metodoZ.
+Logo, referências de interfaces podem apontar para objeto de classes concretas que as implementam.
+Isso facilita o manuseio de listas de objetos que possuem uma determinada interface em comum.
+
+Por exemplo: se as classes Ferro, Bronze e Prata implementam a interface Moldavel, podemos ter uma array do tipo Moldavel com objetos do tipo Ferro, Bronze e Prata dentro, todos juntos.
+
+Além de métodos, as Interfaces ainda podem definir constantes que serão acessíveis nas classes que as implementarem como membros locais.
+É possível definir uma interface sem métodos a serem implementados, apenas com constantes para servirem de parâmetro para outras classes.
+_O uso da palavra-chave final é opcional_, assim, todos que não são métodos definidos em uma interface são considerados constantes e não podem ser modificados nas classes que as implementam.
+
+Observe o exemplo de declaração de constantes a seguir:
+#+begin_src java
+public interface InterfaceX{
+    public final int valorReferencia = 50;
+    public final String categoria = "LQSDK";
+}
+
+public class TesteInterface implements InterfaceX {
+    public static void main(String args[]){
+         System.out.println("Valor de referência -" +valorReferencia);
+         System.out.println("Categoria" +categoria);
+    }
+}
+#+end_src
+
+** 2.2 Interfaces importantes da API Java
+A API (Application Programming Interface) Java possui uma grande quantidade de interfaces que ajudam no desenvolvimento dos nossos programas.
+Utilizaremos muitas delas durante o desenvolvimento de interfaces gráficas, ou seja, programas com janelas, botões, caixas de texto etc.
+
+Observe algumas interfaces interessantes:
+
++ _java.lang.Cloneable_: permite a clonagem de um objeto. Isso significa criar uma nova instância do seu mesmo tipo, copiando os seus valores para um novo objeto, um a um. Uma classe que implementa a interface Cloneable deve sobrescrever o método clone.
+
++ _java.lang.Comparable_: permite que possamos comparar objetos de forma especializada. Uma classe que implementa a interface Comparable deve sobrescrever o método compareTo, que recebe como parâmetro uma referência de um objeto do mesmo tipo da classe. Dentro do método compareTo, pode-se utilizar uma lógica personalizada para efetuar a comparação entre objetos e informar qual, entre eles, é o maior, o menor ou se eles são idênticos.
+
++ _java.awt.event.*_: muitas interfaces desse pacote, como ActionListener, MouseListener e KeyListener, fazem papel de “observadores”, ou seja, ficam atentas a eventos relacionados à interface gráfica, como cliques, teclas pressionadas no teclado, movimento de janela, entre outros. Quando um evento desse tipo ocorre, temos condição de tratá-lo nas nossas classes dentro de alguns dos métodos da interface que estejam sobrescritos.
+
+
+- Você pode consultar a API Java através do link: http://docs.oracle.com/javase/7/docs/api/ e ler um pouco mais sobre essas interfaces.
+
+A seguir, vamos observar um exemplo de utilização da interface Comparable. Imaginemos uma classe Quadrado que possua uma medida de lado e um método para cálculo de área. Para que essa classe implemente a interface Comparable, precisamos sobrescrever o método compareTo. O objetivo do método compareTo é receber um objeto do tipo Quadrado e fazer uma comparação dele com o objeto que invocou o método. No caso, vamos fazer a comparação de áreas para verificar se um objeto é maior ou menor que o outro, como mostrado neste exemplo:
+
+#+begin_src java
+public class Quadrado implements Comparable{
+    private double lado;
+
+    public Quadrado(double lado){
+        this.lado = lado;
+    }
+
+    public double area(){
+        return lado*lado;
+    }
+
+    public int compareTo (Quadrado q){
+        double diferencaDeAreas = this.area() - q.area();
+        if(diferencaDeAreas > 0)
+            diferencaDeAreas = 1;
+        else if(diferencaDeAreas < 0)
+            diferencaDeAreas = -1;
+        return (int)diferencaDeAreas;
+    }
+}
+#+end_src
+
+#+begin_src java
+public class TesteComparacao{
+    public static void main(String[] args){
+
+        Quadrado q1 = new Quadrado(10);
+        Quadrado q2 = new Quadrado(20);
+
+        int resultado = q1.compareTo(q2);
+
+        switch(resultado){
+            case  0: System.out.println(“q1 e q2 têm a mesma área ”); break;
+            case  1: System.out.println(“q1 é maior que q2 ”); break;
+            case -1: System.out.println(“q1 é menor que q2 ”); break;
+        }
+    }
+}
+#+end_src
+
+Como você pôde observar, dentro do método compareTo, calculamos a diferença entre as áreas dos dois quadrados. Se os quadrados possuírem a mesma área, o valor atribuído será 0 (zero). Se o quadrado representado pelo objeto que chamou o método for maior que o outro, o valor atribuído será 1 (um). Se o quadrado representado pelo objeto que chamou o método for menor que o outro, o valor atribuído será -1 (1 negativo).
+
+O retorno do método compareTo precisa apenas ser um valor inteiro. Mas é normal parametrizar os valores que ele pode devolver. Normalmente, mantém-se o padrão de que, se o retorno for igual a 0 (zero), significa que os objetos podem ser considerados idênticos. Para o exemplo anterior, a área de q1 será igual a 100, enquanto a área de q2 será igual a 400. Logo, a mensagem “q1 é menor que q2” será exibida.
+
+As interfaces têm um papel importante na programação orientada a objetos. _Elas permitem que classes que não possuem relação de herança compartilhem métodos e constantes que, por sua vez, trazem certos benefícios da herança, como polimorfismo e sobrecarga_. Além disso, como uma classe pode implementar uma quantidade ilimitada de interfaces, podemos contornar a opção da linguagem Java de não permitir herança múltipla.
+
+- Saiba mais!
+
+- Quando declaramos a classe Quadrado, você deve ter percebido uma nova estrutura na própria declaração. Fizemos algo como “” junto ao nome da interface Comparable. Esta estrutura circundada por < e > chamamos de Generics, que é utilizada como forma de especificar qual o tipo de dado uma classe utliza, ao invés de generalizar um processamento. Aprenderemos mais sobre Generics posteriormente.
+
+- Agora, para aplicar o que aprendeu, tenha como base os exemplos apresentados neste tópico e pratique-os no ambiente de programação da plataforma. Lembre-se de que a teoria e a prática caminham juntas e o exercício é muito importante. Por isso, não deixe de praticar os exemplos desta aula. Se preferir, também pode criar e praticar seus próprios exemplos referentes aos assuntos estudados aqui.
+
+Chegamos ao fim da nossa aula!
+
+Pudemos compreender o que são classes Abstratas e Interfaces e como cada um desses conceitos nos ajuda a organizar as classes nas quais aplicamos herança. Antes de aplicar qualquer um desses conceitos, devemos refletir sobre as características das nossas classes e perceber, nelas, a necessidade de limitação que podemos injetar, definindo-as como abstratas, ou a necessidade de adição de comportamentos que não vêm da herança, fazendo-as implementar uma interface. Até próxima Aula!
+
+* Forum
+Para este fórum, leia o seguinte relato e, em seguida, aplique o que aprendeu na aula.
+
+“Olá! Estou pesquisando sobre o Java 8 e aprendi que as interfaces agora possuem métodos com implementação chamados de métodos padrão (default methods). Porém, acabei ficando com algumas dúvidas sobre o assunto, por exemplo: na prática, com os métodos padrão, as interfaces deixam de ser interfaces? Com isso, o Java possui herança múltipla? Como já era possível implementar uma ou mais interfaces, adicionar métodos padrão na API do Java não causaria quebra de código em projetos já existentes que foram apoiados nas definições anteriores de interface da linguagem?”
+
+Como você pôde perceber, esse é um tema que muda um paradigma bastante consolidado em POO. Participe deste fórum respondendo as dúvidas levantadas no relato que você acabou de ler. Bom desempenho!
+
+** Resposta
+Olá, tudo bem?
+
+Ao utilizar interfaces podemos utilizar os métodos padrão para poder implementar código dentro de métodos na interface utiliando a palavra "default" e ainda funcionará sendo uma interface, e uma classe ainda pode implementar múltiplas interfaces como anteriormente, mesmo com os métodos padrão. Esta nova função do Java 8 não quebra as interfaces feitas em versões anteriores pois ao desenvolver eles pensaram exatamente nisto e criaram os metodos padrão para poder ter a implementação dentro de uma interface mas ainda sendo compatível com o que foi desenvolvido em versões anteriores.
+
+Espero ter conseguido responder suas dúvidas de forma clara. Abraços!
