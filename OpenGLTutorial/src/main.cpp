@@ -1,33 +1,25 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+
+// #include <glm/glm.hpp>
+// #include <glm/gtc/matrix_transform.hpp>
+// #include <glm/gtc/type_ptr.hpp>
+
+#include <fstream>
+#include <sstream>
+#include <streambuf>
+#include <string>
 
 void frame_buffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
+std::string loadShaderSource(const char* filename);
 
-int main(){
+int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    // glm test
-    glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
-    // Create a 4x4 transformation matrix
-    glm::mat4 trans = glm::mat4(1.0f);
-
-    // Translate the vector by (1(x), 1(y), 0(z))
-    // translation
-    trans = glm::translate(trans, glm::vec3(1.0f, 1.0f, 0.0f));
-    // rotation
-    trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0)); 
-    // scaling
-    trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
-
-    // Multiply the vector by the transformation matrix
-    vec = trans * vec;
-    // Print the resulting vector
-    std::cout << vec.x << vec.y << vec.z << std::endl;
+    int success;
+    char infoLog[512];
 
     glfwInit();
 
@@ -43,8 +35,7 @@ int main(){
 
     // Create a window
     GLFWwindow *window = glfwCreateWindow(800, 600, "OpenGL Tutorial", NULL, NULL);
-    if (!window)
-    {
+    if (!window) {
         fprintf(stderr, "*** ERROR OPENING WINDOW\n");
         glfwTerminate();
         return 1;
@@ -60,14 +51,97 @@ int main(){
     }
 
     // Set the OpenGL viewport to the whole window
-    glViewport(0, 0, 800, 600);
+    glViewport(0, 0, 800*2, 600*2);
 
     // Set the callback function for the window resize event
     glfwSetFramebufferSizeCallback(window, frame_buffer_size_callback);
 
+    // shaders
+
+    // compile vertex shader
+    unsigned int vertexShader;
+    vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    // load shader source
+    std::string vertexShaderSource = loadShaderSource("../assets/vertex_core.glsl");
+    const char* vertexShaderSourceCStr = vertexShaderSource.c_str();
+    // attach shader source to shader object
+    glShaderSource(vertexShader, 1, &vertexShaderSourceCStr, NULL);
+    // compile shader
+    glCompileShader(vertexShader);
+
+    // check for shader compile errors
+    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
+    if (!success) {
+        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+    }
+
+    // compile fragment shader
+    unsigned int fragmentShader;
+    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    // load shader source
+    std::string fragmentShaderSource = loadShaderSource("../assets/fragment_core.glsl");
+    const char* fragmentShaderSourceCStr = fragmentShaderSource.c_str();
+    // attach shader source to shader object
+    glShaderSource(fragmentShader, 1, &fragmentShaderSourceCStr, NULL);
+    // compile shader
+    glCompileShader(fragmentShader);
+
+    // check for shader compile errors
+    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+    if (!success) {
+        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+    }
+
+    // link shaders
+    unsigned int shaderProgram;
+    shaderProgram = glCreateProgram();
+    // attach shaders to program
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    // link shaders
+    glLinkProgram(shaderProgram);
+
+    // check for linking errors
+    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+    if (!success) {
+        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+    }
+
+    // delete shaders
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+
+    // vertices
+    float vertices[] = {
+        // positions
+        -0.5f, -0.5f, 0.0f, // bottom left
+        0.0f, 0.5f, 0.0f, // top
+        0.5f, -0.5f, 0.0f, // bottom right
+    };
+
+    // VAO, VBO
+    unsigned int VAO, VBO;
+    // generate VAO
+    glGenVertexArrays(1, &VAO);
+    // generate VBO
+    glGenBuffers(1, &VBO);
+
+    // bind VAO
+    glBindVertexArray(VAO);
+
+    // bind VBO
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    // set vertex attribute pointers
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
     // Main loop
-    while (!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
         // Process user input
         processInput(window);
 
@@ -75,12 +149,16 @@ int main(){
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
+        // draw shapes
+        glBindVertexArray(VAO);
+        glUseProgram(shaderProgram);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+
         // Swap the front and back buffers so the window doesn't flicker
         glfwSwapBuffers(window);
 
         // Poll for events from windows such as key presses, mouse events, etc.
         glfwPollEvents();
-
 
     }
     glfwTerminate();
@@ -89,15 +167,33 @@ int main(){
 }
 
 // Callback function to resize the viewport when the window is resized
-void frame_buffer_size_callback(GLFWwindow* window, int width, int height)
-{
-    glViewport(0, 0, width, height);
+void frame_buffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width*2, height*2);
 }
 
 // Function to process all input from the user
-void processInput(GLFWwindow *window)
-{
+void processInput(GLFWwindow *window) {
     // Close the window when the user presses the escape key
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+}
+
+std::string loadShaderSource(const char* filename) {
+    std::ifstream file;
+    std::stringstream buf;
+    
+    std::string ret = "";
+
+    file.open(filename);
+
+    if (file.is_open()) {
+        buf << file.rdbuf();
+        ret = buf.str();
+    } else {
+        std::cout << "Error loading shader source from file: " << filename << std::endl;
+    }
+
+    file.close();
+
+    return ret;
 }
